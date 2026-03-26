@@ -37,8 +37,12 @@ Master Canon Design System CQH/
 │   │   └── MASTER_CANON_DESIGN_SPEC_v2.1.html    ← CURRENT (interactive, reactive)
 │   ├── docx/
 │   │   └── MASTER_CANON_DESIGN_SPEC_v1.0.1.docx
-│   └── md/
-│       └── MASTER_CANON_DESIGN_SPEC_v1.0.1.md
+│   ├── md/
+│   │   └── MASTER_CANON_DESIGN_SPEC_v1.0.1.md
+│   └── governance/                      ← Enterprise Governance Framework & Git Strategy
+│       ├── DATA_GOV_STANDARD.md         ← Universal Artifact Signature definitions
+│       ├── GOVERNANCE_AND_STANDARDS.md  ← Prompt/AI lifecycle & ISO compliance
+│       └── GIT_STRATEGY_POLICY.md       ← Repository Git and Semantic Versioning rules
 │
 ├── portfolio/
 │   ├── specs/                         ← Portfolio System Requirements Specification

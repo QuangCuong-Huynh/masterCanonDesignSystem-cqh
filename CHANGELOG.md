@@ -19,6 +19,19 @@ _Backlog items pending next sprint:_
 
 ---
 
+## [2.4.0] — 2026-03-27 — Sprint-09: Data Governance Migration & Git Strategy
+
+**Scope:** `docs/governance/*` · `CHANGELOG.md` · `README.md`
+**Simulation QA:** Agile Feedback Loop — PASS
+
+### Added
+
+- **GOVERNANCE-MIGRATE [MAJOR]** — Imported enterprise instructions `DATA_GOV_STANDARD.md` and `GOVERNANCE_AND_STANDARDS.md` from adjacent repositories to establish `docs/governance/` representing canonical Universal Signature format and ISO frameworks within this repo.
+- **GIT-STRATEGY [HIGH]** — Created `docs/governance/GIT_STRATEGY_POLICY.md` formalizing branching models, commit semantics, and strict ratification/semantic versioning tied to the Data Governance requirements.
+- **DOCS [INFO]** — Appended the newly generated Governance structure map to `README.md` under Repository Structure.
+
+---
+
 ## [2.3.0] — 2026-03-27 — Sprint-08: Full Professional Agent Team Expansion
 
 **Scope:** `.agents/personas/*` · `.agents/workflows/agile_simulation.md` · `sprint-records/SPRINT-08-ENHANCED-AGENT-TEAM.md`
