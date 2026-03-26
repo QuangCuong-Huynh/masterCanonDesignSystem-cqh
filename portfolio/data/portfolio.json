@@ -1,14 +1,15 @@
 {
   "_meta": {
     "doc_id":      "PORTFOLIO-DATA-2026-001",
-    "version":     "2.1.0",
+    "version":     "2.2.0",
     "status":      "ACTIVE",
     "author":      "Cường Q. Huỳnh",
     "assisted_by": "Claude-Sonnet-4.6",
     "canon_ref":   "DESIGN-CANON-2026-001",
-    "updated":     "2026-03-23",
+    "updated":     "2026-03-27",
     "integrity_note": "All content below is real or clearly marked [OWNER: fill]. No fabricated data.",
     "changelog": [
+      { "version": "2.2.0", "date": "2026-03-27", "note": "Dynamic fetch() load; hardcoded data removed; QA sign-off" },
       { "version": "2.1.0", "date": "2026-03-23", "note": "Conciseness pass; integrity audit; placeholders made explicit" },
       { "version": "2.0.0", "date": "2026-03-23", "note": "Initial SPA data file" }
     ]

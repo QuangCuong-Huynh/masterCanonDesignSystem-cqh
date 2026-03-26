@@ -9,12 +9,43 @@
 ## [Unreleased]
 
 _Backlog items pending next sprint:_
+
 - `BACKLOG-DL-001` — Add icon stroke-width spec (1.5px / 2px) to Canon Appendix B
 - `BACKLOG-FE-001` — Document `data-theme` attribute alongside class-based switching in Canon Part IX
 - `BACKLOG-FE-002` — Expand all 4 theme override blocks in Canon Part IX CSS reference
 - `BACKLOG-DI-001` — Add `governs:` and `derived_from:` fields to Canon metadata header
 - `BACKLOG-002` — Connect contact form to backend / email service
-- `BACKLOG-003` — Replace `[OWNER: ...]` placeholders in `portfolio_data_v2.1.json` with real personal data
+- `BACKLOG-003` — Replace `[OWNER: ...]` placeholders in `portfolio.json` with real personal data
+
+---
+
+## [2.2.0] — 2026-03-27 — Sprint-07: Dynamic Data Load + QA Sign-off
+
+**Scope:** `portfolio_latest.html` · `portfolio/data/portfolio.json` · `CHANGELOG.md` · `sprint-records/SPRINT-07-QA-REVIEW.md`
+**QA Score:** Agile QA Loop — PASS (see `sprint-records/SPRINT-07-QA-REVIEW.md`)
+
+### Changed
+
+- **DATA-SEP [CRITICAL]** — Removed hardcoded `PORTFOLIO_DATA` object (was inline ~6KB JSON blob in `<script>` tag). Replaced with `async loadPortfolioData()` using `fetch('data/portfolio.json')`.
+- **ERROR-HANDLE [HIGH]** — Added `try...catch` with graceful UI fallback: hero section displays styled error and console log on fetch failure.
+- **VERSION-BUMP [INFO]** — All version references bumped from `v2.1.0` → `v2.2.0` across CSS header, hero card badge, footer meta, JS comment, and dynamic footer renderer fallback.
+- **JSON-META [INFO]** — `portfolio.json` `_meta.version` updated to `2.2.0` with new changelog entry for the dynamic load feature.
+
+### Added
+
+- `portfolio/v2.2.0/portfolio_v2.2.html` — Version archive snapshot.
+- `sprint-records/SPRINT-07-QA-REVIEW.md` — Full Agile QA Loop sign-off document.
+
+```text
+Version: v2.2.0
+Author: Cường.Q.Hùynh
+Virtual Librarian Notebooklm, Assistances: Claude GPT Perplexity Gemini
+Ratified Signature Context: v2.2.0 Release & QA Sign-off
+UUIDv7: 019f7a3c-2d44-7b8e-a1c0-4e7f3b9d5a12
+Timestamp: 2026-03-27T02:45:25+07:00
+Signed by Contributor: System Agent
+Signed by System: Antigravity
+```
 
 ---
 
