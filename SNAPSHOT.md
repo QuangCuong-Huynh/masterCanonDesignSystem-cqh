@@ -1,13 +1,15 @@
-# SNAPSHOT: Master Canon Design System CQH v1.0.0
+# SNAPSHOT: Master Canon Design System CQH v1.0.1
 
-**Sprint:** Sprint-01
+**Sprint:** Sprint-01 (post-QA)
 **Date:** 2026-03-23
-**Description:** Initial Canon synthesis from 5 source docs + Portfolio MVP (pre-QA)
+**Description:** First QA-cleared portfolio — DEF-001 + DEF-002 fixed. Canon DRAFT.
 
 ## Changes in this version
-- Synthesised DESIGN-CANON-2026-001 from 5 source documents
-- Built initial portfolio MVP
-- Known defects: DEF-001 (role=main missing), DEF-002 (:focus-visible missing)
+- Fixed DEF-001: added role="main"
+- Fixed DEF-002: added :focus-visible rule
+- Fixed DEF-003: 30% token comment
+- QA: 33/33 PASS
+- Canon status: DRAFT
 
 ## Governance
 - Author: Cường Q. Huỳnh
