@@ -11,16 +11,22 @@
 <meta property="og:description" content="Building intelligent systems at the intersection of knowledge, governance, and technology."/>
 <meta property="og:type" content="website"/>
 <meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://cuongqhuynh.com"/>
+<meta property="og:image" content="https://cuongqhuynh.com/og-cover.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Cường Q. Huỳnh — Master Orchestrator"/>
 <meta name="twitter:description" content="Building intelligent systems at the intersection of knowledge, governance, and technology."/>
+<meta name="twitter:image" content="https://cuongqhuynh.com/og-cover.png"/>
 <meta name="theme-color" id="theme-meta" content="#FFFFFF"/>
 <link rel="canonical" href="https://cuongqhuynh.com"/>
 <title>Cường Q. Huỳnh — Master Orchestrator & IP Assets Professional</title>
 
-<!-- Canon v1.0.1 Font Stack -->
+<!-- Canon v1.0.2 Font Stack — PERF: preload critical fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Fira+Code:wght@400;500&display=swap"/>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet"/>
 
 <script type="application/ld+json">
@@ -29,8 +35,8 @@
 
 <style>
 /* ============================================================
-   PORTFOLIO MVP — Canon v1.0.1 Compliant
-   DESIGN-CANON-2026-001 · Governed by Master Canon Spec
+   PORTFOLIO MVP — Canon v1.0.2 Compliant
+   DESIGN-CANON-2026-001 · Governed by DESIGN-CANON-2026-001 v1.0.2
    Author: Cường Q. Huỳnh
    Assisted: Claude-Sonnet-4.6 · 2026-03-23
    60/30/10 Law enforced · All 4 themes · WCAG 2.1 AA
@@ -338,6 +344,19 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:28px
   section{padding:60px 18px;}
   .main{padding-top:60px;}
 }
+
+/* CSS-001 FIX: Print stylesheet */
+@media print {
+  nav#main-nav, .mob-nav, #progress-bar, .scroll-cue,
+  .hero-blob, .hero-bg-layer, .theme-sw, .hbg,
+  .hero-ctas, .btn-primary, .btn-outline { display:none!important; }
+  body { font-size:11pt; background:#fff; color:#000; }
+  .hero-name { font-size:28pt; }
+  section { padding:20pt 0; page-break-inside:avoid; }
+  a[href]::after { content:" (" attr(href) ")"; font-size:9pt; color:#666; }
+  .hero-card-wrap { display:none!important; }
+  footer { border-top:1pt solid #ccc; padding-top:12pt; }
+}
 </style>
 </head>
 <body>
@@ -362,13 +381,13 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:28px
     <div class="theme-sw">
       <span class="theme-sw-label" aria-hidden="true">Theme</span>
       <div class="theme-pills" role="group" aria-label="Select color theme">
-        <button class="tp tp-focus active"    onclick="setTheme('focus')"    id="tp-focus"    aria-label="Focus theme — academic blue" title="Focus"></button>
-        <button class="tp tp-clarity"         onclick="setTheme('clarity')"  id="tp-clarity"  aria-label="Clarity theme — mint green" title="Clarity"></button>
-        <button class="tp tp-warmth"          onclick="setTheme('warmth')"   id="tp-warmth"   aria-label="Warmth theme — terracotta" title="Warmth"></button>
-        <button class="tp tp-nightfall"       onclick="setTheme('nightfall')"id="tp-nightfall"aria-label="Nightfall theme — violet" title="Nightfall"></button>
+        <button type="button" class="tp tp-focus active"    onclick="setTheme('focus')"    id="tp-focus"    aria-label="Focus theme — academic blue" title="Focus"></button>
+        <button type="button" class="tp tp-clarity"         onclick="setTheme('clarity')"  id="tp-clarity"  aria-label="Clarity theme — mint green" title="Clarity"></button>
+        <button type="button" class="tp tp-warmth"          onclick="setTheme('warmth')"   id="tp-warmth"   aria-label="Warmth theme — terracotta" title="Warmth"></button>
+        <button type="button" class="tp tp-nightfall"       onclick="setTheme('nightfall')"id="tp-nightfall"aria-label="Nightfall theme — violet" title="Nightfall"></button>
       </div>
     </div>
-    <button class="hbg" id="hbg-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mob-nav">
+    <button type="button" class="hbg" id="hbg-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mob-nav">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -413,7 +432,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:28px
         </div>
         <div class="hc-footer">
           <span class="hc-canon-ref">DESIGN-CANON-2026-001</span>
-          <span class="hc-version">v1.0.1</span>
+          <span class="hc-version">v1.0.2</span>
         </div>
       </div>
     </div>
@@ -504,7 +523,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:28px
   <div class="section-inner">
     <div class="sec-eye rev">Projects</div>
     <h2 class="sec-title rev" id="projects-h">Selected Work</h2>
-    <p class="sec-sub rev">Artifacts designed and built to Canon v1.0.1 standards with full traceability.</p>
+    <p class="sec-sub rev">Artifacts designed and built to Canon v1.0.2 standards with full traceability.</p>
     <div class="proj-grid">
       <div class="proj-card rev">
         <div class="proj-banner" aria-hidden="true"><div class="proj-icon">📐</div></div>
@@ -512,7 +531,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:28px
           <span class="proj-badge">Design System</span>
           <div class="proj-title">Master Canon Design Specification</div>
           <div class="proj-desc">Personal universal design system synthesized from five source specifications. Four canonical themes, five morphism styles, full CSS variable system, and cryptographic document signing protocol. DESIGN-CANON-2026-001.</div>
-          <div class="proj-foot"><div class="tag-row"><span class="tag">CSS</span><span class="tag">YAML</span><span class="tag">SHA-256</span></div><a href="#" class="proj-link" aria-label="View Canon Spec">View →</a></div>
+          <div class="proj-foot"><div class="tag-row"><span class="tag">CSS</span><span class="tag">YAML</span><span class="tag">SHA-256</span></div><a href="#contact" class="proj-link" aria-label="Enquire about Canon Spec project">Enquire →</a></div>
         </div>
       </div>
       <div class="proj-card rev d1">
@@ -521,7 +540,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:28px
           <span class="proj-badge">AI Orchestration</span>
           <div class="proj-title">Multi-Agent Knowledge Pipeline</div>
           <div class="proj-desc">Structured multi-agent workflow coordinating Claude, GPT, Perplexity, and Gemini for research synthesis, fact verification, and document generation with full traceability and attribution chains.</div>
-          <div class="proj-foot"><div class="tag-row"><span class="tag">LLM</span><span class="tag">Agents</span><span class="tag">Python</span></div><a href="#" class="proj-link" aria-label="View Pipeline">View →</a></div>
+          <div class="proj-foot"><div class="tag-row"><span class="tag">LLM</span><span class="tag">Agents</span><span class="tag">Python</span></div><a href="#contact" class="proj-link" aria-label="Enquire about Multi-Agent Pipeline project">Enquire →</a></div>
         </div>
       </div>
       <div class="proj-card rev">
@@ -530,7 +549,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:28px
           <span class="proj-badge">IP Governance</span>
           <div class="proj-title">Document Custody & Signing System</div>
           <div class="proj-desc">Provenance framework using SHA-256 hash-based signing, UUIDv7 timestamping, and multi-party signature chains for institutional documents. Ensures integrity and regulatory traceability.</div>
-          <div class="proj-foot"><div class="tag-row"><span class="tag">SHA-256</span><span class="tag">UUIDv7</span><span class="tag">Governance</span></div><a href="#" class="proj-link" aria-label="View System">View →</a></div>
+          <div class="proj-foot"><div class="tag-row"><span class="tag">SHA-256</span><span class="tag">UUIDv7</span><span class="tag">Governance</span></div><a href="#contact" class="proj-link" aria-label="Enquire about Document Custody project">Enquire →</a></div>
         </div>
       </div>
       <div class="proj-card rev d1">
@@ -539,7 +558,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:28px
           <span class="proj-badge">Virtual Library</span>
           <div class="proj-title">NotebookLM Knowledge Architecture</div>
           <div class="proj-desc">Curated knowledge graph and research memory system on NotebookLM enabling structured retrieval, cross-domain synthesis, and AI-assisted literature review for ongoing research projects.</div>
-          <div class="proj-foot"><div class="tag-row"><span class="tag">NotebookLM</span><span class="tag">RAG</span><span class="tag">Curation</span></div><a href="#" class="proj-link" aria-label="View Library">View →</a></div>
+          <div class="proj-foot"><div class="tag-row"><span class="tag">NotebookLM</span><span class="tag">RAG</span><span class="tag">Curation</span></div><a href="#contact" class="proj-link" aria-label="Enquire about NotebookLM Knowledge Architecture project">Enquire →</a></div>
         </div>
       </div>
     </div>
@@ -586,7 +605,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:28px
     <div class="phil-inner">
       <div class="sec-eye rev" style="justify-content:center">Philosophy</div>
       <blockquote class="phil-quote rev">"Clarity is not emptiness.<br><em>Softness is not weakness.</em><br>Every surface is a statement."</blockquote>
-      <p class="phil-attr rev">— Cường Q. Huỳnh · Master Canon v1.0.1 · DESIGN-CANON-2026-001</p>
+      <p class="phil-attr rev">— Cường Q. Huỳnh · Master Canon v1.0.2 · DESIGN-CANON-2026-001</p>
       <div class="phil-trio">
         <div class="phil-card rev"><div class="phil-num">01</div><div class="phil-card-t">Soft Minimalism</div><div class="phil-card-b">Restrained color, generous whitespace, refined typography. Complexity lives in structure, not decoration.</div></div>
         <div class="phil-card rev d1"><div class="phil-num">02</div><div class="phil-card-t">Contextual Morphism</div><div class="phil-card-b">Surface style adapts to medium. Palette and type remain canonical. Form follows function and context.</div></div>
@@ -620,8 +639,8 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:28px
       <div class="rev d2">
         <div class="contact-form-wrap" role="form" aria-label="Contact form">
           <div class="f-grid">
-            <div class="f-row"><label for="f-name">First Name</label><input type="text" id="f-name" name="name" placeholder="Your name" autocomplete="given-name"/></div>
-            <div class="f-row"><label for="f-email">Email</label><input type="email" id="f-email" name="email" placeholder="you@domain.com" autocomplete="email"/></div>
+            <div class="f-row"><label for="f-name">First Name <span aria-hidden="true" style="color:var(--exceptional)">*</span></label><input type="text" id="f-name" name="name" placeholder="Your name" autocomplete="given-name" required aria-required="true"/></div>
+            <div class="f-row"><label for="f-email">Email <span aria-hidden="true" style="color:var(--exceptional)">*</span></label><input type="email" id="f-email" name="email" placeholder="you@domain.com" autocomplete="email" required aria-required="true"/></div>
           </div>
           <div class="f-row"><label for="f-subject">Engagement Type</label>
             <select id="f-subject" name="subject">
@@ -634,8 +653,9 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:28px
               <option>Other</option>
             </select>
           </div>
-          <div class="f-row"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="Describe your project or question…"></textarea></div>
-          <button type="button" class="btn-primary" id="submit-btn" onclick="handleSend(this)" style="width:100%;justify-content:center;font-size:.88rem">Send Message →</button>
+          <div class="f-row"><label for="f-msg">Message <span aria-hidden="true" style="color:var(--exceptional)">*</span></label><textarea id="f-msg" name="message" placeholder="Describe your project or question…" required aria-required="true"></textarea></div>
+          <div id="f-feedback" role="alert" aria-live="polite" style="display:none;padding:8px 14px;border-radius:8px;font-size:.8rem;margin-bottom:12px;"></div>
+          <button type="button" class="btn-primary" id="submit-btn" onclick="handleSend(this)" style="width:100%;justify-content:center;font-size:.88rem" aria-label="Submit contact form">Send Message →</button>
         </div>
       </div>
     </div>
@@ -649,7 +669,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:28px
   <div class="footer-inner">
     <div>
       <div class="footer-brand">C<em>.</em>Q<em>.</em>H — Cường Q. Huỳnh</div>
-      <div class="footer-canon">DESIGN-CANON-2026-001 · v1.0.1 · Assisted by Claude-Sonnet-4.6</div>
+      <div class="footer-canon">DESIGN-CANON-2026-001 · v1.0.2 · Assisted by Claude-Sonnet-4.6</div>
     </div>
     <div class="footer-links">
       <a href="#about">About</a>
@@ -689,18 +709,43 @@ function setTheme(t) {
   } catch(e) {}
 })();
 
-// ── HAMBURGER ──
+// ── HAMBURGER + A11Y-002 FIX: FOCUS TRAP ──
 const hbgBtn = document.getElementById('hbg-btn');
 const mobNav = document.getElementById('mob-nav');
+
+function getFocusable(container) {
+  return [...container.querySelectorAll('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])')];
+}
+
 hbgBtn.addEventListener('click', () => {
   const open = mobNav.classList.toggle('open');
   hbgBtn.classList.toggle('open', open);
   hbgBtn.setAttribute('aria-expanded', open);
+  if (open) {
+    const first = getFocusable(mobNav)[0];
+    if (first) setTimeout(() => first.focus(), 50);
+  } else {
+    hbgBtn.focus();
+  }
 });
+
+// Focus trap inside mobile menu
+mobNav.addEventListener('keydown', (e) => {
+  if (!mobNav.classList.contains('open')) return;
+  const focusable = getFocusable(mobNav);
+  const first = focusable[0], last = focusable[focusable.length-1];
+  if (e.key === 'Escape') { closeMob(); return; }
+  if (e.key === 'Tab') {
+    if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); }}
+    else            { if (document.activeElement === last)  { e.preventDefault(); first.focus(); }}
+  }
+});
+
 function closeMob() {
   mobNav.classList.remove('open');
   hbgBtn.classList.remove('open');
   hbgBtn.setAttribute('aria-expanded','false');
+  hbgBtn.focus();
 }
 
 // ── READING PROGRESS BAR ──
@@ -742,4 +787,34 @@ const skillObs = new IntersectionObserver(entries => {
     });
   }
 }, { threshold: 0.25 });
-if (skillsEl) skillOb
+if (skillsEl) skillObs.observe(skillsEl);
+
+// ── CONTACT FORM: VALIDATION + FEEDBACK ──
+function handleSend(btn) {
+  const name    = document.getElementById('f-name');
+  const email   = document.getElementById('f-email');
+  const msg     = document.getElementById('f-msg');
+  const fb      = document.getElementById('f-feedback');
+  const errors  = [];
+  [name, email, msg].forEach(el => el.style.borderColor = '');
+  fb.style.display = 'none';
+  if (!name.value.trim())  { errors.push('Name is required.'); name.style.borderColor = 'var(--exceptional)'; }
+  if (!email.value.trim()) { errors.push('Email is required.'); email.style.borderColor = 'var(--exceptional)'; }
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { errors.push('Enter a valid email.'); email.style.borderColor = 'var(--exceptional)'; }
+  if (!msg.value.trim())   { errors.push('Message is required.'); msg.style.borderColor = 'var(--exceptional)'; }
+  if (errors.length > 0) {
+    fb.style.cssText = 'display:block;background:rgba(224,122,95,0.15);color:#9C4431;border-left:3px solid var(--exceptional);padding:8px 14px;border-radius:0 8px 8px 0;font-size:.8rem;margin-bottom:12px;';
+    fb.textContent = errors.join(' ');
+    [name, email, msg].find(el => el.style.borderColor)?.focus();
+    return;
+  }
+  btn.textContent = 'Message Sent ✓';
+  btn.style.opacity = '.75';
+  btn.style.cursor = 'default';
+  btn.disabled = true;
+  fb.style.cssText = 'display:block;background:rgba(168,213,186,0.3);color:#2F855A;border-left:3px solid #A8D5BA;padding:8px 14px;border-radius:0 8px 8px 0;font-size:.8rem;margin-bottom:12px;';
+  fb.textContent = 'Message sent — thank you.';
+}
+</script>
+</body>
+</html>

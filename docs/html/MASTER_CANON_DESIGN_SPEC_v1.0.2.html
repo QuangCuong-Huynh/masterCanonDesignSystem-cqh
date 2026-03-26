@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="focus">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Master Canon Design Specification v1.0.1 — Personal Universal Design System by Cường Q. Huỳnh. DESIGN-CANON-2026-001."/>
+<meta name="author" content="Cường Q. Huỳnh"/>
+<meta name="robots" content="noindex"/>
+<title>Master Canon Design Specification v1.0.1 — Cường Q. Huỳnh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ============================================================
+   MASTER CANON DESIGN SPECIFICATION — HTML Reference
+   DESIGN-CANON-2026-001 · v1.0.1
+   Author: Cường Q. Huỳnh
+   System: Claude-Sonnet-4.6 · 2026-03-23
+   ============================================================ */
+
+/* ── THEME TOKENS ── */
+[data-theme="focus"] {
+  --bg:#FFFFFF; --surface:#F4F6FA; --surface2:#EBF4FF; --surface3:#F9FAFB;
+  --accent:#2B6CB0; --accent-l:#90CDF4; --accent-d:#1A365D;
+  --accent-grad:linear-gradient(135deg,#90CDF4,#2B6CB0,#1A365D);
+  --on-accent:#FFFFFF; --exceptional:#E07A5F;
+  --txt:#0A0A0A; --txt2:#333333; --txt3:#666666;
+  --border:#D0D0D0; --border2:#E8EDF3;
+  --shadow:0 2px 8px rgba(0,0,0,0.06); --shadow-lg:0 8px 32px rgba(0,0,0,0.10);
+  --nav-bg:rgba(255,255,255,0.92); --tag-bg:rgba(43,108,176,0.08); --tag-txt:#1A365D;
+  --code-bg:#F4F6FA; --table-head:#EBF1FA;
+  --mono-accent:#1A365D;
+}
+[data-theme="clarity"] {
+  --bg:#FDFDFD; --surface:#F5F5F5; --surface2:#EEFAF3; --surface3:#FAFFFE;
+  --accent:#3B9E6B; --accent-l:#A8D5BA; --accent-d:#1A5C3A;
+  --accent-grad:linear-gradient(135deg,#C7E7D1,#3B9E6B,#1A5C3A);
+  --on-accent:#FFFFFF; --exceptional:#E07A5F;
+  --txt:#111111; --txt2:#444444; --txt3:#888888;
+  --border:#DDDDDD; --border2:#EAEAEA;
+  --shadow:0 2px 8px rgba(0,0,0,0.04); --shadow-lg:0 8px 32px rgba(0,0,0,0.08);
+  --nav-bg:rgba(253,253,253,0.92); --tag-bg:rgba(59,158,107,0.09); --tag-txt:#1A5C3A;
+  --code-bg:#F0FAF4; --table-head:#E8F7EE;
+  --mono-accent:#1A5C3A;
+}
+[data-theme="warmth"] {
+  --bg:#FAFAFA; --surface:#F2F2F0; --surface2:#FEF3EF; --surface3:#FFFAF8;
+  --accent:#E07A5F; --accent-l:#F2B8A4; --accent-d:#9C4431;
+  --accent-grad:linear-gradient(135deg,#F2B8A4,#E07A5F,#9C4431);
+  --on-accent:#FFFFFF; --exceptional:#2B6CB0;
+  --txt:#1A1A1A; --txt2:#4A4A4A; --txt3:#7A7A7A;
+  --border:#E0E0E0; --border2:#EAEAE8;
+  --shadow:0 2px 8px rgba(0,0,0,0.05); --shadow-lg:0 8px 32px rgba(0,0,0,0.09);
+  --nav-bg:rgba(250,250,250,0.92); --tag-bg:rgba(224,122,95,0.10); --tag-txt:#9C4431;
+  --code-bg:#FFF7F5; --table-head:#FEE8E3;
+  --mono-accent:#9C4431;
+}
+[data-theme="nightfall"] {
+  --bg:#111111; --surface:#1C1C1C; --surface2:#181824; --surface3:#161616;
+  --accent:#8B5CF6; --accent-l:#C4B5FD; --accent-d:#4C1D95;
+  --accent-grad:linear-gradient(135deg,#C4B5FD,#8B5CF6,#4C1D95);
+  --on-accent:#FFFFFF; --exceptional:#E07A5F;
+  --txt:#F0F0F0; --txt2:#CCCCCC; --txt3:#888888;
+  --border:#2A2A2A; --border2:#222222;
+  --shadow:0 2px 12px rgba(0,0,0,0.4); --shadow-lg:0 12px 48px rgba(0,0,0,0.55);
+  --nav-bg:rgba(17,17,17,0.94); --tag-bg:rgba(139,92,246,0.15); --tag-txt:#C4B5FD;
+  --code-bg:#1A1A2E; --table-head:#1E1E30;
+  --mono-accent:#C4B5FD;
+}
+
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+body{font-family:"IBM Plex Sans","Helvetica Neue",sans-serif;background:var(--bg);color:var(--txt);line-height:1.65;transition:background .3s,color .3s;}
+a{color:var(--accent);text-decoration:none;}a:hover{text-decoration:underline;}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px;}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
+
+/* ── LAYOUT ── */
+.layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;}
+
+/* ── SIDEBAR ── */
+.sidebar{
+  position:sticky;top:0;height:100vh;overflow-y:auto;
+  background:var(--surface);border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+  transition:background .3s,border-color .3s;
+  scrollbar-width:thin;
+}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-track{background:transparent;}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+
+.sidebar-head{padding:20px 18px 16px;border-bottom:1px solid var(--border);}
+.doc-id{font-family:"Fira Code",monospace;font-size:.62rem;color:var(--txt3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;}
+.sidebar-title{font-family:"Libre Baskerville",serif;font-size:.88rem;font-weight:700;color:var(--txt);line-height:1.3;margin-bottom:6px;}
+.status-badge{display:inline-flex;align-items:center;gap:5px;font-family:"Fira Code",monospace;font-size:.58rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--exceptional);background:color-mix(in srgb,var(--exceptional) 10%,transparent);border:1px solid color-mix(in srgb,var(--exceptional) 25%,transparent);padding:3px 8px;border-radius:20px;}
+.status-badge::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--exceptional);}
+
+.sidebar-nav{flex:1;padding:8px 0;}
+.nav-group-label{font-family:"Fira Code",monospace;font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);padding:12px 18px 4px;}
+.sidebar-nav a{display:block;padding:5px 18px;font-size:.78rem;color:var(--txt2);transition:background .15s,color .15s;border-left:2px solid transparent;}
+.sidebar-nav a:hover{background:color-mix(in srgb,var(--accent) 6%,transparent);color:var(--txt);}
+.sidebar-nav a.active{border-left-color:var(--accent);color:var(--accent);background:var(--tag-bg);}
+
+.theme-panel{padding:12px 18px 20px;border-top:1px solid var(--border);}
+.theme-panel-label{font-family:"Fira Code",monospace;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:8px;}
+.theme-pills{display:grid;grid-template-columns:1fr 1fr;gap:5px;}
+.tpill{display:flex;align-items:center;gap:6px;padding:7px 10px;border-radius:8px;border:1.5px solid var(--border);cursor:pointer;background:var(--bg);transition:.2s;font-family:"IBM Plex Sans",sans-serif;font-size:.72rem;font-weight:600;color:var(--txt2);}
+.tpill:hover{border-color:var(--accent);color:var(--txt);}
+.tpill.active{border-color:var(--accent);background:var(--tag-bg);color:var(--accent);}
+.tpill-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;}
+.dot-focus   {background:linear-gradient(135deg,#90CDF4,#2B6CB0);}
+.dot-clarity {background:linear-gradient(135deg,#C7E7D1,#3B9E6B);}
+.dot-warmth  {background:linear-gradient(135deg,#F2B8A4,#E07A5F);}
+.dot-nightfall{background:linear-gradient(135deg,#C4B5FD,#4C1D95);}
+
+/* ── MAIN ── */
+.main{min-width:0;padding:48px 56px 80px;}
+.progress-line{position:fixed;top:0;left:260px;right:0;height:3px;background:var(--accent-grad);transform-origin:left;z-index:200;transition:transform .1s linear;}
+
+/* ── COVER ── */
+.cover{border-bottom:2px solid var(--border);padding-bottom:40px;margin-bottom:48px;}
+.cover-eyebrow{font-family:"Fira Code",monospace;font-size:.68rem;color:var(--accent);text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.cover-eyebrow::before{content:"//"}
+.cover-title{font-family:"Libre Baskerville",serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.1;color:var(--txt);letter-spacing:-.02em;margin-bottom:6px;}
+.cover-title span{background:var(--accent-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.cover-sub{font-family:"IBM Plex Sans",sans-serif;font-size:1rem;color:var(--txt3);margin-bottom:28px;}
+
+.meta-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:24px;}
+.meta-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 14px;}
+.meta-k{font-family:"Fira Code",monospace;font-size:.58rem;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3);margin-bottom:3px;}
+.meta-v{font-size:.8rem;font-weight:600;color:var(--txt);}
+.meta-v.mono{font-family:"Fira Code",monospace;font-size:.72rem;color:var(--accent);}
+
+/* ── SIG BLOCK ── */
+.sig-block{background:var(--surface2);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:16px 0;}
+.sig-row{display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid var(--border);}
+.sig-row:last-child{border-bottom:none;}
+.sig-k{font-family:"Fira Code",monospace;font-size:.68rem;font-weight:600;color:var(--txt3);padding:8px 14px;background:var(--surface);display:flex;align-items:center;}
+.sig-v{font-family:"Fira Code",monospace;font-size:.68rem;color:var(--accent);padding:8px 14px;word-break:break-all;display:flex;align-items:center;}
+.sig-v.pending{color:var(--exceptional);}
+
+/* ── SECTION ── */
+.section{scroll-margin-top:24px;margin-bottom:56px;}
+.section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+.part-label{font-family:"Fira Code",monospace;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);background:var(--tag-bg);border:1px solid color-mix(in srgb,var(--accent) 20%,transparent);padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:10px;}
+h2.section-title{font-family:"Libre Baskerville",serif;font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:700;color:var(--txt);letter-spacing:-.015em;line-height:1.15;}
+h3.sub-title{font-family:"IBM Plex Sans",sans-serif;font-size:1rem;font-weight:700;color:var(--accent-d);margin:28px 0 12px;padding-bottom:6px;border-bottom:1px dashed var(--border2);}
+h4.sub-sub{font-family:"IBM Plex Sans",sans-serif;font-size:.88rem;font-weight:700;color:var(--txt);margin:20px 0 8px;}
+p.body-text{font-family:"Libre Baskerville",serif;font-size:.9rem;line-height:1.8;color:var(--txt2);margin-bottom:12px;}
+p.ui-text{font-size:.875rem;line-height:1.7;color:var(--txt2);margin-bottom:12px;}
+
+/* ── CALLOUT ── */
+.callout{border-left:3px solid var(--accent);background:var(--tag-bg);padding:12px 18px;border-radius:0 10px 10px 0;margin:16px 0;}
+.callout p{font-family:"Libre Baskerville",serif;font-style:italic;font-size:.88rem;color:var(--txt);margin:0;}
+.callout.exceptional{border-left-color:var(--exceptional);background:color-mix(in srgb,var(--exceptional) 7%,transparent);}
+.callout.exceptional p{color:var(--txt);}
+
+/* ── TABLES ── */
+.table-wrap{overflow-x:auto;margin:16px 0;border-radius:10px;border:1px solid var(--border);box-shadow:var(--shadow);}
+table{width:100%;border-collapse:collapse;font-size:.82rem;}
+thead tr{background:var(--table-head);}
+th{font-family:"IBM Plex Sans",sans-serif;font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--txt3);padding:10px 14px;text-align:left;border-bottom:2px solid var(--border);}
+td{padding:9px 14px;border-bottom:1px solid var(--border2);color:var(--txt2);vertical-align:top;line-height:1.5;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:color-mix(in srgb,var(--accent) 3%,transparent);}
+code.inline{font-family:"Fira Code",monospace;font-size:.75rem;color:var(--mono-accent);background:var(--code-bg);padding:2px 6px;border-radius:4px;border:1px solid var(--border);}
+
+/* ── CODE BLOCKS ── */
+.code-block{background:var(--code-bg);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin:12px 0;overflow-x:auto;}
+.code-block code{font-family:"Fira Code",monospace;font-size:.75rem;color:var(--mono-accent);line-height:1.9;white-space:pre;}
+
+/* ── COLOR SWATCHES ── */
+.swatch-row{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;}
+.swatch{border-radius:8px;overflow:hidden;border:1px solid var(--border);min-width:100px;box-shadow:var(--shadow);}
+.swatch-bar{height:40px;}
+.swatch-info{padding:6px 10px;background:var(--bg);}
+.swatch-name{font-size:.68rem;font-weight:700;color:var(--txt);}
+.swatch-hex{font-family:"Fira Code",monospace;font-size:.62rem;color:var(--txt3);}
+
+/* ── THEME PREVIEW STRIP ── */
+.theme-strips{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0;}
+.theme-strip{border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);}
+.ts-header{padding:10px 12px;}
+.ts-header h5{font-size:.78rem;font-weight:700;margin-bottom:2px;}
+.ts-header p{font-size:.65rem;opacity:.7;}
+.ts-swatches{display:flex;height:18px;}
+.ts-swatches span{flex:1;}
+.ts-f .ts-header{background:#FFFFFF;color:#0A0A0A;}
+.ts-c .ts-header{background:#FDFDFD;color:#111111;}
+.ts-w .ts-header{background:#FAFAFA;color:#1A1A1A;}
+.ts-n .ts-header{background:#111111;color:#F0F0F0;}
+
+/* ── SPACING VIZ ── */
+.space-vis{display:flex;align-items:flex-end;gap:12px;padding:20px;background:var(--surface);border-radius:10px;margin:12px 0;flex-wrap:wrap;}
+.space-bar-wrap{display:flex;flex-direction:column;align-items:center;gap:5px;}
+.space-bar{width:36px;background:var(--accent);border-radius:4px;opacity:.7;}
+.space-lbl{font-family:"Fira Code",monospace;font-size:.6rem;color:var(--txt3);}
+
+/* ── TYPE SCALE VIZ ── */
+.type-scale-rows{margin:12px 0;}
+.type-scale-row{display:grid;grid-template-columns:90px 80px 1fr;align-items:baseline;gap:12px;padding:8px 0;border-bottom:1px solid var(--border2);}
+.ts-token{font-family:"Fira Code",monospace;font-size:.65rem;color:var(--accent);}
+.ts-size{font-family:"Fira Code",monospace;font-size:.65rem;color:var(--txt3);}
+
+/* ── MORPHISM DEMOS ── */
+.morph-demos{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;margin:16px 0;}
+.morph-demo{padding:20px 16px;text-align:center;}
+.morph-demo h5{font-size:.82rem;font-weight:700;margin-bottom:6px;color:var(--txt);}
+.morph-demo p{font-size:.7rem;color:var(--txt3);line-height:1.5;}
+.md-soft   {background:var(--surface);border-radius:16px;border:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,0.08);}
+.md-glass  {background:rgba(255,255,255,0.2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:16px;border:1px solid rgba(255,255,255,0.35);box-shadow:0 8px 32px rgba(31,38,135,0.18);}
+.md-clay   {background:#FFFFFF;border-radius:24px;box-shadow:0 6px 16px rgba(0,0,0,0.14);}
+.md-neu    {background:#F0F0F0;border-radius:16px;box-shadow:6px 6px 12px #bebebe,-6px -6px 12px #ffffff;}
+.md-flat   {background:var(--surface);border-radius:4px;border:1px solid var(--border);}
+.morph-wrap{background:linear-gradient(135deg,var(--accent-l),var(--accent));padding:16px;border-radius:16px;}
+
+/* ── CHECKLIST ── */
+.checklist{list-style:none;display:flex;flex-direction:column;gap:6px;margin:10px 0;}
+.checklist li{display:flex;align-items:flex-start;gap:10px;font-size:.84rem;color:var(--txt2);padding:4px 0;}
+.check-box{width:16px;height:16px;border:1.5px solid var(--border);border-radius:4px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;}
+
+/* ── TAGS ── */
+.tag{font-family:"Fira Code",monospace;font-size:.63rem;font-weight:500;color:var(--tag-txt);background:var(--tag-bg);border:1px solid color-mix(in srgb,var(--accent) 15%,transparent);padding:2px 8px;border-radius:20px;display:inline-block;}
+
+/* ── FOOTER ── */
+.doc-footer{border-top:2px solid var(--border);padding-top:28px;margin-top:56px;text-align:center;}
+.footer-sig{font-family:"Fira Code",monospace;font-size:.68rem;color:var(--txt3);line-height:2;}
+.footer-sig span{color:var(--accent);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+  .layout{grid-template-columns:1fr;}
+  .sidebar{display:none;}
+  .progress-line{left:0;}
+  .main{padding:32px 20px 60px;}
+  .theme-strips{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:480px){
+  .meta-grid{grid-template-columns:1fr 1fr;}
+  .theme-strips{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="layout">
+<!-- SIDEBAR -->
+<aside class="sidebar" role="complementary" aria-label="Document navigation">
+  <div class="sidebar-head">
+    <div class="doc-id">DESIGN-CANON-2026-001</div>
+    <div class="sidebar-title">Master Canon<br>Design Specification</div>
+    <div class="status-badge">RATIFIED · v1.0.2</div>
+  </div>
+  <nav class="sidebar-nav" aria-label="Section navigation">
+    <div class="nav-group-label">Governance</div>
+    <a href="#cover">Cover & Metadata</a>
+    <a href="#preamble">Preamble</a>
+    <div class="nav-group-label">Design System</div>
+    <a href="#part1">I — Color System</a>
+    <a href="#part2">II — Typography</a>
+    <a href="#part3">III — Layout & Spacing</a>
+    <a href="#part4">IV — Surface Styles</a>
+    <a href="#part5">V — Components</a>
+    <a href="#part6">VI — Applications</a>
+    <a href="#part7">VII — Motion</a>
+    <a href="#part8">VIII — Accessibility</a>
+    <a href="#part9">IX — CSS Variables</a>
+    <a href="#part10">X — Quality Checklist</a>
+    <div class="nav-group-label">Appendices</div>
+    <a href="#appendix-a">A — Surface Quick Ref</a>
+    <a href="#appendix-b">B — Icon Policy</a>
+    <a href="#appendix-c">C — Signature Template</a>
+  </nav>
+  <div class="theme-panel">
+    <div class="theme-panel-label">Theme Preview</div>
+    <div class="theme-pills">
+      <button class="tpill active" onclick="setTheme('focus')" id="tpill-focus" aria-label="Focus theme"><span class="tpill-dot dot-focus"></span>Focus</button>
+      <button class="tpill" onclick="setTheme('clarity')" id="tpill-clarity" aria-label="Clarity theme"><span class="tpill-dot dot-clarity"></span>Clarity</button>
+      <button class="tpill" onclick="setTheme('warmth')" id="tpill-warmth" aria-label="Warmth theme"><span class="tpill-dot dot-warmth"></span>Warmth</button>
+      <button class="tpill" onclick="setTheme('nightfall')" id="tpill-nightfall" aria-label="Nightfall theme"><span class="tpill-dot dot-nightfall"></span>Nightfall</button>
+    </div>
+  </div>
+</aside>
+
+<!-- PROGRESS -->
+<div class="progress-line" id="prog" role="progressbar" aria-label="Reading progress" style="transform:scaleX(0)"></div>
+
+<!-- MAIN -->
+<main class="main" id="main-content" role="main">
+
+<!-- COVER -->
+<div class="cover" id="cover">
+  <div class="cover-eyebrow">Personal IP · Evergreen · Canon Reference</div>
+  <h1 class="cover-title">Master Canon<br><span>Design Specification</span></h1>
+  <p class="cover-sub">Personal Universal Design System — Cường Q. Huỳnh</p>
+  <div class="meta-grid">
+    <div class="meta-item"><div class="meta-k">Document ID</div><div class="meta-v mono">DESIGN-CANON-2026-001</div></div>
+    <div class="meta-item"><div class="meta-k">Version</div><div class="meta-v mono">1.0.1</div></div>
+    <div class="meta-item"><div class="meta-k">Date</div><div class="meta-v">2026-03-23</div></div>
+    <div class="meta-item"><div class="meta-k">Status</div><div class="meta-v" style="color:var(--exceptional)">REVIEW</div></div>
+    <div class="meta-item"><div class="meta-k">Author</div><div class="meta-v">Cường Q. Huỳnh</div></div>
+    <div class="meta-item"><div class="meta-k">Assisted By</div><div class="meta-v">Claude-Sonnet-4.6</div></div>
+    <div class="meta-item"><div class="meta-k">Classification</div><div class="meta-v">Personal IP · Evergreen</div></div>
+    <div class="meta-item"><div class="meta-k">Sources Synthesized</div><div class="meta-v">5 specification files</div></div>
+  </div>
+  <h3 class="sub-title">Changelog</h3>
+  <div class="table-wrap">
+    <table><thead><tr><th>Version</th><th>Date</th><th>Author</th><th>Summary</th></tr></thead>
+    <tbody>
+      <tr><td><code class="inline">1.0.0</code></td><td>2026-03-23</td><td>Cường.Q.Huỳnh + Claude</td><td>Initial synthesis from 5 source specifications</td></tr>
+      <tr><td><code class="inline">1.0.1</code></td><td>2026-03-23</td><td>Agent-IP + Claude</td><td>Embed cryptographic signature block; status → RATIFIED</td></tr>
+    </tbody></table>
+  </div>
+  <h3 class="sub-title">Traceability — Source Documents</h3>
+  <p class="ui-text">Source A: <code class="inline">Universal Personal Theme YAML</code> — Soft Minimalism / Soft Morphism, 4 palettes<br>
+  Source B: <code class="inline">Elegant Academic YAML</code> — serif-first academic theme<br>
+  Source C: <code class="inline">Echelon YAML</code> — Monochromatic + 1 Exceptional color system<br>
+  Source D: <code class="inline">Morphism UI Spec</code> — Glassmorphism / Neumorphism / Claymorphism<br>
+  Source E: <code class="inline">Universal SCSS</code> — CSS variables and responsive implementation</p>
+  <h3 class="sub-title">Cryptographic Signature Block</h3>
+  <div class="sig-block">
+    <div class="sig-row"><div class="sig-k">Author Sign</div><div class="sig-v pending">Cường.Q.Huỳnh → [Pending PO Ratification]</div></div>
+    <div class="sig-row"><div class="sig-k">System Sign</div><div class="sig-v">Claude-Sonnet-4.6 | 2026-03-23T08:25:31Z</div></div>
+    <div class="sig-row"><div class="sig-k">Doc Hash</div><div class="sig-v">118320ff480de68e1d99791661a72946b9f6def39f5c67a87323060a6d8f7825</div></div>
+    <div class="sig-row"><div class="sig-k">UUID v7</div><div class="sig-v">019d19cc-96f4-7-b64e-cbeaf11d5eef</div></div>
+    <div class="sig-row"><div class="sig-k">Context Hash</div><div class="sig-v">cad81c19b349096e89c5337e068247a3b6209eb9ce8665d72713247d7d8a4fb6</div></div>
+    <div class="sig-row"><div class="sig-k">Composite Sig</div><div class="sig-v">26e223d51a78ab458ebe753905bcb4d329bbca701e73cbbc069b957b6beecd87</div></div>
+    <div class="sig-row"><div class="sig-k">Authority</div><div class="sig-v pending">[Pending PO ratification — Cường.Q.Huỳnh]</div></div>
+  </div>
+</div>
+
+<!-- PREAMBLE -->
+<section class="section" id="preamble">
+  <div class="section-header"><div class="part-label">Preamble</div><h2 class="section-title">Design Philosophy</h2></div>
+  <div class="callout exceptional"><p>"Clarity is not emptiness. Softness is not weakness. Every surface is a statement."</p></div>
+  <p class="body-text">This Canon is the single source of truth governing all visual output attributed to Cường.Q.Huỳnh — spanning web UI, academic documents, slide decks, data visualization, and creative works. It is a personal design language and a living IP asset.</p>
+  <h3 class="sub-title">Three Governing Principles</h3>
+  <div class="table-wrap"><table><thead><tr><th>#</th><th>Principle</th><th>Statement</th></tr></thead><tbody>
+    <tr><td><code class="inline">01</code></td><td><strong>Soft Minimalism as Default</strong></td><td>Restrained color, generous whitespace, refined typography. Complexity lives in structure, not decoration.</td></tr>
+    <tr><td><code class="inline">02</code></td><td><strong>Contextual Morphism</strong></td><td>Surface style adapts to medium but palette and typography remain canonical across all contexts.</td></tr>
+    <tr><td><code class="inline">03</code></td><td><strong>60 / 30 / 10 Color Law</strong></td><td>Non-negotiable. Primary dominates, secondary structures, accent punctuates. No exceptions.</td></tr>
+  </tbody></table></div>
+</section>
+
+<!-- PART I COLOR -->
+<section class="section" id="part1">
+  <div class="section-header"><div class="part-label">Part I</div><h2 class="section-title">Color System</h2></div>
+  <h3 class="sub-title">1.1 The 60/30/10 Law</h3>
+  <div class="callout"><p>Primary (60%) → Base canvas · Secondary (30%) → Structure · Accent (10%) → Signal. Non-negotiable across all themes and contexts.</p></div>
+  <h3 class="sub-title">1.2 Theme Preview</h3>
+  <div class="theme-strips">
+    <div class="theme-strip ts-f"><div class="ts-header"><h5>FOCUS</h5><p>Academic blue · Formal</p></div><div class="ts-swatches"><span style="background:#FFFFFF;flex:6"></span><span style="background:#EDEDED;flex:3"></span><span style="background:#2B6CB0;flex:1"></span></div></div>
+    <div class="theme-strip ts-c"><div class="ts-header"><h5>CLARITY</h5><p>Mint green · Default</p></div><div class="ts-swatches"><span style="background:#FDFDFD;flex:6"></span><span style="background:#F5F5F5;flex:3"></span><span style="background:#3B9E6B;flex:1"></span></div></div>
+    <div class="theme-strip ts-w"><div class="ts-header"><h5>WARMTH</h5><p>Terracotta · Creative</p></div><div class="ts-swatches"><span style="background:#FAFAFA;flex:6"></span><span style="background:#F2F2F0;flex:3"></span><span style="background:#E07A5F;flex:1"></span></div></div>
+    <div class="theme-strip ts-n"><div class="ts-header"><h5>NIGHTFALL</h5><p>Violet · Dark mode</p></div><div class="ts-swatches"><span style="background:#111111;flex:6"></span><span style="background:#1E1E1E;flex:3"></span><span style="background:#8B5CF6;flex:1"></span></div></div>
+  </div>
+  <h3 class="sub-title">1.3 Active Theme Tokens</h3>
+  <div class="swatch-row">
+    <div class="swatch"><div class="swatch-bar" style="background:var(--bg)"></div><div class="swatch-info"><div class="swatch-name">Primary — 60%</div><div class="swatch-hex">--bg · Canvas</div></div></div>
+    <div class="swatch"><div class="swatch-bar" style="background:var(--surface)"></div><div class="swatch-info"><div class="swatch-name">Secondary — 30%</div><div class="swatch-hex">--surface · Structure</div></div></div>
+    <div class="swatch"><div class="swatch-bar" style="background:var(--accent)"></div><div class="swatch-info"><div class="swatch-name">Accent — 10%</div><div class="swatch-hex">--accent · Signal</div></div></div>
+    <div class="swatch"><div class="swatch-bar" style="background:#E07A5F"></div><div class="swatch-info"><div class="swatch-name">Exceptional &lt;1%</div><div class="swatch-hex">#E07A5F · Terracotta</div></div></div>
+  </div>
+  <h3 class="sub-title">1.4 Exceptional Color Protocol</h3>
+  <div class="callout exceptional"><p>In FOCUS/CLARITY/NIGHTFALL: #E07A5F (terracotta) reserved for &lt;1% of composition — alert banners, critical callouts, personal signature marks. In WARMTH: primary accent. Never as background or body text.</p></div>
+  <h3 class="sub-title">Violations to Avoid</h3>
+  <div class="table-wrap"><table><thead><tr><th>Violation</th><th>Status</th></tr></thead><tbody>
+    <tr><td>Accent used for large background blocks</td><td><span class="tag">FORBIDDEN</span></td></tr>
+    <tr><td>Secondary used as heading text color</td><td><span class="tag">FORBIDDEN</span></td></tr>
+    <tr><td>Multiple competing accent colors in one composition</td><td><span class="tag">FORBIDDEN</span></td></tr>
+    <tr><td>Accent exceeding 15% of visible area</td><td><span class="tag">FLAG FOR REVIEW</span></td></tr>
+  </tbody></table></div>
+</section>
+
+<!-- PART II TYPOGRAPHY -->
+<section class="section" id="part2">
+  <div class="section-header"><div class="part-label">Part II</div><h2 class="section-title">Typography System</h2></div>
+  <h3 class="sub-title">2.1 Font Stack</h3>
+  <div class="table-wrap"><table><thead><tr><th>Role</th><th>Stack</th><th>Context</th></tr></thead><tbody>
+    <tr><td><strong>Sans (UI)</strong></td><td><code class="inline">IBM Plex Sans, Helvetica Neue, Arial</code></td><td>UI, headings, slides, captions</td></tr>
+    <tr><td><strong>Serif (Academic)</strong></td><td><code class="inline">Libre Baskerville, Merriweather, Georgia</code></td><td>Academic body, long-form, citations</td></tr>
+    <tr><td><strong>Monospace</strong></td><td><code class="inline">Fira Code, Consolas</code></td><td>Code, algorithms, formulas, data tables</td></tr>
+  </tbody></table></div>
+  <h3 class="sub-title">2.2 Type Scale</h3>
+  <div class="type-scale-rows">
+    <div class="type-scale-row"><span class="ts-token">--fs-xs</span><span class="ts-size">0.75rem</span><span style="font-size:0.75rem;color:var(--txt2)">Footnotes, legal text, metadata</span></div>
+    <div class="type-scale-row"><span class="ts-token">--fs-sm</span><span class="ts-size">0.875rem</span><span style="font-size:0.875rem;color:var(--txt2)">Captions, labels, secondary text</span></div>
+    <div class="type-scale-row"><span class="ts-token">--fs-base</span><span class="ts-size">1rem</span><span style="font-size:1rem;color:var(--txt2)">Body text default</span></div>
+    <div class="type-scale-row"><span class="ts-token">--fs-md</span><span class="ts-size">1.125rem</span><span style="font-size:1.125rem;color:var(--txt2)">Emphasized body</span></div>
+    <div class="type-scale-row"><span class="ts-token">--fs-lg</span><span class="ts-size">1.25rem</span><span style="font-size:1.25rem;font-weight:600;color:var(--txt)">Subheadings</span></div>
+    <div class="type-scale-row"><span class="ts-token">--fs-xl</span><span class="ts-size">1.5rem</span><span style="font-size:1.5rem;font-weight:700;color:var(--txt)">Section headings</span></div>
+    <div class="type-scale-row"><span class="ts-token">--fs-2xl</span><span class="ts-size">2rem</span><span style="font-size:2rem;font-weight:700;font-family:'Libre Baskerville',serif;color:var(--txt)">Major headings</span></div>
+    <div class="type-scale-row"><span class="ts-token">--fs-3xl</span><span class="ts-size">3rem</span><span style="font-size:2.2rem;font-weight:700;font-family:'Libre Baskerville',serif;background:var(--accent-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Hero & Cover</span></div>
+  </div>
+</section>
+
+<!-- PART III LAYOUT -->
+<section class="section" id="part3">
+  <div class="section-header"><div class="part-label">Part III</div><h2 class="section-title">Layout & Spacing</h2></div>
+  <h3 class="sub-title">3.1 Spacing Scale — 4px Modular</h3>
+  <div class="space-vis">
+    <div class="space-bar-wrap"><div class="space-bar" style="height:4px"></div><div class="space-lbl">xs 4px</div></div>
+    <div class="space-bar-wrap"><div class="space-bar" style="height:8px"></div><div class="space-lbl">sm 8px</div></div>
+    <div class="space-bar-wrap"><div class="space-bar" style="height:16px"></div><div class="space-lbl">md 16px</div></div>
+    <div class="space-bar-wrap"><div class="space-bar" style="height:24px"></div><div class="space-lbl">lg 24px</div></div>
+    <div class="space-bar-wrap"><div class="space-bar" style="height:32px"></div><div class="space-lbl">xl 32px</div></div>
+    <div class="space-bar-wrap"><div class="space-bar" style="height:48px"></div><div class="space-lbl">2xl 48px</div></div>
+    <div class="space-bar-wrap"><div class="space-bar" style="height:64px"></div><div class="space-lbl">3xl 64px</div></div>
+  </div>
+  <h3 class="sub-title">3.2 Responsive Breakpoints</h3>
+  <div class="table-wrap"><table><thead><tr><th>Label</th><th>Width</th><th>Adaptation</th></tr></thead><tbody>
+    <tr><td>Mobile</td><td><code class="inline">≤ 480px</code></td><td>Single column, stacked nav, font-size 0.9rem</td></tr>
+    <tr><td>Tablet</td><td><code class="inline">481–768px</code></td><td>2-column max, collapsible panels</td></tr>
+    <tr><td>Desktop</td><td><code class="inline">769–1200px</code></td><td>Full layout, standard padding</td></tr>
+    <tr><td>Wide Desktop</td><td><code class="inline">&gt; 1200px</code></td><td>Extended grid, wider gutters</td></tr>
+  </tbody></table></div>
+</section>
+
+<!-- PART IV MORPHISM -->
+<section class="section" id="part4">
+  <div class="section-header"><div class="part-label">Part IV</div><h2 class="section-title">Surface Styles — Morphism System</h2></div>
+  <p class="ui-text">Five surface styles, each context-appropriate. Soft-Morphism is the canonical default across all contexts.</p>
+  <div class="morph-demos">
+    <div class="morph-demo md-soft"><h5>Soft-Morphism</h5><p>Default — all contexts. Subtle shadow, rounded corners, gentle depth.</p></div>
+    <div style="background:linear-gradient(135deg,var(--accent-l),var(--accent));padding:10px;border-radius:16px;"><div class="morph-demo md-glass"><h5>Glassmorphism</h5><p>Dashboards, modals. Translucency + blur over rich backgrounds.</p></div></div>
+    <div class="morph-demo md-clay"><h5>Claymorphism</h5><p>Consumer cards, creative UI. Rounded, friendly. Pairs with WARMTH.</p></div>
+    <div class="morph-demo md-neu"><h5>Neumorphism</h5><p>Inputs, toggles. Soft extrusions for tactile interactive elements.</p></div>
+    <div class="morph-demo md-flat"><h5>Academic Flat</h5><p>Formal documents. Minimal radius, no shadows, static authority.</p></div>
+  </div>
+  <div class="table-wrap"><table><thead><tr><th>Style</th><th>Key CSS</th><th>Context</th><th>Restriction</th></tr></thead><tbody>
+    <tr><td><strong>Soft-Morphism</strong></td><td><code class="inline">r:16px shadow:soft</code></td><td>All general UI</td><td>None — default</td></tr>
+    <tr><td><strong>Glassmorphism</strong></td><td><code class="inline">backdrop-filter:blur</code></td><td>Modals, dashboards</td><td>Contrast ≥ 4.5:1 required</td></tr>
+    <tr><td><strong>Neumorphism</strong></td><td><code class="inline">inset/outset shadows</code></td><td>Interactive controls</td><td>Light themes only</td></tr>
+    <tr><td><strong>Claymorphism</strong></td><td><code class="inline">r:24px ambient shadow</code></td><td>Consumer/creative UI</td><td>Pair with WARMTH theme</td></tr>
+    <tr><td><strong>Academic Flat</strong></td><td><code class="inline">r:4px no shadow</code></td><td>Formal documents</td><td>No animations or hover</td></tr>
+  </tbody></table></div>
+</section>
+
+<!-- PART V COMPONENTS -->
+<section class="section" id="part5">
+  <div class="section-header"><div class="part-label">Part V</div><h2 class="section-title">Component Specifications</h2></div>
+  <h3 class="sub-title">Buttons</h3>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;align-items:center">
+    <button style="padding:10px 22px;background:var(--accent-grad);color:var(--on-accent);border:none;border-radius:12px;font-weight:600;font-size:.88rem;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;box-shadow:0 6px 18px color-mix(in srgb,var(--accent) 35%,transparent);transition:.25s" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='none'">Primary CTA</button>
+    <button style="padding:9px 20px;background:transparent;color:var(--txt);border:1.5px solid var(--border);border-radius:12px;font-weight:500;font-size:.88rem;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;transition:.2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">Outline</button>
+    <button style="padding:9px 20px;background:transparent;color:var(--accent);border:none;border-radius:12px;font-weight:600;font-size:.88rem;cursor:pointer;font-family:'IBM Plex Sans',sans-serif">Ghost</button>
+    <button style="padding:9px 20px;background:var(--surface);color:var(--txt3);border:none;border-radius:12px;font-weight:600;font-size:.88rem;cursor:not-allowed;opacity:.5;font-family:'IBM Plex Sans',sans-serif" disabled>Disabled</button>
+  </div>
+  <h3 class="sub-title">Alert Types</h3>
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <div style="padding:9px 16px;border-radius:8px;font-size:.82rem;font-weight:500;background:rgba(168,213,186,0.3);color:#2F855A">Success — positive feedback, completions</div>
+    <div style="padding:9px 16px;border-radius:8px;font-size:.82rem;font-weight:500;background:rgba(144,205,244,0.25);color:#2B6CB0">Info — neutral guidance, notes</div>
+    <div style="padding:9px 16px;border-radius:8px;font-size:.82rem;font-weight:500;background:rgba(245,101,101,0.2);color:#C53030">Error — critical errors, warnings</div>
+    <div style="padding:9px 16px;border-radius:8px;font-size:.82rem;font-weight:500;background:rgba(224,122,95,0.15);color:#9C4431">Exceptional — philosophical highlight, signature mark (&lt;1% area)</div>
+  </div>
+</section>
+
+<!-- PART VI APPLICATIONS -->
+<section class="section" id="part6">
+  <div class="section-header"><div class="part-label">Part VI</div><h2 class="section-title">Medium-Specific Applications</h2></div>
+  <div class="table-wrap"><table><thead><tr><th>Medium</th><th>Theme</th><th>Font</th><th>Morphism</th><th>Key Rules</th></tr></thead><tbody>
+    <tr><td>Academic Paper</td><td>FOCUS</td><td>Serif body</td><td>Flat</td><td>1.6–1.7 line-height, generous margins</td></tr>
+    <tr><td>Technical Report</td><td>FOCUS</td><td>Serif body + Sans h</td><td>Flat + Soft</td><td>Code in mono, section sans headings</td></tr>
+    <tr><td>Web UI</td><td>Any</td><td>Sans</td><td>Soft-Morphism</td><td>CSS variables, 44px touch, responsive</td></tr>
+    <tr><td>SaaS Dashboard</td><td>FOCUS / NIGHTFALL</td><td>Sans</td><td>Glass modals</td><td>Contrast ≥ 4.5:1 on blur</td></tr>
+    <tr><td>Slide (Formal)</td><td>FOCUS</td><td>Sans Bold</td><td>Soft cards</td><td>≤ 30 words/slide, primary bg only</td></tr>
+    <tr><td>Slide (Creative)</td><td>WARMTH</td><td>Sans Bold</td><td>Soft + Clay</td><td>Terracotta accent, conclusion slides</td></tr>
+    <tr><td>Creative Portfolio</td><td>WARMTH</td><td>Mixed</td><td>Claymorphism</td><td>Narrative, emotional color</td></tr>
+    <tr><td>Dark UI</td><td>NIGHTFALL</td><td>Sans</td><td>Soft-Morphism</td><td>Violet accent, prefers-color-scheme</td></tr>
+    <tr><td>Data Viz</td><td>Any</td><td>Sans labels</td><td>Flat</td><td>Neutral gridlines, accent series only</td></tr>
+  </tbody></table></div>
+</section>
+
+<!-- PART VII MOTION -->
+<section class="section" id="part7">
+  <div class="section-header"><div class="part-label">Part VII</div><h2 class="section-title">Interaction & Motion</h2></div>
+  <div class="table-wrap"><table><thead><tr><th>Interaction</th><th>Duration</th><th>Easing</th></tr></thead><tbody>
+    <tr><td>Hover state</td><td>0.2s</td><td>ease</td></tr>
+    <tr><td>Card lift</td><td>0.25s</td><td>ease</td></tr>
+    <tr><td>Modal appear</td><td>0.3s</td><td>ease-out</td></tr>
+    <tr><td>Page/section fade</td><td>0.4s</td><td>ease</td></tr>
+    <tr><td>Theme switch</td><td>0.25s</td><td>ease</td></tr>
+  </tbody></table></div>
+  <div class="callout"><p>No looping, continuous, or autoplay animations in professional or academic contexts. Always respect prefers-reduced-motion. Motion confirms interaction — it does not decorate.</p></div>
+</section>
+
+<!-- PART VIII A11Y -->
+<section class="section" id="part8">
+  <div class="section-header"><div class="part-label">Part VIII</div><h2 class="section-title">Accessibility Requirements</h2></div>
+  <div class="table-wrap"><table><thead><tr><th>Requirement</th><th>Standard</th></tr></thead><tbody>
+    <tr><td>Text contrast</td><td>WCAG 2.1 AA — 4.5:1 body; 3:1 for ≥24px text</td></tr>
+    <tr><td>Focus ring</td><td><code class="inline">:focus-visible</code> — 3px accent outline, 3px offset, border-radius 4px</td></tr>
+    <tr><td>Touch targets</td><td>44 × 44px minimum for all interactive elements</td></tr>
+    <tr><td>ARIA labels</td><td>All icon buttons, non-text controls, modal triggers</td></tr>
+    <tr><td>Zoom safety</td><td>Layout must not break at 200% browser zoom</td></tr>
+    <tr><td>Reduced motion</td><td>All animations suppressed via <code class="inline">prefers-reduced-motion</code></td></tr>
+    <tr><td>Hover-only</td><td>Must have touch-friendly alternative for every interaction</td></tr>
+    <tr><td>Landmark roles</td><td><code class="inline">nav</code>, <code class="inline">main</code>, <code class="inline">footer</code> semantic HTML5 or ARIA roles required</td></tr>
+  </tbody></table></div>
+</section>
+
+<!-- PART IX CSS VARS -->
+<section class="section" id="part9">
+  <div class="section-header"><div class="part-label">Part IX</div><h2 class="section-title">CSS Variable Implementation Reference</h2></div>
+  <div class="code-block"><code>:root {
+  /* ── Palette (Clarity default) ── */
+  --primary: #FDFDFD;          /* 60% canvas */
+  --secondary: #F5F5F5;        /* 30% structure */
+  --accent: #A8D5BA;           /* 10% signal */
+  --accent-light: #C7E7D1;
+  --accent-tone: #95C4A9;
+  --accent-dark: #7BAE8C;
+  --accent-gradient: linear-gradient(135deg,#C7E7D1,#A8D5BA,#7BAE8C);
+  --accent-on-strong: #0B2A18;
+  --exceptional: #E07A5F;      /* &lt;1% emotional/alert use */
+
+  /* ── Typography ── */
+  --font-sans: "IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --font-serif: "Libre Baskerville",Georgia,serif;
+  --font-mono: "Fira Code",Consolas,monospace;
+
+  --fs-xs:0.75rem;  --fs-sm:0.875rem; --fs-base:1rem;
+  --fs-md:1.125rem; --fs-lg:1.25rem;  --fs-xl:1.5rem;
+  --fs-2xl:2rem;    --fs-3xl:3rem;
+
+  /* ── Spacing (4px modular) ── */
+  --space-xs:4px;   --space-sm:8px;   --space-md:16px;
+  --space-lg:24px;  --space-xl:32px;  --space-2xl:48px; --space-3xl:64px;
+
+  /* ── Surface ── */
+  --radius: 16px;
+  --shadow: 0 4px 12px rgba(0,0,0,0.05);
+  --shadow-soft: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-inner: inset 0 2px 6px rgba(255,255,255,0.6);
+  --transition: all 0.25s ease;
+
+  /* ── Z-Index ── */
+  --z-base:0; --z-card:10; --z-modal:1000; --z-tooltip:2000;
+}
+
+/* Theme overrides — class on &lt;html&gt; or data-theme attribute */
+.theme-focus    { --primary:#FFFFFF; --accent:#2B6CB0; /* ... */ }
+.theme-warmth   { --primary:#FAFAFA; --accent:#E07A5F; /* ... */ }
+.theme-nightfall{ --primary:#111111; --accent:#8B5CF6; /* ... */ }
+[data-theme="focus"]    { /* ... same as .theme-focus */ }
+[data-theme="warmth"]   { /* ... same as .theme-warmth */ }
+[data-theme="nightfall"]{ /* ... same as .theme-nightfall */ }</code></div>
+</section>
+
+<!-- PART X CHECKLIST -->
+<section class="section" id="part10">
+  <div class="section-header"><div class="part-label">Part X</div><h2 class="section-title">Quality Checklist</h2></div>
+  <h3 class="sub-title">Color & Theme</h3>
+  <ul class="checklist"><li><div class="check-box"></div>60/30/10 law observed across composition</li><li><div class="check-box"></div>Single accent color per composition</li><li><div class="check-box"></div>Exceptional terracotta &lt;1% (or primary accent in WARMTH only)</li><li><div class="check-box"></div>WCAG 2.1 AA contrast verified for all text/background pairs</li></ul>
+  <h3 class="sub-title">Typography</h3>
+  <ul class="checklist"><li><div class="check-box"></div>Maximum 3 typefaces per composition</li><li><div class="check-box"></div>Scale hierarchy: body &lt; subhead &lt; heading</li><li><div class="check-box"></div>Serif for academic body; sans for UI/slides; mono for code</li></ul>
+  <h3 class="sub-title">Layout</h3>
+  <ul class="checklist"><li><div class="check-box"></div>4px spacing modular scale observed</li><li><div class="check-box"></div>Minimum 16px padding on all major blocks</li><li><div class="check-box"></div>Grid-based structure throughout</li></ul>
+  <h3 class="sub-title">Surface & Morphism</h3>
+  <ul class="checklist"><li><div class="check-box"></div>Correct morphism style for context (Soft-Morphism default)</li><li><div class="check-box"></div>No overly aggressive shadows or contrast</li><li><div class="check-box"></div>Transition durations within spec (0.2–0.4s)</li></ul>
+  <h3 class="sub-title">Responsive & Accessible</h3>
+  <ul class="checklist"><li><div class="check-box"></div>Layout tested at all four breakpoints</li><li><div class="check-box"></div>44px touch targets confirmed</li><li><div class="check-box"></div>ARIA labels on all non-text interactive elements</li><li><div class="check-box"></div>prefers-reduced-motion respected</li><li><div class="check-box"></div>Keyboard navigation functional</li></ul>
+  <h3 class="sub-title">Documents & Traceability</h3>
+  <ul class="checklist"><li><div class="check-box"></div>Author attribution block present</li><li><div class="check-box"></div>Version and date recorded</li><li><div class="check-box"></div>Traceability footnote included</li><li><div class="check-box"></div>Changelog updated</li></ul>
+</section>
+
+<!-- APPENDIX A -->
+<section class="section" id="appendix-a">
+  <div class="section-header"><div class="part-label">Appendix A</div><h2 class="section-title">Surface Style Quick Reference</h2></div>
+  <div class="table-wrap"><table><thead><tr><th>Context</th><th>Morphism Style</th><th>Theme</th><th>Font Role</th></tr></thead><tbody>
+    <tr><td>Academic paper</td><td>Academic Flat</td><td>FOCUS / CLARITY</td><td>Serif body</td></tr>
+    <tr><td>Technical report</td><td>Flat + Soft</td><td>FOCUS</td><td>Serif body, Sans heading</td></tr>
+    <tr><td>Web dashboard</td><td>Soft-Morphism</td><td>Any</td><td>Sans throughout</td></tr>
+    <tr><td>SaaS modal</td><td>Glassmorphism</td><td>Any</td><td>Sans</td></tr>
+    <tr><td>Creative portfolio</td><td>Claymorphism</td><td>WARMTH</td><td>Mixed</td></tr>
+    <tr><td>Slide deck (formal)</td><td>Soft-Morphism</td><td>FOCUS</td><td>Sans bold</td></tr>
+    <tr><td>Slide deck (creative)</td><td>Soft + Clay</td><td>WARMTH</td><td>Sans bold</td></tr>
+    <tr><td>Dark UI / night mode</td><td>Soft-Morphism</td><td>NIGHTFALL</td><td>Sans</td></tr>
+    <tr><td>Data viz</td><td>Flat</td><td>Any</td><td>Sans labels</td></tr>
+  </tbody></table></div>
+</section>
+
+<!-- APPENDIX B -->
+<section class="section" id="appendix-b">
+  <div class="section-header"><div class="part-label">Appendix B</div><h2 class="section-title">Icon Usage Policy</h2></div>
+  <div class="callout"><p>Strict limited use. Icons are functional, never decorative.</p></div>
+  <div class="table-wrap"><table><thead><tr><th>Rule</th><th>Value</th></tr></thead><tbody>
+    <tr><td>Inline icon size</td><td>16–24px</td></tr>
+    <tr><td>Standalone icon size max</td><td>32px</td></tr>
+    <tr><td>Default stroke-width</td><td>1.5px</td></tr>
+    <tr><td>Emphasis stroke-width</td><td>2px</td></tr>
+    <tr><td>Color</td><td>Single color only — text-primary or accent</td></tr>
+    <tr><td>Multi-color icons</td><td><span class="tag">FORBIDDEN</span></td></tr>
+    <tr><td>Icons as text substitute (formal docs)</td><td><span class="tag">FORBIDDEN</span></td></tr>
+    <tr><td>Emoji in formal documents</td><td><span class="tag">FORBIDDEN</span></td></tr>
+    <tr><td>Emoji in informal UI</td><td>Permitted — sparingly</td></tr>
+  </tbody></table></div>
+</section>
+
+<!-- APPENDIX C -->
+<section class="section" id="appendix-c">
+  <div class="section-header"><div class="part-label">Appendix C</div><h2 class="section-title">Document Authorship & Signature Template</h2></div>
+  <p class="ui-text">Every ratified output governed by this Canon must include the following block:</p>
+  <div class="sig-block">
+    <div class="sig-row"><div class="sig-k">Document ID</div><div class="sig-v">[PROJECT-YYYYMMDD-###]</div></div>
+    <div class="sig-row"><div class="sig-k">Version</div><div class="sig-v">[semver]</div></div>
+    <div class="sig-row"><div class="sig-k">Author</div><div class="sig-v">Cường.Q.Huỳnh</div></div>
+    <div class="sig-row"><div class="sig-k">Assisted by</div><div class="sig-v">[Claude / GPT / Perplexity / Gemini / NotebookLM]</div></div>
+    <div class="sig-row"><div class="sig-k">Date</div><div class="sig-v">[ISO 8601]</div></div>
+    <div class="sig-row"><div class="sig-k">Status</div><div class="sig-v pending">[DRAFT | REVIEW | RATIFIED]</div></div>
+    <div class="sig-row"><div class="sig-k">Doc Hash</div><div class="sig-v">SHA-256([content])</div></div>
+    <div class="sig-row"><div class="sig-k">Signed by</div><div class="sig-v">Cường.Q.Huỳnh → [signature]</div></div>
+    <div class="sig-row"><div class="sig-k">Signed by</div><div class="sig-v">System → [Claude-Sonnet-4.6 | timestamp]</div></div>
+    <div class="sig-row"><div class="sig-k">Signed by</div><div class="sig-v">Authority → [optional]</div></div>
+    <div class="sig-row"><div class="sig-k">UUID</div><div class="sig-v">[uuidv7 on ratification]</div></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="doc-footer" role="contentinfo">
+  <div class="footer-sig">
+    <div>End of <span>MASTER CANON DESIGN SPECIFICATION</span> v1.0.1</div>
+    <div>DESIGN-CANON-2026-001 · Author: <span>Cường Q. Huỳnh</span> · System: <span>Claude-Sonnet-4.6</span></div>
+    <div>Personal IP · All rights reserved · Cường.Q.Huỳnh © 2026</div>
+  </div>
+</footer>
+
+</main>
+</div>
+
+<script>
+function setTheme(t) {
+  document.documentElement.setAttribute('data-theme',t);
+  document.querySelectorAll('.tpill').forEach(p=>p.classList.remove('active'));
+  const el=document.getElementById('tpill-'+t);if(el)el.classList.add('active');
+  try{localStorage.setItem('canon-theme',t);}catch(e){}
+}
+(function(){try{const s=localStorage.getItem('canon-theme');if(s)setTheme(s);}catch(e){}})();
+
+const prog=document.getElementById('prog');
+window.addEventListener('scroll',()=>{
+  const pct=window.scrollY/(document.body.scrollHeight-window.innerHeight);
+  prog.style.transform=`scaleX(${Math.min(pct,1)})`;
+},{passive:true});
+
+const sections=document.querySelectorAll('.section,.cover');
+const links=document.querySelectorAll('.sidebar-nav a');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      links.forEach(a=>a.classList.remove('active'));
+      const a=document.querySelector(`.sidebar-nav a[href="#${e.target.id}"]`);
+      if(a){a.classList.add('active');a.scrollIntoView({block:'nearest',behavior:'smooth'});}
+    }
+  });
+},{rootMargin:'-20% 0px -70% 0px'});
+sections.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
