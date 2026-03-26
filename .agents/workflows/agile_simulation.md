@@ -27,6 +27,10 @@ This workflow defines the procedure for conducting an **Agile task meeting in si
    - **Virtual Librarian**: Are changelogs, versioning, and documentation impacts accounted for?
    - **IP Assets Professional**: Are there licensing, attribution, or IP compliance concerns?
    - **Infra & Data Architect**: Are there technical integrity, schema, or architecture concerns?
+   - **QA Director**: Are standard QA (e.g. 40/40), a11y, and strict UI validations passed?
+   - **Creative Products Director**: Does it meet the Master Canon aesthetics and "WOW" design factor?
+   - **PM / Business Analyst**: Does this maximize scope value, user experience, and sprint progression?
+   - **Multirole Engineer**: Is the execution aligned with zero-dependency and clean code standards?
 5. **Consolidate Feedback** — Merge all persona feedback into a refined plan.
 6. **Present to PO** — Submit the consolidated plan to the Master Orchestrator for approval.
 

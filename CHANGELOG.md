@@ -19,6 +19,19 @@ _Backlog items pending next sprint:_
 
 ---
 
+## [2.3.0] — 2026-03-27 — Sprint-08: Full Professional Agent Team Expansion
+
+**Scope:** `.agents/personas/*` · `.agents/workflows/agile_simulation.md` · `sprint-records/SPRINT-08-ENHANCED-AGENT-TEAM.md`
+**Simulation QA:** Agile Feedback Loop — PASS (portfolio validated by new extended setup)
+
+### Added
+
+- **AGENT-PERSONAS [MAJOR]** — Imported enterprise-grade stakeholder personas from external `prompt-library`: `qa_director.md`, `creative_products_director.md`, `pm_ba.md`, and `engineer_multirole.md`.
+- **AGENT-WORKFLOW [HIGH]** — Enhanced `.agents/workflows/agile_simulation.md` Phase 2 feedback loops to mandate reviews from all new QA and Stakeholder agents before PO approval.
+- **SPRINT-DOC [INFO]** — Generated `sprint-records/SPRINT-08-ENHANCED-AGENT-TEAM.md` documenting the simulated internal QA loop performed by the extended team on `portfolio_latest.html`.
+
+---
+
 ## [2.2.0] — 2026-03-27 — Sprint-07: Dynamic Data Load + QA Sign-off
 
 **Scope:** `portfolio_latest.html` · `portfolio/data/portfolio.json` · `CHANGELOG.md` · `sprint-records/SPRINT-07-QA-REVIEW.md`
