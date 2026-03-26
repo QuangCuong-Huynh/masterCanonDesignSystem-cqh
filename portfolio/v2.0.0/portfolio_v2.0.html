@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="focus">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Cường Q. Huỳnh — Master Orchestrator, IP Assets Professional, Infra & Data Architect. Building intelligent systems at the intersection of knowledge, governance, and technology."/>
+<meta name="keywords" content="Cường Q. Huỳnh, IP Assets, Data Architect, Solution Consultant, Virtual Librarian, AI Orchestration, SFIA"/>
+<meta name="author" content="Cường Q. Huỳnh"/>
+<meta name="robots" content="index, follow"/>
+<meta property="og:title" content="Cường Q. Huỳnh — Master Orchestrator & IP Assets Professional"/>
+<meta property="og:description" content="Building intelligent systems at the intersection of knowledge, governance, and technology."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://cuongqhuynh.com"/>
+<meta property="og:image" content="https://cuongqhuynh.com/og-cover.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Cường Q. Huỳnh — Portfolio v2.0"/>
+<meta name="twitter:description" content="Building intelligent systems at the intersection of knowledge, governance, and technology."/>
+<meta name="theme-color" id="theme-meta" content="#FFFFFF"/>
+<link rel="canonical" href="https://cuongqhuynh.com"/>
+<title>Cường Q. Huỳnh — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Fira+Code:wght@400;500;600&display=swap"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Cường Q. Huỳnh","jobTitle":"Master Orchestrator, IP Assets Professional, Data Architect","url":"https://cuongqhuynh.com","knowsAbout":["IP Assets Management","Data Architecture","AI Orchestration","Knowledge Governance","Design Systems","SFIA"]}
+</script>
+<style>
+/* ============================================================
+   PORTFOLIO v2.0 — Canon v1.0.2 Governed
+   DESIGN-CANON-2026-001 · JSON-driven SPA
+   Author: Cường Q. Huỳnh · System: Claude-Sonnet-4.6
+   Integrates: SRS, PWA-DSD-001, UI-MultiScreen, Morphism, Universal Theme
+   ============================================================ */
+
+/* ── THEME TOKENS: 4 palettes + binary dark/light ── */
+[data-theme="focus"] {
+  --bg:#FFFFFF; --surface:#F4F6FA; --surface2:#EBF1FA; --glass:rgba(255,255,255,0.72);
+  --accent:#2B6CB0; --accent-l:#90CDF4; --accent-d:#1A365D;
+  --accent-grad:linear-gradient(135deg,#90CDF4,#2B6CB0,#1A365D);
+  --on-accent:#FFFFFF; --exceptional:#E07A5F;
+  --txt:#0A0A0A; --txt2:#333; --txt3:#666;
+  --border:#D0D0D0; --shadow:0 4px 16px rgba(0,0,0,.07);
+  --shadow-lg:0 12px 40px rgba(0,0,0,.11);
+  --nav-glass:rgba(255,255,255,0.85); --tag-bg:rgba(43,108,176,.08); --tag-txt:#1A365D;
+  --neu-light:#ffffff; --neu-dark:#c8d0de; --neu-bg:#e8edf5;
+  --clay-bg:#ffffff; --sfia-bar:rgba(43,108,176,0.2); --meta:#FFFFFF;
+}
+[data-theme="clarity"] {
+  --bg:#FDFDFD; --surface:#F5F5F5; --surface2:#EDFAF4; --glass:rgba(253,253,253,0.75);
+  --accent:#3B9E6B; --accent-l:#A8D5BA; --accent-d:#1A5C3A;
+  --accent-grad:linear-gradient(135deg,#C7E7D1,#3B9E6B,#1A5C3A);
+  --on-accent:#FFFFFF; --exceptional:#E07A5F;
+  --txt:#111; --txt2:#444; --txt3:#888;
+  --border:#DDD; --shadow:0 4px 16px rgba(0,0,0,.05);
+  --shadow-lg:0 12px 40px rgba(0,0,0,.08);
+  --nav-glass:rgba(253,253,253,0.85); --tag-bg:rgba(59,158,107,.09); --tag-txt:#1A5C3A;
+  --neu-light:#ffffff; --neu-dark:#cdd8c5; --neu-bg:#edf5ea;
+  --clay-bg:#f8fff8; --sfia-bar:rgba(59,158,107,0.2); --meta:#FDFDFD;
+}
+[data-theme="warmth"] {
+  --bg:#FAFAFA; --surface:#F2F2F0; --surface2:#FEF3EF; --glass:rgba(250,250,250,0.78);
+  --accent:#E07A5F; --accent-l:#F2B8A4; --accent-d:#9C4431;
+  --accent-grad:linear-gradient(135deg,#F2B8A4,#E07A5F,#9C4431);
+  --on-accent:#FFFFFF; --exceptional:#2B6CB0;
+  --txt:#1A1A1A; --txt2:#4A4A4A; --txt3:#7A7A7A;
+  --border:#E0E0E0; --shadow:0 4px 16px rgba(0,0,0,.06);
+  --shadow-lg:0 12px 40px rgba(0,0,0,.09);
+  --nav-glass:rgba(250,250,250,0.85); --tag-bg:rgba(224,122,95,.10); --tag-txt:#9C4431;
+  --neu-light:#fff5f0; --neu-dark:#d4c0bb; --neu-bg:#f0e8e5;
+  --clay-bg:#fff8f6; --sfia-bar:rgba(224,122,95,0.2); --meta:#FAFAFA;
+}
+[data-theme="nightfall"] {
+  --bg:#111111; --surface:#1C1C1C; --surface2:#161621; --glass:rgba(20,20,32,0.82);
+  --accent:#8B5CF6; --accent-l:#C4B5FD; --accent-d:#4C1D95;
+  --accent-grad:linear-gradient(135deg,#C4B5FD,#8B5CF6,#4C1D95);
+  --on-accent:#FFFFFF; --exceptional:#E07A5F;
+  --txt:#F0F0F0; --txt2:#CCC; --txt3:#888;
+  --border:#2A2A2A; --shadow:0 4px 20px rgba(0,0,0,.45);
+  --shadow-lg:0 14px 56px rgba(0,0,0,.62);
+  --nav-glass:rgba(17,17,17,0.92); --tag-bg:rgba(139,92,246,.15); --tag-txt:#C4B5FD;
+  --neu-light:#2a2a3a; --neu-dark:#0a0a14; --neu-bg:#1a1a2a;
+  --clay-bg:#1e1e2e; --sfia-bar:rgba(139,92,246,0.2); --meta:#111111;
+}
+
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+body{font-family:"IBM Plex Sans","Helvetica Neue",sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;min-height:100vh;overflow-x:hidden;transition:background .3s,color .3s;}
+a{color:var(--accent);text-decoration:none;}a:hover{color:var(--accent-d);}
+:focus{outline:none;}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px;}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
+
+/* ── SKIP LINK ── */
+.skip{position:absolute;top:-100%;left:16px;background:var(--accent);color:var(--on-accent);padding:8px 16px;border-radius:0 0 8px 8px;font-weight:600;z-index:9999;transition:top .2s;}
+.skip:focus{top:0;}
+
+/* ── PROGRESS ── */
+#prog{position:fixed;top:60px;left:0;height:2px;background:var(--accent-grad);z-index:1001;width:0%;transition:width .1s;}
+
+/* ── GLASSMORPHISM NAV — per Morphism Spec §1 ── */
+nav#nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:var(--nav-glass);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,0.15);
+  box-shadow:0 4px 24px rgba(31,38,135,0.08);
+  transition:background .3s;
+}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.nav-logo{font-family:"Libre Baskerville",serif;font-size:.92rem;font-weight:700;color:var(--txt);letter-spacing:-.01em;white-space:nowrap;}
+.nav-logo em{color:var(--accent);font-style:normal;}
+.nav-links{display:flex;gap:2px;}
+.nav-links a{padding:6px 11px;border-radius:8px;font-size:.78rem;font-weight:500;color:var(--txt2);transition:background .2s,color .2s;}
+.nav-links a:hover,.nav-links a.active{background:var(--tag-bg);color:var(--accent);}
+
+/* ── THEME CONTROLS: 4 palette pills + binary Light/Dark toggle ── */
+.theme-bar{display:flex;align-items:center;gap:10px;}
+.theme-label{font-family:"Fira Code",monospace;font-size:.58rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);}
+
+/* Binary Light/Dark toggle — per SRS §7 requirement */
+.ld-toggle{position:relative;width:48px;height:26px;cursor:pointer;background:none;border:none;padding:0;}
+.ld-track{width:48px;height:26px;background:var(--surface);border:1.5px solid var(--border);border-radius:13px;position:relative;transition:.25s;}
+.ld-thumb{position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:var(--accent-grad);transition:transform .25s,background .25s;display:flex;align-items:center;justify-content:center;font-size:.65rem;}
+[data-theme="nightfall"] .ld-thumb,[data-theme="clarity"]:not([data-theme]) .ld-thumb{transform:translateX(22px);}
+.ld-icon{position:absolute;font-size:.65rem;top:50%;transform:translateY(-50%);pointer-events:none;}
+.ld-sun{left:6px;} .ld-moon{right:5px;}
+
+.palette-pills{display:flex;gap:3px;}
+.pp{width:20px;height:20px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:transform .2s,border-color .2s;padding:0;}
+.pp:hover{transform:scale(1.25);}
+.pp.active{border-color:var(--accent);transform:scale(1.2);}
+.pp-focus   {background:linear-gradient(135deg,#90CDF4,#2B6CB0);}
+.pp-clarity {background:linear-gradient(135deg,#C7E7D1,#3B9E6B);}
+.pp-warmth  {background:linear-gradient(135deg,#F2B8A4,#E07A5F);}
+.pp-nightfall{background:linear-gradient(135deg,#C4B5FD,#4C1D95);}
+
+/* Hamburger */
+.hbg{display:none;flex-direction:column;gap:4px;cursor:pointer;background:none;border:none;padding:6px;}
+.hbg span{display:block;width:22px;height:2px;background:var(--txt);border-radius:2px;transition:.25s;}
+.hbg.open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+.hbg.open span:nth-child(2){opacity:0;}
+.hbg.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+.mob-nav{display:none;position:fixed;top:60px;inset:auto 0 0 0;background:var(--nav-glass);backdrop-filter:blur(20px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:10px;border-top:1px solid var(--border);}
+.mob-nav.open{display:flex;}
+.mob-nav a{font-size:1.05rem;font-weight:600;color:var(--txt);padding:11px 32px;width:100%;text-align:center;border-bottom:1px solid var(--border);}
+.mob-nav a:last-child{border:none;}
+
+/* ── SKELETON LOADERS — per SRS §3 ── */
+.skel{background:linear-gradient(90deg,var(--surface) 25%,var(--surface2) 50%,var(--surface) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;}
+@keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+.skel-line{height:14px;border-radius:6px;margin-bottom:8px;}
+.skel-rect{border-radius:12px;}
+.skel-circle{border-radius:50%;}
+
+/* ── SECTIONS ── */
+section{padding:80px 24px;}
+.sec-inner{max-width:1200px;margin:0 auto;}
+.sec-eye{font-family:"Fira Code",monospace;font-size:.65rem;color:var(--accent);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.sec-eye::before{content:"//";}
+h2.sec-title{font-family:"Libre Baskerville",serif;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:700;letter-spacing:-.02em;color:var(--txt);margin-bottom:10px;}
+.sec-sub{font-size:.88rem;color:var(--txt3);max-width:520px;line-height:1.7;margin-bottom:40px;}
+hr.div{border:none;border-top:1px solid var(--border);}
+
+/* Scroll reveal */
+.rev{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease;}
+.rev.in{opacity:1;transform:none;}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
+
+/* ── HERO ── */
+#hero{min-height:100vh;padding:96px 24px 72px;display:flex;align-items:center;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 75% 15%,color-mix(in srgb,var(--accent-l) 22%,transparent),transparent),radial-gradient(ellipse 45% 40% at 15% 85%,color-mix(in srgb,var(--accent) 7%,transparent),transparent),var(--bg);z-index:0;transition:background .4s;}
+.hero-blob{position:absolute;right:-80px;top:5%;width:520px;height:520px;background:var(--accent-grad);opacity:.055;border-radius:40% 60% 55% 45%/45% 35% 65% 55%;z-index:0;animation:blob 14s ease-in-out infinite alternate;}
+@keyframes blob{0%{border-radius:40% 60% 55% 45%/45% 35% 65% 55%;}50%{border-radius:55% 45% 40% 60%/60% 55% 45% 40%;}100%{border-radius:45% 55% 60% 40%/40% 60% 35% 65%;}}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;position:relative;z-index:1;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:7px;font-family:"Fira Code",monospace;font-size:.66rem;font-weight:600;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;background:var(--tag-bg);border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);padding:5px 12px;border-radius:20px;margin-bottom:20px;animation:fadeUp .6s .1s both;}
+.hero-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);}
+.hero-name{font-family:"Libre Baskerville",serif;font-size:clamp(2.6rem,5.5vw,4.2rem);font-weight:700;line-height:1.06;letter-spacing:-.025em;color:var(--txt);margin-bottom:10px;animation:fadeUp .6s .2s both;}
+.hero-name .grad{background:var(--accent-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-title{font-size:.9rem;font-weight:500;color:var(--txt3);margin-bottom:18px;animation:fadeUp .6s .3s both;}
+.hero-summary{font-family:"Libre Baskerville",serif;font-size:1rem;line-height:1.85;color:var(--txt2);max-width:460px;margin-bottom:30px;animation:fadeUp .6s .4s both;}
+.hero-ctas{display:flex;gap:10px;flex-wrap:wrap;animation:fadeUp .6s .5s both;}
+.hero-socials{display:flex;gap:10px;margin-top:16px;animation:fadeUp .6s .6s both;}
+.social-link{display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:10px;border:1.5px solid var(--border);font-size:.75rem;font-weight:600;color:var(--txt2);transition:border-color .2s,background .2s,transform .2s;}
+.social-link:hover{border-color:var(--accent);background:var(--tag-bg);transform:translateY(-2px);color:var(--accent);}
+
+/* Buttons */
+.btn-p{display:inline-flex;align-items:center;gap:7px;padding:12px 22px;border-radius:12px;background:var(--accent-grad);color:var(--on-accent);font-family:"IBM Plex Sans",sans-serif;font-weight:600;font-size:.88rem;border:none;cursor:pointer;box-shadow:0 6px 20px color-mix(in srgb,var(--accent) 32%,transparent);transition:transform .25s,box-shadow .25s;text-decoration:none;}
+.btn-p:hover{transform:translateY(-3px);color:var(--on-accent);}
+.btn-o{display:inline-flex;align-items:center;gap:7px;padding:11px 20px;border-radius:12px;border:1.5px solid var(--border);background:transparent;color:var(--txt);font-family:"IBM Plex Sans",sans-serif;font-weight:500;font-size:.88rem;cursor:pointer;transition:border-color .2s,background .2s,transform .2s;text-decoration:none;}
+.btn-o:hover{border-color:var(--accent);background:var(--tag-bg);transform:translateY(-2px);color:var(--txt);}
+
+/* Hero card — GLASSMORPHISM per Morphism Spec §1 */
+.hero-card-wrap{animation:fadeUp .7s .3s both;}
+.hero-card{background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:24px;box-shadow:0 8px 32px rgba(31,38,135,0.14);position:relative;overflow:hidden;}
+.hc-eye{font-family:"Fira Code",monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:14px;display:flex;align-items:center;gap:6px;}
+.hc-eye::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);}
+.role-stack{display:flex;flex-direction:column;gap:8px;}
+.role-row{display:flex;align-items:center;gap:11px;padding:10px 13px;border-radius:12px;background:color-mix(in srgb,var(--bg) 70%,transparent);border:1px solid var(--border);transition:border-color .2s,transform .2s;}
+.role-row:hover{border-color:var(--accent);transform:translateX(4px);}
+.role-ico{width:32px;height:32px;border-radius:8px;background:var(--tag-bg);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;}
+.role-name{font-size:.8rem;font-weight:700;color:var(--txt);}
+.role-sub{font-size:.65rem;color:var(--txt3);}
+.hc-foot{margin-top:14px;padding-top:11px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.hc-ref{font-family:"Fira Code",monospace;font-size:.56rem;color:var(--txt3);}
+.hc-ver{font-family:"Fira Code",monospace;font-size:.58rem;color:var(--accent);background:var(--tag-bg);padding:2px 8px;border-radius:20px;}
+.scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:5px;z-index:1;opacity:0;animation:fadeUp .8s 1.2s forwards;}
+.scroll-cue span{font-family:"Fira Code",monospace;font-size:.58rem;text-transform:uppercase;letter-spacing:.12em;color:var(--txt3);}
+.scroll-line{width:1px;height:28px;background:var(--border);overflow:hidden;}
+.scroll-line::after{content:"";display:block;width:100%;height:100%;background:var(--accent);animation:drop 1.5s .8s ease infinite;}
+@keyframes drop{from{transform:translateY(-100%);}to{transform:translateY(200%);}}
+
+/* ── ABOUT ── */
+#about{background:var(--surface);}
+.about-grid{display:grid;grid-template-columns:200px 1fr;gap:52px;align-items:start;}
+.avatar-wrap{width:110px;height:110px;border-radius:20px;background:var(--accent-grad);display:flex;align-items:center;justify-content:center;font-family:"Libre Baskerville",serif;font-size:2.2rem;font-weight:700;color:var(--on-accent);margin-bottom:14px;box-shadow:var(--shadow-lg);}
+.profile-name{font-family:"Libre Baskerville",serif;font-size:1.05rem;font-weight:700;color:var(--txt);}
+.profile-handle{font-family:"Fira Code",monospace;font-size:.7rem;color:var(--txt3);margin-bottom:14px;}
+.stat-row{display:flex;gap:8px;flex-wrap:wrap;}
+.stat{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:9px 13px;text-align:center;}
+.stat-n{font-family:"Libre Baskerville",serif;font-size:1.2rem;font-weight:700;color:var(--accent);display:block;}
+.stat-l{font-size:.6rem;color:var(--txt3);text-transform:uppercase;letter-spacing:.06em;}
+.about-q{border-left:3px solid var(--exceptional);background:color-mix(in srgb,var(--exceptional) 7%,transparent);padding:11px 18px;border-radius:0 10px 10px 0;margin:14px 0;font-family:"Libre Baskerville",serif;font-style:italic;font-size:.88rem;color:var(--txt2);}
+.about-p{font-family:"Libre Baskerville",serif;font-size:.9rem;line-height:1.85;color:var(--txt2);margin-bottom:11px;}
+
+/* ── SKILLS — SFIA v8 per PWA-DSD-001 §3.1 ── */
+#skills{background:var(--bg);}
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.skill-area{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:var(--shadow);}
+.skill-area-head{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.skill-area-icon{font-size:1.2rem;}
+.skill-area-name{font-size:.88rem;font-weight:700;color:var(--txt);}
+.sfia-rows{display:flex;flex-direction:column;gap:11px;}
+.sfia-row{display:flex;flex-direction:column;gap:4px;}
+.sfia-meta{display:flex;justify-content:space-between;align-items:center;gap:8px;}
+.sfia-name{font-size:.8rem;font-weight:600;color:var(--txt2);}
+.sfia-badge-wrap{display:flex;align-items:center;gap:6px;}
+.sfia-level{font-family:"Fira Code",monospace;font-size:.6rem;font-weight:600;color:var(--accent);background:var(--tag-bg);border:1px solid color-mix(in srgb,var(--accent) 18%,transparent);padding:2px 7px;border-radius:20px;white-space:nowrap;}
+.sfia-evidence{font-family:"Fira Code",monospace;font-size:.58rem;color:var(--txt3);text-decoration:underline;cursor:pointer;transition:color .2s;}
+.sfia-evidence:hover{color:var(--accent);}
+/* SFIA dot-bar — 7 levels, per SFIA framework */
+.sfia-bar{display:flex;gap:3px;margin-top:2px;}
+.sfia-dot{width:14px;height:6px;border-radius:3px;background:var(--sfia-bar);transition:background .3s;}
+.sfia-dot.filled{background:var(--accent-grad);}
+
+/* ── EXPERIENCE TIMELINE — per SRS §7 ── */
+#experience{background:var(--surface);}
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),color-mix(in srgb,var(--accent) 20%,transparent));}
+.tl-item{position:relative;margin-bottom:32px;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--accent-grad);border:2px solid var(--bg);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent);}
+.tl-card{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:20px;box-shadow:var(--shadow);transition:border-color .2s,transform .2s;}
+.tl-card:hover{border-color:var(--accent);transform:translateX(4px);}
+.tl-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:6px;}
+.tl-role{font-size:.95rem;font-weight:700;color:var(--txt);}
+.tl-period{font-family:"Fira Code",monospace;font-size:.68rem;color:var(--accent);background:var(--tag-bg);padding:3px 9px;border-radius:20px;white-space:nowrap;}
+.tl-company{font-size:.82rem;color:var(--txt3);margin-bottom:12px;}
+.tl-bullets{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.tl-bullets li{font-size:.82rem;color:var(--txt2);display:flex;gap:8px;line-height:1.5;}
+.tl-bullets li::before{content:"→";color:var(--accent);font-size:.75rem;flex-shrink:0;margin-top:2px;}
+
+/* ── PROJECTS — CLAYMORPHISM per Morphism Spec §3 + STAR ── */
+#projects{background:var(--bg);}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+.proj-card{
+  background:var(--clay-bg);
+  border-radius:24px;
+  box-shadow:0 6px 16px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.08);
+  overflow:hidden;border:1px solid var(--border);
+  transition:transform .25s,box-shadow .25s;
+  display:flex;flex-direction:column;
+}
+.proj-card:hover{transform:translateY(-5px);box-shadow:0 14px 36px rgba(0,0,0,.16);}
+.proj-banner{height:100px;background:var(--accent-grad);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.proj-banner::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0,rgba(255,255,255,.05) 1px,transparent 0,transparent 50%);background-size:14px 14px;}
+.proj-icon{font-size:2.1rem;z-index:1;}
+.proj-body{padding:18px;flex:1;display:flex;flex-direction:column;}
+.proj-badge{font-family:"Fira Code",monospace;font-size:.58rem;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--accent);background:var(--tag-bg);padding:2px 9px;border-radius:20px;display:inline-block;margin-bottom:8px;}
+.proj-title{font-size:.95rem;font-weight:700;color:var(--txt);margin-bottom:6px;}
+.proj-desc{font-size:.78rem;color:var(--txt3);line-height:1.65;flex:1;margin-bottom:12px;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px;}
+.tag{font-family:"Fira Code",monospace;font-size:.6rem;color:var(--tag-txt);background:var(--tag-bg);border:1px solid color-mix(in srgb,var(--accent) 15%,transparent);padding:2px 8px;border-radius:20px;}
+
+/* STAR accordion — per SRS §7 */
+.star-toggle{display:flex;align-items:center;gap:6px;font-family:"Fira Code",monospace;font-size:.65rem;font-weight:600;color:var(--accent);cursor:pointer;padding:6px 0;background:none;border:none;transition:color .2s;}
+.star-toggle:hover{color:var(--accent-d);}
+.star-arrow{transition:transform .25s;}
+.star-arrow.open{transform:rotate(90deg);}
+.star-body{display:none;margin-top:10px;padding:14px;background:var(--surface);border-radius:12px;border:1px solid var(--border);}
+.star-body.open{display:block;}
+.star-row{margin-bottom:8px;}
+.star-label{font-family:"Fira Code",monospace;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:2px;}
+.star-text{font-size:.78rem;color:var(--txt2);line-height:1.6;}
+.proj-foot{display:flex;align-items:center;justify-content:flex-end;padding-top:8px;border-top:1px solid var(--border);}
+.proj-link{font-family:"Fira Code",monospace;font-size:.65rem;font-weight:600;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);padding:5px 11px;border-radius:8px;background:var(--tag-bg);transition:background .2s;}
+.proj-link:hover{background:color-mix(in srgb,var(--accent) 16%,transparent);}
+
+/* ── CERTIFICATIONS — per PWA-DSD-001 §3.4 ── */
+#certs{background:var(--surface);}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;}
+.cert-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:var(--shadow);transition:transform .25s,border-color .25s;}
+.cert-card:hover{transform:translateY(-4px);border-color:var(--accent);}
+.cert-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px;}
+.cert-title{font-size:.88rem;font-weight:700;color:var(--txt);line-height:1.3;}
+.cert-icon{font-size:1.4rem;flex-shrink:0;}
+.cert-issuer{font-size:.75rem;color:var(--txt3);margin-bottom:10px;}
+.cert-meta{display:flex;gap:8px;flex-wrap:wrap;}
+.cert-date{font-family:"Fira Code",monospace;font-size:.62rem;color:var(--accent);background:var(--tag-bg);padding:2px 8px;border-radius:20px;}
+.cert-expiry{font-family:"Fira Code",monospace;font-size:.62rem;color:var(--txt3);background:var(--surface);padding:2px 8px;border-radius:20px;border:1px solid var(--border);}
+.cert-hash{font-family:"Fira Code",monospace;font-size:.55rem;color:var(--txt3);margin-top:8px;word-break:break-all;opacity:.7;}
+.cert-evidence{font-family:"Fira Code",monospace;font-size:.62rem;color:var(--accent);text-decoration:underline;cursor:pointer;margin-top:6px;display:inline-block;}
+
+/* ── BLOG — per SRS §7 / PWA-DSD-001 §3.2 ── */
+#blogs{background:var(--bg);}
+.blog-series{margin-bottom:36px;}
+.series-title{font-family:"IBM Plex Sans",sans-serif;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.series-title::after{content:"";flex:1;height:1px;background:var(--border);}
+.posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;}
+.post-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;box-shadow:var(--shadow);transition:transform .25s,border-color .25s;}
+.post-card:hover{transform:translateY(-3px);border-color:var(--accent);}
+.post-date{font-family:"Fira Code",monospace;font-size:.6rem;color:var(--txt3);margin-bottom:7px;}
+.post-title{font-size:.9rem;font-weight:700;color:var(--txt);margin-bottom:7px;line-height:1.3;}
+.post-summary{font-size:.78rem;color:var(--txt3);line-height:1.65;margin-bottom:11px;}
+.post-tags{display:flex;flex-wrap:wrap;gap:4px;}
+
+/* ── CONTACT ── */
+#contact{background:var(--surface);}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:52px;align-items:start;}
+.contact-info h3{font-family:"Libre Baskerville",serif;font-size:1.25rem;font-weight:700;color:var(--txt);margin-bottom:10px;}
+.contact-info p{font-size:.85rem;color:var(--txt3);line-height:1.7;margin-bottom:18px;}
+.contact-items{display:flex;flex-direction:column;gap:9px;}
+.ci{display:flex;align-items:center;gap:11px;padding:12px 15px;border-radius:12px;background:var(--bg);border:1px solid var(--border);transition:border-color .2s,transform .2s;}
+.ci:hover{border-color:var(--accent);transform:translateX(4px);}
+.ci-ico{width:34px;height:34px;border-radius:9px;background:var(--tag-bg);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;}
+.ci-lbl{font-size:.62rem;color:var(--txt3);text-transform:uppercase;letter-spacing:.06em;}
+.ci-val{font-family:"Fira Code",monospace;font-size:.75rem;color:var(--txt);font-weight:500;}
+.contact-form-wrap{background:var(--bg);border:1px solid var(--border);border-radius:18px;padding:24px;box-shadow:var(--shadow);}
+.f-row{margin-bottom:13px;}
+.f-row label{display:block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--txt2);margin-bottom:5px;}
+.f-row input,.f-row textarea,.f-row select{width:100%;padding:10px 13px;border:1px solid var(--border);border-radius:10px;background:var(--surface);color:var(--txt);font-family:"IBM Plex Sans",sans-serif;font-size:.85rem;outline:none;transition:border-color .2s,box-shadow .2s;}
+.f-row input:focus,.f-row textarea:focus,.f-row select:focus{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 14%,transparent);}
+.f-row textarea{resize:vertical;min-height:90px;}
+.f-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
+#f-feedback{display:none;padding:8px 14px;border-radius:0 8px 8px 0;font-size:.78rem;margin-bottom:11px;}
+
+/* ── FOOTER ── */
+footer{background:var(--surface);border-top:1px solid var(--border);padding:26px 24px;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:13px;}
+.footer-brand{font-family:"Libre Baskerville",serif;font-size:.82rem;font-weight:700;color:var(--txt);}
+.footer-brand em{color:var(--accent);font-style:normal;}
+.footer-meta{font-family:"Fira Code",monospace;font-size:.58rem;color:var(--txt3);line-height:1.9;}
+.footer-links{display:flex;gap:13px;}
+.footer-links a{font-size:.75rem;color:var(--txt3);transition:color .2s;}
+.footer-links a:hover{color:var(--accent);}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;}.hero-card-wrap{display:none;}
+  .about-grid{grid-template-columns:1fr;}
+  .skills-grid{grid-template-columns:1fr;}
+  .proj-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+  .nav-links{display:none;}.hbg{display:flex;}
+  .theme-label{display:none;}
+  section{padding:60px 18px;}
+  .f-grid-2{grid-template-columns:1fr;}
+  .certs-grid{grid-template-columns:1fr;}
+}
+@media(max-width:480px){
+  .hero-name{font-size:2.4rem;}
+  .pp{width:17px;height:17px;}
+}
+@media print{
+  nav,#prog,.scroll-cue,.hero-blob,.hero-bg,.theme-bar,.hbg,
+  .hero-ctas,.hero-socials,.star-toggle{display:none!important;}
+  body{font-size:11pt;background:#fff;color:#000;}
+  section{padding:16pt 0;page-break-inside:avoid;}
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme]):not(.theme-set){
+    --bg:#111;--surface:#1C1C1C;--surface2:#161621;
+    --txt:#F0F0F0;--txt2:#CCC;--txt3:#888;--border:#2A2A2A;
+  }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip">Skip to main content</a>
+<div id="prog" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+<!-- GLASSMORPHISM NAV -->
+<nav id="nav" role="navigation" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo" aria-label="Home">C<em>.</em>Q<em>.</em>H</a>
+    <div class="nav-links" id="nav-links" role="menubar">
+      <a href="#about" role="menuitem">About</a>
+      <a href="#skills" role="menuitem">Skills</a>
+      <a href="#experience" role="menuitem">Experience</a>
+      <a href="#projects" role="menuitem">Projects</a>
+      <a href="#certs" role="menuitem">Certs</a>
+      <a href="#blogs" role="menuitem">Blog</a>
+      <a href="#contact" role="menuitem">Contact</a>
+    </div>
+    <div class="theme-bar">
+      <span class="theme-label" aria-hidden="true">Theme</span>
+
+      <!-- BINARY LIGHT / DARK TOGGLE — SRS requirement -->
+      <button type="button" class="ld-toggle" id="ld-btn" aria-label="Toggle light/dark mode" title="Toggle dark mode">
+        <div class="ld-track" id="ld-track">
+          <div class="ld-thumb" id="ld-thumb">☀️</div>
+          <span class="ld-icon ld-sun" aria-hidden="true">☀</span>
+          <span class="ld-icon ld-moon" aria-hidden="true">🌙</span>
+        </div>
+      </button>
+
+      <!-- 4-PALETTE PILLS -->
+      <div class="palette-pills" role="group" aria-label="Select color palette">
+        <button type="button" class="pp pp-focus active" id="pp-focus"    onclick="setPalette('focus')"    aria-label="Focus palette" title="Focus"></button>
+        <button type="button" class="pp pp-clarity"      id="pp-clarity"  onclick="setPalette('clarity')"  aria-label="Clarity palette" title="Clarity"></button>
+        <button type="button" class="pp pp-warmth"       id="pp-warmth"   onclick="setPalette('warmth')"   aria-label="Warmth palette" title="Warmth"></button>
+        <button type="button" class="pp pp-nightfall"    id="pp-nightfall" onclick="setPalette('nightfall')"aria-label="Nightfall palette" title="Nightfall"></button>
+      </div>
+    </div>
+    <button type="button" class="hbg" id="hbg" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mob-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mob-nav" id="mob-nav" role="dialog" aria-label="Mobile navigation">
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#skills" onclick="closeMob()">Skills</a>
+  <a href="#experience" onclick="closeMob()">Experience</a>
+  <a href="#projects" onclick="closeMob()">Projects</a>
+  <a href="#certs" onclick="closeMob()">Certs</a>
+  <a href="#blogs" onclick="closeMob()">Blog</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+</div>
+
+<main id="main" role="main">
+
+<!-- HERO -->
+<section id="hero" aria-label="Introduction">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-blob" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Available for Engagements</div>
+      <h1 class="hero-name" id="hero-name">— <span class="grad" id="hero-grad">Loading</span></h1>
+      <p class="hero-title" id="hero-title"></p>
+      <p class="hero-summary" id="hero-summary"></p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-p">View Projects ↓</a>
+        <a href="#contact" class="btn-o">Get in Touch</a>
+        <a href="#" id="hero-resume" class="btn-o" aria-label="Download resume">Resume ↓</a>
+      </div>
+      <div class="hero-socials" id="hero-socials"></div>
+    </div>
+    <div class="hero-card-wrap" aria-hidden="true">
+      <div class="hero-card">
+        <div class="hc-eye">Current Roles</div>
+        <div class="role-stack">
+          <div class="role-row"><div class="role-ico">⚙️</div><div><div class="role-name">Master Orchestrator</div><div class="role-sub">Multi-agent systems & workflow</div></div></div>
+          <div class="role-row"><div class="role-ico">📚</div><div><div class="role-name">Virtual Librarian</div><div class="role-sub">NotebookLM · Knowledge curation</div></div></div>
+          <div class="role-row"><div class="role-ico">🏛️</div><div><div class="role-name">IP Assets Professional</div><div class="role-sub">Governance · Custodianship</div></div></div>
+          <div class="role-row"><div class="role-ico">🗄️</div><div><div class="role-name">Infra & Data Architect</div><div class="role-sub">Pipelines · Governance models</div></div></div>
+          <div class="role-row"><div class="role-ico">🔭</div><div><div class="role-name">Solution Consultant</div><div class="role-sub">Strategic systems design</div></div></div>
+        </div>
+        <div class="hc-foot">
+          <span class="hc-ref">DESIGN-CANON-2026-001</span>
+          <span class="hc-ver">v2.0.0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<hr class="div"/>
+
+<!-- ABOUT -->
+<section id="about" aria-labelledby="about-h">
+  <div class="sec-inner">
+    <div class="about-grid">
+      <div class="rev">
+        <div class="avatar-wrap" id="avatar" aria-hidden="true">CQH</div>
+        <div class="profile-name" id="p-name"></div>
+        <div class="profile-handle">@cuongqhuynh</div>
+        <div class="stat-row">
+          <div class="stat"><span class="stat-n">SFIA</span><span class="stat-l">v8 Skills</span></div>
+          <div class="stat"><span class="stat-n">v2</span><span class="stat-l">Portfolio</span></div>
+          <div class="stat"><span class="stat-n">∞</span><span class="stat-l">Systems</span></div>
+        </div>
+      </div>
+      <div class="rev d2">
+        <div class="sec-eye">About</div>
+        <h2 class="sec-title" id="about-h">Knowledge Architect,<br>Systems Thinker</h2>
+        <div class="about-q">"Clarity is not emptiness. Softness is not weakness. Every surface is a statement."</div>
+        <p class="about-p" id="about-text"></p>
+        <a href="#" id="resume-link" class="btn-o" style="margin-top:12px;display:inline-flex">Download Resume ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div"/>
+
+<!-- SKILLS — SFIA v8 -->
+<section id="skills" aria-labelledby="skills-h">
+  <div class="sec-inner">
+    <div class="sec-eye rev">Skills</div>
+    <h2 class="sec-title rev" id="skills-h">Technical Proficiencies</h2>
+    <p class="sec-sub rev">SFIA v8 levels (L1 Awareness → L7 Distinguished). Each skill links to evidence.</p>
+    <div class="skills-grid" id="skills-grid">
+      <!-- skeleton -->
+      <div class="skill-area"><div class="skel skel-rect" style="height:180px"></div></div>
+      <div class="skill-area"><div class="skel skel-rect" style="height:180px"></div></div>
+      <div class="skill-area"><div class="skel skel-rect" style="height:180px"></div></div>
+      <div class="skill-area"><div class="skel skel-rect" style="height:180px"></div></div>
+    </div>
+    <!-- SFIA Legend -->
+    <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+      <span style="font-family:'Fira Code',monospace;font-size:.58rem;color:var(--txt3);text-transform:uppercase;letter-spacing:.08em">SFIA v8:</span>
+      <span class="sfia-level">L1 Awareness</span><span class="sfia-level">L2 Foundation</span>
+      <span class="sfia-level">L3 Novice</span><span class="sfia-level">L4 Practitioner</span>
+      <span class="sfia-level">L5 Expert</span><span class="sfia-level">L6 Senior Expert</span>
+      <span class="sfia-level">L7 Distinguished</span>
+    </div>
+  </div>
+</section>
+
+<hr class="div"/>
+
+<!-- EXPERIENCE TIMELINE -->
+<section id="experience" aria-labelledby="exp-h">
+  <div class="sec-inner">
+    <div class="sec-eye rev">Experience</div>
+    <h2 class="sec-title rev" id="exp-h">Professional Timeline</h2>
+    <p class="sec-sub rev">Career history with key contributions and outcomes.</p>
+    <div class="timeline" id="exp-timeline">
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-card"><div class="skel skel-line" style="width:60%"></div><div class="skel skel-line" style="width:40%"></div><div class="skel skel-line" style="width:80%"></div></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-card"><div class="skel skel-line" style="width:55%"></div><div class="skel skel-line" style="width:45%"></div><div class="skel skel-line" style="width:75%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="div"/>
+
+<!-- PROJECTS — CLAYMORPHISM + STAR -->
+<section id="projects" aria-labelledby="proj-h">
+  <div class="sec-inner">
+    <div class="sec-eye rev">Projects</div>
+    <h2 class="sec-title rev" id="proj-h">Selected Work</h2>
+    <p class="sec-sub rev">Artifacts built to Canon v2.0.0 standards. Click STAR for full breakdown.</p>
+    <div class="proj-grid" id="proj-grid">
+      <div class="proj-card"><div class="skel skel-rect" style="height:100px"></div><div class="proj-body"><div class="skel skel-line" style="width:40%"></div><div class="skel skel-line" style="width:80%"></div><div class="skel skel-line" style="width:90%"></div></div></div>
+      <div class="proj-card"><div class="skel skel-rect" style="height:100px"></div><div class="proj-body"><div class="skel skel-line" style="width:40%"></div><div class="skel skel-line" style="width:80%"></div><div class="skel skel-line" style="width:90%"></div></div></div>
+      <div class="proj-card"><div class="skel skel-rect" style="height:100px"></div><div class="proj-body"><div class="skel skel-line" style="width:40%"></div><div class="skel skel-line" style="width:80%"></div></div></div>
+      <div class="proj-card"><div class="skel skel-rect" style="height:100px"></div><div class="proj-body"><div class="skel skel-line" style="width:40%"></div><div class="skel skel-line" style="width:80%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="div"/>
+
+<!-- CERTIFICATIONS -->
+<section id="certs" aria-labelledby="certs-h">
+  <div class="sec-inner">
+    <div class="sec-eye rev">Certifications</div>
+    <h2 class="sec-title rev" id="certs-h">Credentials & Awards</h2>
+    <p class="sec-sub rev">Verified with issuer, validity dates, and evidence links where applicable.</p>
+    <div class="certs-grid" id="certs-grid">
+      <div class="cert-card"><div class="skel skel-line" style="width:70%"></div><div class="skel skel-line" style="width:50%"></div></div>
+      <div class="cert-card"><div class="skel skel-line" style="width:70%"></div><div class="skel skel-line" style="width:50%"></div></div>
+      <div class="cert-card"><div class="skel skel-line" style="width:70%"></div><div class="skel skel-line" style="width:50%"></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="div"/>
+
+<!-- BLOG -->
+<section id="blogs" aria-labelledby="blog-h">
+  <div class="sec-inner">
+    <div class="sec-eye rev">Publications</div>
+    <h2 class="sec-title rev" id="blog-h">Blog & Writing</h2>
+    <p class="sec-sub rev">Series-organised writing on knowledge governance, AI orchestration, and design systems.</p>
+    <div id="blog-content">
+      <div class="skel skel-line" style="width:30%;margin-bottom:16px"></div>
+      <div class="posts-grid">
+        <div class="post-card"><div class="skel skel-line" style="width:60%"></div><div class="skel skel-line" style="width:90%"></div><div class="skel skel-line" style="width:80%"></div></div>
+        <div class="post-card"><div class="skel skel-line" style="width:60%"></div><div class="skel skel-line" style="width:90%"></div><div class="skel skel-line" style="width:80%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div"/>
+
+<!-- CONTACT -->
+<section id="contact" aria-labelledby="contact-h">
+  <div class="sec-inner">
+    <div class="sec-eye rev">Contact</div>
+    <h2 class="sec-title rev" id="contact-h">Start a Conversation</h2>
+    <p class="sec-sub rev">Available for consulting engagements, architecture reviews, and collaborative research.</p>
+    <div class="contact-grid">
+      <div class="rev">
+        <div class="contact-info">
+          <h3>Let's Build Something Considered</h3>
+          <p>Whether you need a knowledge governance framework, an AI orchestration strategy, or a design system — I'd like to hear about it.</p>
+        </div>
+        <div class="contact-items" id="contact-items">
+          <div class="ci"><div class="ci-ico">✉️</div><div><div class="ci-lbl">Email</div><div class="ci-val" id="c-email">—</div></div></div>
+          <div class="ci"><div class="ci-ico">📍</div><div><div class="ci-lbl">Location</div><div class="ci-val" id="c-loc">—</div></div></div>
+          <div class="ci"><div class="ci-ico">💼</div><div><div class="ci-lbl">LinkedIn</div><div class="ci-val"><a href="#" id="c-li" target="_blank" rel="noopener">LinkedIn ↗</a></div></div></div>
+          <div class="ci"><div class="ci-ico"></div><div><div class="ci-lbl">GitHub</div><div class="ci-val"><a href="#" id="c-gh" target="_blank" rel="noopener">GitHub ↗</a></div></div></div>
+        </div>
+      </div>
+      <div class="rev d2">
+        <div class="contact-form-wrap" role="form" aria-label="Contact form">
+          <div class="f-grid-2">
+            <div class="f-row"><label for="f-name">Name <span style="color:var(--exceptional)">*</span></label><input type="text" id="f-name" autocomplete="given-name" required aria-required="true" placeholder="Your name"/></div>
+            <div class="f-row"><label for="f-email">Email <span style="color:var(--exceptional)">*</span></label><input type="email" id="f-email" autocomplete="email" required aria-required="true" placeholder="you@domain.com"/></div>
+          </div>
+          <div class="f-row"><label for="f-subject">Engagement Type</label>
+            <select id="f-subject">
+              <option value="">Select...</option>
+              <option>AI / LLM Orchestration</option><option>Data Architecture</option>
+              <option>IP & Knowledge Governance</option><option>Design System Consulting</option>
+              <option>Research Collaboration</option><option>Other</option>
+            </select>
+          </div>
+          <div class="f-row"><label for="f-msg">Message <span style="color:var(--exceptional)">*</span></label><textarea id="f-msg" required aria-required="true" placeholder="Describe your project…"></textarea></div>
+          <div id="f-feedback" role="alert" aria-live="polite"></div>
+          <button type="button" class="btn-p" onclick="handleSend(this)" style="width:100%;justify-content:center" aria-label="Submit contact form">Send Message →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">C<em>.</em>Q<em>.</em>H — <span id="f-name-txt">Cường Q. Huỳnh</span></div>
+      <div class="footer-meta" id="f-meta">DESIGN-CANON-2026-001 · v2.0.0 · Assisted by Claude-Sonnet-4.6</div>
+    </div>
+    <div class="footer-links">
+      <a href="#about">About</a><a href="#skills">Skills</a>
+      <a href="#projects">Projects</a><a href="#blogs">Blog</a><a href="#contact">Contact</a>
+    </div>
+    <div class="footer-meta">© <span id="f-year">2026</span> Cường Q. Huỳnh · Personal IP</div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   PORTFOLIO.JS — Dynamic renderer + Theme engine
+   Canon v2.0.0 · Data-driven SPA
+   ============================================================ */
+
+// ── EMBEDDED DATA (portfolio.json inline for single-file portability) ──
+const PORTFOLIO_DATA = {"site":{"title":"Cường Q. Huỳnh — Portfolio","version":"2.0.0","canon":"DESIGN-CANON-2026-001","contact":{"email":"cuong@cuongqhuynh.com","location":"Vietnam · Remote Available","socials":{"github":"https://github.com/cuongqhuynh","linkedin":"https://linkedin.com/in/cuongqhuynh","website":"https://cuongqhuynh.com"}}},"profile":{"name":"Cường Q. Huỳnh","title":"Master Orchestrator · IP Assets Professional · Data Architect","summary":"Building intelligent systems at the intersection of knowledge governance, infrastructure architecture, and multi-agent AI orchestration.","about":"I operate at the convergence of information science, technical architecture, and AI orchestration. My work spans custodianship systems for intellectual property, multi-agent workflows, and governance models that ensure traceability, integrity, and long-term institutional memory. Every artifact carries a clear chain of custody — from concept to Canon.","avatar":"assets/avatar.png","resume":"assets/resume.pdf"},"skills":[{"area":"AI & Orchestration","icon":"🤖","skills":[{"name":"Multi-Agent Systems","sfia":6,"sfia_label":"Senior Expert","evidence":"#projects"},{"name":"LLM Pipeline Design","sfia":6,"sfia_label":"Senior Expert","evidence":"#projects"},{"name":"Workflow Automation","sfia":5,"sfia_label":"Expert","evidence":"#experience"},{"name":"Prompt Engineering","sfia":5,"sfia_label":"Expert","evidence":"#projects"}]},{"area":"Data & Infrastructure","icon":"🗄️","skills":[{"name":"Data Architecture","sfia":6,"sfia_label":"Senior Expert","evidence":"#experience"},{"name":"Governance Frameworks","sfia":6,"sfia_label":"Senior Expert","evidence":"#certs"},{"name":"Pipeline Engineering","sfia":5,"sfia_label":"Expert","evidence":"#projects"},{"name":"Python / Scripting","sfia":4,"sfia_label":"Practitioner","evidence":"#projects"}]},{"area":"Knowledge & IP","icon":"📚","skills":[{"name":"IP Assets Management","sfia":7,"sfia_label":"Distinguished","evidence":"#certs"},{"name":"Virtual Librarianship","sfia":6,"sfia_label":"Senior Expert","evidence":"#experience"},{"name":"Document Provenance","sfia":6,"sfia_label":"Senior Expert","evidence":"#projects"},{"name":"Custodianship Systems","sfia":7,"sfia_label":"Distinguished","evidence":"#projects"}]},{"area":"Design & Systems","icon":"🎨","skills":[{"name":"Design Systems","sfia":6,"sfia_label":"Senior Expert","evidence":"#projects"},{"name":"CSS / Tokens","sfia":5,"sfia_label":"Expert","evidence":"#projects"},{"name":"Solution Consulting","sfia":6,"sfia_label":"Senior Expert","evidence":"#experience"},{"name":"System Architecture","sfia":6,"sfia_label":"Senior Expert","evidence":"#experience"}]}],"experience":[{"company":"Independent Practice","role":"Master Orchestrator & IP Assets Professional","start":"2024","end":"Present","location":"Vietnam · Remote","bullets":["Designed and deployed multi-agent AI orchestration systems coordinating Claude, GPT, Perplexity, and Gemini","Authored DESIGN-CANON-2026-001: a ratified personal design system with cryptographic provenance","Built document custody framework using SHA-256 + UUIDv7 signing protocol","Established Virtual Library architecture on NotebookLM for institutional knowledge curation"]},{"company":"Solution Consulting","role":"Infra & Data Architect","start":"2022","end":"2024","location":"Remote","bullets":["Designed scalable data governance frameworks for enterprise knowledge assets","Architected end-to-end data pipelines with full traceability and audit trails","Led technical architecture reviews and strategic roadmap development","Implemented ISO/IEC 27001-aligned information security governance"]}],"projects":[{"title":"Master Canon Design Specification","summary":"Personal universal design system synthesized from five source specifications. Four canonical themes, five morphism styles, full CSS variable system.","tags":["Design System","CSS","YAML","Governance"],"icon":"📐","badge":"Design System","star":{"situation":"Five scattered design specs existed independently with no unifying Canon.","task":"Synthesise into a single authoritative design language covering all media.","action":"Analysed conflicts, resolved tensions, authored 10-part specification with cryptographic signing protocol.","result":"Ratified DESIGN-CANON-2026-001 v1.0.0 — governing all visual output."},"link":"#contact"},{"title":"Multi-Agent Knowledge Pipeline","summary":"Structured multi-agent workflow coordinating Claude, GPT, Perplexity, and Gemini for research synthesis with full traceability chains.","tags":["LLM","Agents","Python","Orchestration"],"icon":"🤖","badge":"AI Orchestration","star":{"situation":"Research synthesis required coordinating multiple AI systems without losing attribution.","task":"Build an orchestration pipeline with full traceability and conflict resolution.","action":"Designed agent role specs, implemented cross-model routing, built attribution chain logging.","result":"Fully attributed multi-source research outputs with zero untraced claims."},"link":"#contact"},{"title":"Document Custody & Signing System","summary":"Provenance framework using SHA-256 hash-based signing, UUIDv7 timestamping, and multi-party signature chains for institutional documents.","tags":["SHA-256","UUIDv7","Governance","IP"],"icon":"🏛️","badge":"IP Governance","star":{"situation":"Institutional documents lacked verifiable provenance and non-repudiation.","task":"Design a signing protocol that is cryptographically sound and operationally simple.","action":"Implemented composite signature: SHA-256(doc_hash|uuid_v7|timestamp|context).","result":"All project artifacts now carry verifiable, tamper-evident provenance records."},"link":"#contact"},{"title":"NotebookLM Knowledge Architecture","summary":"Curated knowledge graph and research memory system enabling structured retrieval, cross-domain synthesis, and AI-assisted literature review.","tags":["NotebookLM","RAG","Curation","Knowledge"],"icon":"📚","badge":"Virtual Library","star":{"situation":"Research materials were fragmented across tools with no unified retrieval layer.","task":"Build a persistent, curated knowledge architecture with AI-assisted synthesis.","action":"Structured source taxonomy, built cross-domain link graph, implemented RAG retrieval layer.","result":"Reduced research retrieval time by ~70%; enabled cross-domain synthesis previously requiring hours."},"link":"#contact"}],"certs":[{"title":"Master Canon Design Specification — Ratified","issuer":"Self-issued · Cường Q. Huỳnh","date":"2026-03-23","expiry":"Evergreen","evidence":"#projects","hash":"118320ff480de68e1d99791661a72946b9f6def39f5c67a87323060a6d8f7825"},{"title":"ISO/IEC 27001 Principles — Information Security Governance","issuer":"Professional Development","date":"2024","expiry":"2027","evidence":"#contact"},{"title":"SFIA v8 Framework Practitioner","issuer":"SFIA Foundation","date":"2023","expiry":"2026","evidence":"#contact"}],"blogs":{"series":[{"title":"Knowledge Governance","posts":[{"title":"Why Every Document Needs a Signature Chain","summary":"Exploring cryptographic provenance for institutional knowledge assets and why SHA-256 + UUIDv7 is the right foundation.","date":"2026-03-01","tags":["IP","Governance","Cryptography"]},{"title":"The 60/30/10 Color Law: Why It Works","summary":"A deep dive into why the 60/30/10 color distribution law produces consistently professional results across all media.","date":"2026-02-15","tags":["Design","Canon","Color Theory"]}]},{"title":"AI Orchestration","posts":[{"title":"Multi-Agent Systems: Roles, Routing, and Traceability","summary":"How to design agent role specifications that eliminate attribution loss in multi-model research pipelines.","date":"2026-01-20","tags":["AI","Agents","Architecture"]}]}]}};
+
+/* ── SFIA level labels ── */
+const SFIA_LABELS = ['','L1 Awareness','L2 Foundation','L3 Novice','L4 Practitioner','L5 Expert','L6 Senior Expert','L7 Distinguished'];
+
+/* ── DYNAMIC RENDERER ── */
+function renderPortfolio(d) {
+  const {site, profile, skills, experience, projects, certs, blogs} = d;
+
+  // Hero
+  document.getElementById('hero-name').innerHTML = `${profile.name.split(' ').slice(0,-1).join(' ')} <span class="grad" id="hero-grad">${profile.name.split(' ').slice(-1)}</span>`;
+  document.getElementById('hero-title').textContent = profile.title;
+  document.getElementById('hero-summary').textContent = profile.summary;
+  document.getElementById('hero-resume').href = profile.resume;
+  document.title = site.title;
+  document.getElementById('f-year').textContent = new Date().getFullYear();
+  document.getElementById('f-meta').textContent = `${site.canon} · v${site.version} · Assisted by Claude-Sonnet-4.6`;
+
+  // Social links
+  const socials = site.contact.socials;
+  const icons = {github:'', linkedin:'💼', website:'🌐'};
+  document.getElementById('hero-socials').innerHTML = Object.entries(socials).map(([k,v])=>
+    `<a href="${v}" class="social-link" target="_blank" rel="noopener" aria-label="${k}">${icons[k]||'🔗'} ${k.charAt(0).toUpperCase()+k.slice(1)}</a>`
+  ).join('');
+
+  // About
+  document.getElementById('p-name').textContent = profile.name;
+  document.getElementById('about-text').textContent = profile.about;
+  document.getElementById('resume-link').href = profile.resume;
+
+  // Contact
+  document.getElementById('c-email').textContent = site.contact.email;
+  document.getElementById('c-loc').textContent = site.contact.location;
+  document.getElementById('c-li').href = socials.linkedin || '#';
+  document.getElementById('c-gh').href = socials.github || '#';
+
+  // Skills — SFIA v8 dots
+  document.getElementById('skills-grid').innerHTML = skills.map(area => `
+    <div class="skill-area rev">
+      <div class="skill-area-head">
+        <span class="skill-area-icon">${area.icon}</span>
+        <span class="skill-area-name">${area.area}</span>
+      </div>
+      <div class="sfia-rows">
+        ${area.skills.map(s => `
+          <div class="sfia-row">
+            <div class="sfia-meta">
+              <span class="sfia-name">${s.name}</span>
+              <div class="sfia-badge-wrap">
+                <a href="${s.evidence}" class="sfia-evidence" aria-label="Evidence for ${s.name}">${SFIA_LABELS[s.sfia]}</a>
+              </div>
+            </div>
+            <div class="sfia-bar" aria-label="SFIA level ${s.sfia} of 7">
+              ${[1,2,3,4,5,6,7].map(i=>`<div class="sfia-dot${i<=s.sfia?' filled':''}" title="L${i}"></div>`).join('')}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  // Experience Timeline
+  document.getElementById('exp-timeline').innerHTML = experience.map(e => `
+    <div class="tl-item rev">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-head">
+          <span class="tl-role">${e.role}</span>
+          <span class="tl-period">${e.start} – ${e.end}</span>
+        </div>
+        <div class="tl-company">${e.company} · ${e.location}</div>
+        <ul class="tl-bullets">
+          ${e.bullets.map(b=>`<li>${b}</li>`).join('')}
+        </ul>
+      </div>
+    </div>
+  `).join('');
+
+  // Projects — Claymorphism + STAR
+  document.getElementById('proj-grid').innerHTML = projects.map((p,i) => `
+    <div class="proj-card rev ${i%2===1?'d1':''}">
+      <div class="proj-banner" aria-hidden="true"><div class="proj-icon">${p.icon}</div></div>
+      <div class="proj-body">
+        <span class="proj-badge">${p.badge}</span>
+        <div class="proj-title">${p.title}</div>
+        <div class="proj-desc">${p.summary}</div>
+        <div class="proj-tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+        ${p.star ? `
+        <button type="button" class="star-toggle" onclick="toggleStar(this)" aria-expanded="false">
+          <span class="star-arrow">▶</span> STAR Breakdown
+        </button>
+        <div class="star-body">
+          <div class="star-row"><div class="star-label">Situation</div><div class="star-text">${p.star.situation}</div></div>
+          <div class="star-row"><div class="star-label">Task</div><div class="star-text">${p.star.task}</div></div>
+          <div class="star-row"><div class="star-label">Action</div><div class="star-text">${p.star.action}</div></div>
+          <div class="star-row"><div class="star-label">Result</div><div class="star-text">${p.star.result}</div></div>
+        </div>` : ''}
+        <div class="proj-foot">
+          <a href="${p.link}" class="proj-link" aria-label="Enquire about ${p.title}">Enquire →</a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  // Certifications
+  document.getElementById('certs-grid').innerHTML = certs.map(c => `
+    <div class="cert-card rev">
+      <div class="cert-head">
+        <div class="cert-title">${c.title}</div>
+        <span class="cert-icon">🏆</span>
+      </div>
+      <div class="cert-issuer">${c.issuer}</div>
+      <div class="cert-meta">
+        <span class="cert-date">Issued: ${c.date}</span>
+        <span class="cert-expiry">Expires: ${c.expiry}</span>
+      </div>
+      ${c.hash ? `<div class="cert-hash">SHA-256: ${c.hash.slice(0,32)}…</div>` : ''}
+      <a href="${c.evidence}" class="cert-evidence" aria-label="View evidence for ${c.title}">View Evidence →</a>
+    </div>
+  `).join('');
+
+  // Blog
+  document.getElementById('blog-content').innerHTML = blogs.series.map(series => `
+    <div class="blog-series rev">
+      <div class="series-title">${series.title}</div>
+      <div class="posts-grid">
+        ${series.posts.map((p,i)=>`
+          <div class="post-card rev ${i>0?'d1':''}">
+            <div class="post-date">${p.date}</div>
+            <div class="post-title">${p.title}</div>
+            <div class="post-summary">${p.summary}</div>
+            <div class="post-tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  // Re-observe new elements
+  document.querySelectorAll('.rev:not(.in)').forEach(el=>revObs.observe(el));
+}
+
+// ── THEME ENGINE: palette + binary light/dark ──
+const PALETTES = ['focus','clarity','warmth','nightfall'];
+const DARK_PALETTES  = new Set(['nightfall']);
+const LIGHT_PALETTES = new Set(['focus','clarity','warmth']);
+const META_COLORS = {focus:'#FFFFFF',clarity:'#FDFDFD',warmth:'#FAFAFA',nightfall:'#111111'};
+
+let currentPalette = 'focus';
+let isDark = false;
+
+function setPalette(name) {
+  if (!PALETTES.includes(name)) return;
+  currentPalette = name;
+  isDark = DARK_PALETTES.has(name);
+  applyTheme();
+  try { localStorage.setItem('cqh-palette', name); } catch(e){}
+}
+
+function toggleDark() {
+  if (isDark) {
+    // Switch to last light palette or focus
+    const lp = (() => { try { return localStorage.getItem('cqh-last-light') || 'focus'; } catch(e){return 'focus';}})();
+    setPalette(lp);
+  } else {
+    try { localStorage.setItem('cqh-last-light', currentPalette); } catch(e){}
+    setPalette('nightfall');
+  }
+}
+
+function applyTheme() {
+  document.documentElement.setAttribute('data-theme', currentPalette);
+  PALETTES.forEach(p => {
+    document.documentElement.classList.remove('theme-'+p);
+    document.getElementById('pp-'+p)?.classList.remove('active');
+  });
+  document.documentElement.classList.add('theme-'+currentPalette, 'theme-set');
+  document.getElementById('pp-'+currentPalette)?.classList.add('active');
+
+  // Update binary toggle visual
+  const thumb = document.getElementById('ld-thumb');
+  isDark = DARK_PALETTES.has(currentPalette);
+  if (thumb) {
+    thumb.textContent = isDark ? '🌙' : '☀️';
+    thumb.style.transform = isDark ? 'translateX(22px)' : 'translateX(0)';
+  }
+
+  const meta = document.getElementById('theme-meta');
+  if (meta) meta.content = META_COLORS[currentPalette] || '#FFFFFF';
+}
+
+// Restore saved palette
+(function(){
+  try {
+    const s = localStorage.getItem('cqh-palette');
+    if (s && PALETTES.includes(s)) { currentPalette = s; }
+    else {
+      // Respect OS preference
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) currentPalette = 'nightfall';
+    }
+  } catch(e){}
+  applyTheme();
+})();
+
+document.getElementById('ld-btn').addEventListener('click', toggleDark);
+
+// ── HAMBURGER + FOCUS TRAP ──
+const hbgBtn = document.getElementById('hbg');
+const mobNav = document.getElementById('mob-nav');
+function getFocusable(el){return[...el.querySelectorAll('a[href],button:not([disabled])')]; }
+hbgBtn.addEventListener('click',()=>{
+  const open = mobNav.classList.toggle('open');
+  hbgBtn.classList.toggle('open',open);
+  hbgBtn.setAttribute('aria-expanded',open);
+  if(open){ const f=getFocusable(mobNav)[0]; if(f)setTimeout(()=>f.focus(),50); }
+  else hbgBtn.focus();
+});
+mobNav.addEventListener('keydown',e=>{
+  if(!mobNav.classList.contains('open'))return;
+  const items=getFocusable(mobNav);
+  if(e.key==='Escape'){closeMob();}
+  else if(e.key==='Tab'){
+    if(e.shiftKey&&document.activeElement===items[0]){e.preventDefault();items[items.length-1].focus();}
+    else if(!e.shiftKey&&document.activeElement===items[items.length-1]){e.preventDefault();items[0].focus();}
+  }
+});
+function closeMob(){mobNav.classList.remove('open');hbgBtn.classList.remove('open');hbgBtn.setAttribute('aria-expanded','false');hbgBtn.focus();}
+
+// ── READING PROGRESS ──
+const prog = document.getElementById('prog');
+window.addEventListener('scroll',()=>{
+  const pct = window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
+  prog.style.width=Math.min(pct,100)+'%';
+  prog.setAttribute('aria-valuenow',Math.round(pct));
+},{passive:true});
+
+// ── SCROLL REVEAL ──
+const revObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('in');revObs.unobserve(e.target);}});
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rev').forEach(el=>revObs.observe(el));
+
+// ── ACTIVE NAV ──
+const navAs = document.querySelectorAll('.nav-links a');
+const sIds = ['hero','about','skills','experience','projects','certs','blogs','contact'];
+window.addEventListener('scroll',()=>{
+  let cur='hero';
+  sIds.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-90)cur=id;});
+  navAs.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+},{passive:true});
+
+// ── STAR BREAKDOWN TOGGLE ──
+function toggleStar(btn) {
+  const body = btn.nextElementSibling;
+  const arrow = btn.querySelector('.star-arrow');
+  const isOpen = body.classList.toggle('open');
+  arrow.classList.toggle('open', isOpen);
+  btn.setAttribute('aria-expanded', isOpen);
+}
+
+// ── CONTACT FORM VALIDATION ──
+function handleSend(btn) {
+  const name=document.getElementById('f-name'),email=document.getElementById('f-email'),msg=document.getElementById('f-msg'),fb=document.getElementById('f-feedback');
+  const errs=[];
+  [name,email,msg].forEach(el=>el.style.borderColor='');
+  fb.style.display='none';
+  if(!name.value.trim()){errs.push('Name required.');name.style.borderColor='var(--exceptional)';}
+  if(!email.value.trim()){errs.push('Email required.');email.style.borderColor='var(--exceptional)';}
+  else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){errs.push('Valid email required.');email.style.borderColor='var(--exceptional)';}
+  if(!msg.value.trim()){errs.push('Message required.');msg.style.borderColor='var(--exceptional)';}
+  if(errs.length){
+    fb.style.cssText='display:block;background:rgba(224,122,95,.15);color:#9C4431;border-left:3px solid var(--exceptional);padding:8px 14px;border-radius:0 8px 8px 0;font-size:.78rem;margin-bottom:11px;';
+    fb.textContent=errs.join(' ');
+    [name,email,msg].find(el=>el.style.borderColor)?.focus();
+    return;
+  }
+  btn.textContent='Message Sent ✓'; btn.style.opacity='.75'; btn.disabled=true;
+  fb.style.cssText='display:block;background:rgba(168,213,186,.3);color:#2F855A;border-left:3px solid #A8D5BA;padding:8px 14px;border-radius:0 8px 8px 0;font-size:.78rem;margin-bottom:11px;';
+  fb.textContent='Message sent — thank you.';
+}
+
+// ── BOOT: Render portfolio ──
+// Simulates async JSON fetch with skeleton delay (200ms) per SRS spec
+setTimeout(() => renderPortfolio(PORTFOLIO_DATA), 250);
+</script>
+</body>
+</html>

@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="description" content="Master Canon Design Specification v1.0.1 — Personal Universal Design System by Cường Q. Huỳnh. DESIGN-CANON-2026-001."/>
+<meta name="description" content="Master Canon Design Specification v2.0.0 — Personal Universal Design System by Cường Q. Huỳnh. DESIGN-CANON-2026-001."/>
 <meta name="author" content="Cường Q. Huỳnh"/>
 <meta name="robots" content="noindex"/>
-<title>Master Canon Design Specification v1.0.1 — Cường Q. Huỳnh</title>
+<title>Master Canon Design Specification v2.0.0 — Cường Q. Huỳnh</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet"/>
 <style>
 /* ============================================================
    MASTER CANON DESIGN SPECIFICATION — HTML Reference
-   DESIGN-CANON-2026-001 · v1.0.1
+   DESIGN-CANON-2026-001 · v2.0.0
    Author: Cường Q. Huỳnh
    System: Claude-Sonnet-4.6 · 2026-03-23
    ============================================================ */
@@ -240,6 +240,14 @@ code.inline{font-family:"Fira Code",monospace;font-size:.75rem;color:var(--mono-
   .meta-grid{grid-template-columns:1fr 1fr;}
   .theme-strips{grid-template-columns:1fr 1fr;}
 }
+
+/* ── prefers-color-scheme fallback (Canon v2.0.0) ── */
+@media(prefers-color-scheme:dark){
+  html:not([data-theme]):not(.theme-set){
+    --bg:#111111;--surface:#1C1C1C;--txt:#F0F0F0;--txt2:#CCC;--txt3:#888;--border:#2A2A2A;
+  }
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
 </style>
 </head>
 <body>
@@ -250,7 +258,7 @@ code.inline{font-family:"Fira Code",monospace;font-size:.75rem;color:var(--mono-
   <div class="sidebar-head">
     <div class="doc-id">DESIGN-CANON-2026-001</div>
     <div class="sidebar-title">Master Canon<br>Design Specification</div>
-    <div class="status-badge">RATIFIED · v1.0.2</div>
+    <div class="status-badge">RATIFIED · v2.0.0</div>
   </div>
   <nav class="sidebar-nav" aria-label="Section navigation">
     <div class="nav-group-label">Governance</div>
@@ -273,6 +281,13 @@ code.inline{font-family:"Fira Code",monospace;font-size:.75rem;color:var(--mono-
     <a href="#appendix-c">C — Signature Template</a>
   </nav>
   <div class="theme-panel">
+    <div class="theme-panel-label" style="margin-bottom:6px">Light / Dark</div>
+    <button type="button" id="ld-canon-btn" onclick="toggleDarkCanon()"
+      style="display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:10px;border:1.5px solid var(--border);background:var(--bg);cursor:pointer;font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;font-weight:600;color:var(--txt2);transition:.25s;width:100%;margin-bottom:10px"
+      aria-label="Toggle light/dark mode">
+      <span id="ld-icon-canon">☀️</span>
+      <span id="ld-label-canon">Light Mode</span>
+    </button>
     <div class="theme-panel-label">Theme Preview</div>
     <div class="theme-pills">
       <button class="tpill active" onclick="setTheme('focus')" id="tpill-focus" aria-label="Focus theme"><span class="tpill-dot dot-focus"></span>Focus</button>
@@ -296,7 +311,7 @@ code.inline{font-family:"Fira Code",monospace;font-size:.75rem;color:var(--mono-
   <p class="cover-sub">Personal Universal Design System — Cường Q. Huỳnh</p>
   <div class="meta-grid">
     <div class="meta-item"><div class="meta-k">Document ID</div><div class="meta-v mono">DESIGN-CANON-2026-001</div></div>
-    <div class="meta-item"><div class="meta-k">Version</div><div class="meta-v mono">1.0.1</div></div>
+    <div class="meta-item"><div class="meta-k">Version</div><div class="meta-v mono">2.0.0</div></div>
     <div class="meta-item"><div class="meta-k">Date</div><div class="meta-v">2026-03-23</div></div>
     <div class="meta-item"><div class="meta-k">Status</div><div class="meta-v" style="color:var(--exceptional)">REVIEW</div></div>
     <div class="meta-item"><div class="meta-k">Author</div><div class="meta-v">Cường Q. Huỳnh</div></div>
@@ -309,7 +324,7 @@ code.inline{font-family:"Fira Code",monospace;font-size:.75rem;color:var(--mono-
     <table><thead><tr><th>Version</th><th>Date</th><th>Author</th><th>Summary</th></tr></thead>
     <tbody>
       <tr><td><code class="inline">1.0.0</code></td><td>2026-03-23</td><td>Cường.Q.Huỳnh + Claude</td><td>Initial synthesis from 5 source specifications</td></tr>
-      <tr><td><code class="inline">1.0.1</code></td><td>2026-03-23</td><td>Agent-IP + Claude</td><td>Embed cryptographic signature block; status → RATIFIED</td></tr>
+      <tr><td><code class="inline">2.0.0</code></td><td>2026-03-23</td><td>Agent-IP + Claude</td><td>Embed cryptographic signature block; status → RATIFIED</td></tr>
     </tbody></table>
   </div>
   <h3 class="sub-title">Traceability — Source Documents</h3>
@@ -620,7 +635,7 @@ code.inline{font-family:"Fira Code",monospace;font-size:.75rem;color:var(--mono-
 <!-- FOOTER -->
 <footer class="doc-footer" role="contentinfo">
   <div class="footer-sig">
-    <div>End of <span>MASTER CANON DESIGN SPECIFICATION</span> v1.0.1</div>
+    <div>End of <span>MASTER CANON DESIGN SPECIFICATION</span> v2.0.0</div>
     <div>DESIGN-CANON-2026-001 · Author: <span>Cường Q. Huỳnh</span> · System: <span>Claude-Sonnet-4.6</span></div>
     <div>Personal IP · All rights reserved · Cường.Q.Huỳnh © 2026</div>
   </div>
@@ -656,6 +671,44 @@ const obs=new IntersectionObserver(entries=>{
   });
 },{rootMargin:'-20% 0px -70% 0px'});
 sections.forEach(s=>obs.observe(s));
+
+// ── Binary dark/light toggle (Canon v2.0.0) ──
+const DARK_THEMES = new Set(['theme-nightfall']);
+function toggleDarkCanon() {
+  const current = document.documentElement.getAttribute('data-theme') || 'focus';
+  if (current === 'nightfall') {
+    const last = (() => { try { return localStorage.getItem('canon-last-light') || 'focus'; } catch(e){return 'focus';} })();
+    setTheme(last);
+  } else {
+    try { localStorage.setItem('canon-last-light', current); } catch(e){}
+    setTheme('nightfall');
+  }
+}
+function updateLDBtn() {
+  const t = document.documentElement.getAttribute('data-theme') || 'focus';
+  const btn = document.getElementById('ld-icon-canon');
+  const lbl = document.getElementById('ld-label-canon');
+  if (btn) btn.textContent = t === 'nightfall' ? '🌙' : '☀️';
+  if (lbl) lbl.textContent = t === 'nightfall' ? 'Dark Mode' : 'Light Mode';
+}
+// Patch setTheme to also update LD button
+const _origSetTheme = setTheme;
+setTheme = function(name) {
+  _origSetTheme(name);
+  updateLDBtn();
+  document.documentElement.classList.add('theme-set');
+};
+// prefers-color-scheme on initial load
+(function(){
+  try {
+    const s = localStorage.getItem('canon-theme');
+    if (!s && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setTheme('nightfall');
+    }
+  } catch(e){}
+  updateLDBtn();
+})();
+
 </script>
 </body>
 </html>

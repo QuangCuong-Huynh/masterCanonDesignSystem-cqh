@@ -13,41 +13,49 @@
 | **Canon Ref** | DESIGN-CANON-2026-001 |
 | **Author** | Cường Q. Huỳnh |
 | **Role** | Master Orchestrator · Virtual Librarian · IP Assets Professional · Infra & Data Architect · Solution Consultant |
-| **Assisted By** | Claude-Sonnet-4.6 (Anthropic) · GPT · Perplexity · Gemini · NotebookLM |
-| **Current Version** | `1.0.2` |
-| **Canon Status** | RATIFIED v1.0.0 → active |
-| **Portfolio Status** | v1.0.2 — QA cleared, Canon compliant |
+| **Assisted By** | Claude-Sonnet-4.6 (Anthropic) |
+| **Current Portfolio** | `v2.1.0` — QA cleared, 40/40 PASS |
+| **Canon Status** | RATIFIED v1.0.0 → active, spec at v2.1.0 |
+| **SRS Version** | `PORTFOLIO-SRS-2026-001 v2.1.0` |
 | **License** | Personal IP · All rights reserved · Cường Q. Huỳnh © 2026 |
 
 ---
 
-## What This Repository Contains
+## Repository Structure
 
 ```
 Master Canon Design System CQH/
 │
-├── README.md                    ← You are here
-├── CHANGELOG.md                 ← Detailed version history per file
-├── HISTORY.md                   ← Narrative sprint & decision history
-├── REQUIREMENTS.md              ← Technical & governance requirements spec
+├── README.md                          ← You are here
+├── CHANGELOG.md                       ← Full version history
+├── HISTORY.md                         ← Sprint & decision narrative
+├── REQUIREMENTS.md                    ← Technical & governance requirements
 │
-├── docs/                        ← Master Canon Design Specification (3 formats)
-│   ├── html/  MASTER_CANON_DESIGN_SPEC_v1.0.1.html
-│   ├── docx/  MASTER_CANON_DESIGN_SPEC_v1.0.1.docx
-│   └── md/    MASTER_CANON_DESIGN_SPEC_v1.0.1.md
+├── docs/                              ← Master Canon Design Specification
+│   ├── html/
+│   │   ├── MASTER_CANON_DESIGN_SPEC_v1.0.1.html
+│   │   └── MASTER_CANON_DESIGN_SPEC_v2.1.html    ← CURRENT (interactive, reactive)
+│   ├── docx/
+│   │   └── MASTER_CANON_DESIGN_SPEC_v1.0.1.docx
+│   └── md/
+│       └── MASTER_CANON_DESIGN_SPEC_v1.0.1.md
 │
-├── portfolio/                   ← Portfolio site — all version history
-│   ├── v1.0.0/  portfolio_v1.0.0.html   (pre-QA internal build)
-│   ├── v1.0.1/  portfolio_v1.0.1.html   (first QA-cleared release)
-│   └── v1.0.2/  portfolio_v1.0.2.html   ← CURRENT — all defects resolved
+├── portfolio/
+│   ├── specs/                         ← Portfolio System Requirements Specification
+│   │   ├── html/  PORTFOLIO_SRS_v2.1.html
+│   │   ├── docx/  PORTFOLIO_SRS_v2.1.docx
+│   │   └── md/    PORTFOLIO_SRS_v2.1.md
+│   ├── data/
+│   │   └── portfolio_data_v2.1.json   ← Content source of truth
+│   ├── v1.0.0/  portfolio_v1.0.0.html  (pre-QA)
+│   ├── v1.0.1/  portfolio_v1.0.1.html  (first QA-cleared)
+│   ├── v1.0.2/  portfolio_v1.0.2.html  (a11y fixes)
+│   ├── v2.0.0/  portfolio_v2.0.html    (SPA + JSON + 5 sections)
+│   └── v2.1.0/  portfolio_v2.1.html    ← CURRENT (dropdown menu + fixes)
 │
-├── canon/                       ← Canon source version archive
-│   ├── v1.0.0/
-│   └── v1.0.1/
-│
-├── sprint-records/              ← Agile ceremony records (Sprint Reviews, CAP logs)
-│
-└── .meta/                       ← Cryptographic signatures, UUIDs, hashes
+├── sprint-records/
+│   └── SPRINT-01-06.md
+└── .meta/
     └── SIGNATURES.md
 ```
 
@@ -55,117 +63,113 @@ Master Canon Design System CQH/
 
 ## Quick Start
 
-The portfolio is a **single-file, zero-dependency HTML** page.
-
 ```bash
-# Open latest version directly in browser
-open portfolio/v1.0.2/portfolio_v1.0.2.html
+# Open current portfolio
+open portfolio/v2.1.0/portfolio_v2.1.html
 
 # Or serve locally
 python3 -m http.server 8080
-# → http://localhost:8080/portfolio/v1.0.2/portfolio_v1.0.2.html
+# → http://localhost:8080/portfolio/v2.1.0/portfolio_v2.1.html
 ```
 
-The Canon specification is available in three formats:
-
-```bash
-# Interactive HTML reference (recommended for navigation)
-open docs/html/MASTER_CANON_DESIGN_SPEC_v1.0.1.html
-
-# Word document (for annotation, printing, formal distribution)
-open docs/docx/MASTER_CANON_DESIGN_SPEC_v1.0.1.docx
-
-# Markdown source (for version control diffs, plain text reference)
-cat docs/md/MASTER_CANON_DESIGN_SPEC_v1.0.1.md
-```
+The portfolio is **zero-dependency** — one HTML file, Google Fonts CDN only.
 
 ---
 
-## Design System — Canon Summary
-
-The **Master Canon Design Specification** (`DESIGN-CANON-2026-001`) governs all visual output from this project. Key rules:
-
-### Four Canonical Themes
-| Theme | Accent | Use Context |
-|-------|--------|-------------|
-| **Focus** | `#2B6CB0` Deep Blue | Academic, formal, default |
-| **Clarity** | `#3B9E6B` Mint Green | Everyday, light-mode, neutral |
-| **Warmth** | `#E07A5F` Terracotta | Creative, portfolio, personal |
-| **Nightfall** | `#8B5CF6` Violet | Dark mode, technical, night |
-
-### 60/30/10 Color Law
-```
-Primary   60% → backgrounds, canvas
-Secondary 30% → panels, containers, structure
-Accent    10% → links, CTAs, highlights
-Exceptional <1% → alerts, signature marks only
-```
-
-### Font Stack
-```css
---font-sans:  "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
---font-serif: "Libre Baskerville", Georgia, serif;
---font-mono:  "Fira Code", Consolas, monospace;
-```
-
-### Five Surface Styles
-`Soft-Morphism` (default) · `Glassmorphism` · `Neumorphism` · `Claymorphism` · `Academic Flat`
-
----
-
-## Portfolio Feature Matrix (v1.0.2)
+## Portfolio v2.1.0 — Feature Matrix
 
 | Feature | Status |
 |---------|--------|
-| 4-theme live switcher (persistent via localStorage) | ✅ |
-| Canon 60/30/10 color law enforced | ✅ |
-| IBM Plex Sans + Libre Baskerville + Fira Code | ✅ |
-| Soft-Morphism surface system | ✅ |
-| Skip-to-content link | ✅ |
-| `role="main"` / `nav` / `contentinfo` landmarks | ✅ |
-| `:focus-visible` keyboard ring | ✅ |
+| JSON-driven SPA (data from `PORTFOLIO_DATA`) | ✅ |
+| Skeleton loaders during render | ✅ |
+| **Dropdown design menu: 4 themes + 5 morphism styles** | ✅ |
+| Binary Light/Dark toggle (☀️/🌙) | ✅ |
+| `prefers-color-scheme` auto dark fallback | ✅ |
+| Theme + morph persisted via `localStorage` | ✅ |
+| Glassmorphism nav (backdrop-filter blur) | ✅ |
+| Claymorphism project cards | ✅ |
+| `data-morph` CSS drives all card surfaces | ✅ |
+| SFIA v8 skills (L1–L7 dot bar + evidence links) | ✅ |
+| Experience timeline | ✅ |
+| Projects with STAR breakdown accordion | ✅ |
+| Certifications with SHA-256 hash display | ✅ |
+| Blog — Series → Posts nested | ✅ |
+| Social links (GitHub, LinkedIn, website) | ✅ |
+| Contact form: validation + `role="alert"` feedback | ✅ |
+| Skip-to-content, ARIA landmarks, focus-visible | ✅ |
+| Focus trap on mobile menu | ✅ |
 | `prefers-reduced-motion` | ✅ |
-| Mobile hamburger menu + focus trap | ✅ |
-| Escape key closes mobile menu | ✅ |
-| Contact form validation + error feedback | ✅ |
-| `required` + email regex validation | ✅ |
-| `aria-required`, `aria-label`, `aria-live` alerts | ✅ |
-| `og:title`, `og:description`, `og:image`, `og:url` | ✅ |
-| `twitter:card`, `twitter:image` | ✅ |
-| JSON-LD `Person` schema | ✅ |
-| Canonical URL | ✅ |
-| Font preload hints (FOUT prevention) | ✅ |
+| Font preload hints | ✅ |
 | Print stylesheet | ✅ |
-| Scroll-triggered reveal animations | ✅ |
-| Skill bar animations (IntersectionObserver) | ✅ |
-| Reading progress bar | ✅ |
-| Responsive: 480 / 640 / 960px breakpoints | ✅ |
-
-**QA Score: 16/16 PASS (Sprint-03 post-fix)**
+| JSON-LD Person schema, OG tags, canonical | ✅ |
+| **QA Score (Sprint-06)** | **40/40 PASS** |
 
 ---
 
-## Governance & Traceability
+## Canon Design Specification
 
-Every ratified document in this project carries a **Canon Signature Block**:
+`DESIGN-CANON-2026-001` governs all visual output. Available in three formats:
+
+| Format | File | Use |
+|--------|------|-----|
+| **HTML** | `docs/html/MASTER_CANON_DESIGN_SPEC_v2.1.html` | Interactive reference — live theme switcher, morphism demo |
+| **DOCX** | `docs/docx/MASTER_CANON_DESIGN_SPEC_v1.0.1.docx` | Annotation, printing, formal distribution |
+| **MD** | `docs/md/MASTER_CANON_DESIGN_SPEC_v1.0.1.md` | Version control, plain text reference |
+
+### Canon Summary
+
+**60/30/10 Color Law** — Primary (60%) canvas · Secondary (30%) structure · Accent (10%) signal · Exceptional (<1%) alerts.
+
+**4 Themes** — Focus (blue) · Clarity (mint) · Warmth (terracotta) · Nightfall (violet/dark).
+
+**5 Surface Styles** — Soft-Morphism · Glassmorphism · Claymorphism · Neumorphism · Academic Flat.
+
+**Font Stack** — IBM Plex Sans (UI) · Libre Baskerville (academic) · Fira Code (mono).
+
+---
+
+## portfolio_data_v2.1.json — Integrity Policy
+
+The data file follows a strict **no-hallucination** rule:
+
+- All unknown/personal fields are marked `[OWNER: ...]` — must be replaced before publishing
+- SFIA levels are honest self-assessment per SFIA v8 framework
+- No fabricated company names, certifications, or dates
+- Blog posts carry `"status": "draft"` until published
+- `_meta.integrity_note` documents this policy in the file itself
+
+---
+
+## Governance & Signatures
+
+Every ratified document carries a Canon Signature Block:
 
 ```
-Doc Hash:      SHA-256([content])
-UUID:          [uuidv7 on ratification]
-Signed by:     Cường.Q.Huỳnh
-Signed by:     System (Claude-Sonnet-4.6 | timestamp)
-Signed by:     Authority (optional)
+Doc Hash:   SHA-256([content])
+UUID:       [uuidv7 on ratification]
+Signed by:  Cường.Q.Huỳnh  → [signature]
+Signed by:  System (Claude-Sonnet-4.6 | timestamp)
+Signed by:  Authority (optional)
 ```
 
 See `.meta/SIGNATURES.md` for all ratified document signatures.
 
+**Canon DESIGN-CANON-2026-001 v1.0.0 — RATIFIED** ✓ — 2026-03-23, Cường Q. Huỳnh.
+
 ---
 
-## Author
+## Sprint History Summary
 
-**Cường Q. Huỳnh**
-Master Orchestrator · Virtual Librarian · IP Assets Professional
-Infra & Data Architect · Solution Consultant
+| Sprint | Subject | Output |
+|--------|---------|--------|
+| 01 | Portfolio MVP build | `portfolio_v1.0.1.html` |
+| 02 | Canon ratification | Canon DOCX + HTML + MD · Canon RATIFIED |
+| 03 | Portfolio QA fix + repo pack | `portfolio_v1.0.2.html` + repo zip |
+| 04 | Doc integration (SRS, PWA-DSD, Morphism, SFIA) | `portfolio_v2.0.html` |
+| 05 | Interactive theme/morphism switchers | `portfolio_v2.1.html` · Canon HTML reactive |
+| 06 | JSON integrity + bug fixes + Portfolio SRS | `portfolio_v2.1.html` (fixed) · SRS 3-format · repo v2.1.0 |
 
-*Assisted by: Claude-Sonnet-4.6 (Anthropic)*
-*Master Canon Design System CQH © 2026 · Personal IP · All rights reserved*
+---
+
+*Master Canon Design System CQH · Author: Cường Q. Huỳnh · Assisted: Claude-Sonnet-4.6*
+*Personal IP · All rights reserved · Cường Q. Huỳnh © 2026*
