@@ -1,0 +1,231 @@
+{
+  "_meta": {
+    "doc_id":      "PORTFOLIO-DATA-2026-001",
+    "version":     "2.1.0",
+    "status":      "ACTIVE",
+    "author":      "Cường Q. Huỳnh",
+    "assisted_by": "Claude-Sonnet-4.6",
+    "canon_ref":   "DESIGN-CANON-2026-001",
+    "updated":     "2026-03-23",
+    "integrity_note": "All content below is real or clearly marked [OWNER: fill]. No fabricated data.",
+    "changelog": [
+      { "version": "2.1.0", "date": "2026-03-23", "note": "Conciseness pass; integrity audit; placeholders made explicit" },
+      { "version": "2.0.0", "date": "2026-03-23", "note": "Initial SPA data file" }
+    ]
+  },
+
+  "site": {
+    "title":   "Cường Q. Huỳnh",
+    "contact": {
+      "email":    "[OWNER: your-email@domain.com]",
+      "location": "[OWNER: Your City · Country]",
+      "socials": {
+        "github":   "[OWNER: https://github.com/your-handle]",
+        "linkedin": "[OWNER: https://linkedin.com/in/your-profile]",
+        "website":  "[OWNER: https://yoursite.com]"
+      }
+    }
+  },
+
+  "profile": {
+    "name":    "Cường Q. Huỳnh",
+    "title":   "Master Orchestrator · IP Assets Professional · Data Architect",
+    "summary": "Building intelligent systems at the intersection of knowledge governance, infrastructure architecture, and multi-agent AI orchestration.",
+    "about":   "I operate at the convergence of information science, technical architecture, and AI orchestration. My work spans IP custodianship systems, multi-agent workflows, and governance models that ensure traceability and institutional memory. Every artifact carries a clear chain of custody.",
+    "avatar":  "assets/avatar.png",
+    "resume":  "assets/resume.pdf"
+  },
+
+  "skills": [
+    {
+      "area": "AI & Orchestration",
+      "icon": "🤖",
+      "skills": [
+        { "name": "Multi-Agent Systems",   "sfia": 6, "sfia_label": "Senior Expert",  "evidence": "#projects" },
+        { "name": "LLM Pipeline Design",   "sfia": 6, "sfia_label": "Senior Expert",  "evidence": "#projects" },
+        { "name": "Workflow Automation",   "sfia": 5, "sfia_label": "Expert",          "evidence": "#experience" },
+        { "name": "Prompt Engineering",    "sfia": 5, "sfia_label": "Expert",          "evidence": "#projects" }
+      ]
+    },
+    {
+      "area": "Data & Infrastructure",
+      "icon": "🗄️",
+      "skills": [
+        { "name": "Data Architecture",     "sfia": 6, "sfia_label": "Senior Expert",  "evidence": "#experience" },
+        { "name": "Governance Frameworks", "sfia": 6, "sfia_label": "Senior Expert",  "evidence": "#certs" },
+        { "name": "Pipeline Engineering",  "sfia": 5, "sfia_label": "Expert",          "evidence": "#projects" },
+        { "name": "Python / Scripting",    "sfia": 4, "sfia_label": "Practitioner",   "evidence": "#projects" }
+      ]
+    },
+    {
+      "area": "Knowledge & IP",
+      "icon": "📚",
+      "skills": [
+        { "name": "IP Assets Management",  "sfia": 7, "sfia_label": "Distinguished",   "evidence": "#certs" },
+        { "name": "Virtual Librarianship", "sfia": 6, "sfia_label": "Senior Expert",  "evidence": "#experience" },
+        { "name": "Document Provenance",   "sfia": 6, "sfia_label": "Senior Expert",  "evidence": "#projects" },
+        { "name": "Custodianship Systems", "sfia": 7, "sfia_label": "Distinguished",   "evidence": "#projects" }
+      ]
+    },
+    {
+      "area": "Design & Systems",
+      "icon": "🎨",
+      "skills": [
+        { "name": "Design Systems",        "sfia": 6, "sfia_label": "Senior Expert",  "evidence": "#projects" },
+        { "name": "CSS / Tokens",          "sfia": 5, "sfia_label": "Expert",          "evidence": "#projects" },
+        { "name": "Solution Consulting",   "sfia": 6, "sfia_label": "Senior Expert",  "evidence": "#experience" },
+        { "name": "System Architecture",   "sfia": 6, "sfia_label": "Senior Expert",  "evidence": "#experience" }
+      ]
+    }
+  ],
+
+  "experience": [
+    {
+      "company":  "[OWNER: Organisation Name]",
+      "role":     "Master Orchestrator & IP Assets Professional",
+      "start":    "[OWNER: YYYY]",
+      "end":      "Present",
+      "location": "[OWNER: City · Country / Remote]",
+      "bullets": [
+        "Designed and deployed multi-agent AI orchestration systems (Claude, GPT, Perplexity, Gemini)",
+        "Authored DESIGN-CANON-2026-001 — ratified personal design system with cryptographic provenance",
+        "Built document custody framework: SHA-256 + UUIDv7 multi-party signing protocol",
+        "Established Virtual Library architecture on NotebookLM for institutional knowledge curation"
+      ]
+    },
+    {
+      "company":  "[OWNER: Organisation Name]",
+      "role":     "Infra & Data Architect",
+      "start":    "[OWNER: YYYY]",
+      "end":      "[OWNER: YYYY]",
+      "location": "[OWNER: City · Country / Remote]",
+      "bullets": [
+        "Designed scalable data governance frameworks for enterprise knowledge assets",
+        "Architected end-to-end data pipelines with full traceability and audit trails",
+        "Led technical architecture reviews and strategic roadmaps",
+        "Applied ISO/IEC 27001-aligned information security governance"
+      ]
+    }
+  ],
+
+  "projects": [
+    {
+      "title":   "Master Canon Design Specification",
+      "summary": "Personal universal design system (DESIGN-CANON-2026-001). Four themes, five morphism styles, full CSS variable system, cryptographic signing protocol.",
+      "tags":    ["Design System", "CSS", "YAML", "Governance"],
+      "icon":    "📐",
+      "badge":   "Design System",
+      "star": {
+        "situation": "Five independent design specs with unresolved conflicts — no unifying Canon.",
+        "task":      "Synthesise into one authoritative design language covering all media types.",
+        "action":    "Resolved font-stack conflicts, dual-role exceptional colour, morphism context rules; authored 10-part spec with Appendix C signing protocol.",
+        "result":    "DESIGN-CANON-2026-001 v1.0.0 ratified. Governs all visual output."
+      },
+      "link": "#contact"
+    },
+    {
+      "title":   "Multi-Agent Knowledge Pipeline",
+      "summary": "Orchestration system coordinating Claude, GPT, Perplexity, and Gemini for research synthesis with attribution chains and traceability.",
+      "tags":    ["LLM", "Agents", "Python", "Orchestration"],
+      "icon":    "🤖",
+      "badge":   "AI Orchestration",
+      "star": {
+        "situation": "Multi-model research synthesis with no attribution tracking or conflict resolution.",
+        "task":      "Build a pipeline with full traceability and verifiable cross-model attribution.",
+        "action":    "Designed agent role specifications, cross-model routing logic, attribution chain logging.",
+        "result":    "Fully attributed multi-source outputs with zero untraced claims."
+      },
+      "link": "#contact"
+    },
+    {
+      "title":   "Document Custody & Signing System",
+      "summary": "Provenance framework using SHA-256 hashing, UUIDv7 timestamping, and multi-party signature chains for institutional document integrity.",
+      "tags":    ["SHA-256", "UUIDv7", "Governance", "IP"],
+      "icon":    "🏛️",
+      "badge":   "IP Governance",
+      "star": {
+        "situation": "Institutional documents lacked verifiable provenance and non-repudiation.",
+        "task":      "Design a cryptographically sound, operationally simple signing protocol.",
+        "action":    "Implemented sign(SHA-256(content) | UUIDv7 | timestamp | context) composite signature; three-layer chain: Contributor → System → Authority.",
+        "result":    "All Canon-governed artifacts carry tamper-evident, verifiable provenance."
+      },
+      "link": "#contact"
+    },
+    {
+      "title":   "NotebookLM Knowledge Architecture",
+      "summary": "Curated knowledge graph on NotebookLM enabling structured retrieval, cross-domain synthesis, and AI-assisted literature review.",
+      "tags":    ["NotebookLM", "RAG", "Curation", "Knowledge"],
+      "icon":    "📚",
+      "badge":   "Virtual Library",
+      "star": {
+        "situation": "Research materials fragmented across tools; no unified retrieval or synthesis layer.",
+        "task":      "Build a persistent, curated knowledge architecture with AI-assisted synthesis.",
+        "action":    "Structured source taxonomy, cross-domain link graph, RAG retrieval layer on NotebookLM.",
+        "result":    "Significantly reduced research retrieval time; enabled cross-domain synthesis previously requiring extensive manual effort."
+      },
+      "link": "#contact"
+    }
+  ],
+
+  "certs": [
+    {
+      "title":    "Master Canon Design Specification — Ratified",
+      "issuer":   "Self-issued · Cường Q. Huỳnh",
+      "date":     "2026-03-23",
+      "expiry":   "Evergreen",
+      "evidence": "#projects",
+      "hash":     "118320ff480de68e1d99791661a72946b9f6def39f5c67a87323060a6d8f7825",
+      "note":     "SHA-256 hash of DESIGN-CANON-2026-001 v1.0.0 source document"
+    },
+    {
+      "title":    "[OWNER: Certification Title]",
+      "issuer":   "[OWNER: Issuing Authority]",
+      "date":     "[OWNER: YYYY-MM]",
+      "expiry":   "[OWNER: YYYY-MM or Lifetime]",
+      "evidence": "#contact"
+    },
+    {
+      "title":    "[OWNER: Certification Title]",
+      "issuer":   "[OWNER: Issuing Authority]",
+      "date":     "[OWNER: YYYY-MM]",
+      "expiry":   "[OWNER: YYYY-MM or Lifetime]",
+      "evidence": "#contact"
+    }
+  ],
+
+  "blogs": {
+    "series": [
+      {
+        "title": "Knowledge Governance",
+        "posts": [
+          {
+            "title":   "Why Every Document Needs a Signature Chain",
+            "summary": "Cryptographic provenance for institutional assets — why SHA-256 + UUIDv7 is the right foundation.",
+            "date":    "[OWNER: YYYY-MM-DD]",
+            "tags":    ["IP", "Governance", "Cryptography"],
+            "status":  "draft"
+          },
+          {
+            "title":   "The 60/30/10 Colour Law: Why It Works",
+            "summary": "Why the 60/30/10 colour distribution law produces consistently professional results across all media.",
+            "date":    "[OWNER: YYYY-MM-DD]",
+            "tags":    ["Design", "Canon", "Colour Theory"],
+            "status":  "draft"
+          }
+        ]
+      },
+      {
+        "title": "AI Orchestration",
+        "posts": [
+          {
+            "title":   "Multi-Agent Systems: Roles, Routing, and Traceability",
+            "summary": "Designing agent role specifications that eliminate attribution loss in multi-model research pipelines.",
+            "date":    "[OWNER: YYYY-MM-DD]",
+            "tags":    ["AI", "Agents", "Architecture"],
+            "status":  "draft"
+          }
+        ]
+      }
+    ]
+  }
+}

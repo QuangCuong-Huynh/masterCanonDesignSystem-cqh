@@ -248,6 +248,103 @@ code.inline{font-family:"Fira Code",monospace;font-size:.75rem;color:var(--mono-
   }
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
+
+/* ── THEME SWITCHER CARDS ── */
+.theme-switcher-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0;
+}
+.tsw-card{
+  border:2px solid var(--border);border-radius:14px;overflow:hidden;
+  cursor:pointer;background:var(--bg);
+  transition:border-color .2s,transform .2s,box-shadow .2s;
+  text-align:left;padding:0;
+}
+.tsw-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+.tsw-card.tsw-active{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent);}
+.tsw-preview{padding:12px;height:80px;display:flex;flex-direction:column;justify-content:center;border-bottom:1px solid rgba(0,0,0,.06);}
+.tsw-info{padding:10px 12px;}
+.tsw-name{font-family:"Fira Code",monospace;font-size:.7rem;font-weight:700;color:var(--txt);margin-bottom:2px;letter-spacing:.05em;}
+.tsw-desc{font-size:.65rem;color:var(--txt3);margin-bottom:7px;}
+.tsw-swatches{display:flex;gap:4px;margin-bottom:6px;}
+.tsw-dot{width:16px;height:16px;border-radius:50%;display:inline-block;}
+.tsw-active-badge{
+  font-family:"Fira Code",monospace;font-size:.55rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em;
+  color:var(--on-accent);background:var(--accent);
+  padding:2px 7px;border-radius:20px;display:inline-block;
+}
+
+/* ── MORPHISM SELECTOR ── */
+.morph-selector{
+  display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;
+}
+.msw-btn{
+  display:flex;align-items:center;gap:8px;
+  padding:10px 16px;border-radius:10px;
+  border:1.5px solid var(--border);
+  background:var(--surface);cursor:pointer;
+  font-family:"IBM Plex Sans","Helvetica Neue",sans-serif;
+  transition:border-color .2s,background .2s,transform .15s;
+  text-align:left;
+}
+.msw-btn:hover{border-color:var(--accent);background:var(--tag-bg,rgba(43,108,176,.08));transform:translateY(-2px);}
+.msw-btn.msw-active{
+  border-color:var(--accent);
+  background:var(--tag-bg,rgba(43,108,176,.08));
+  box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 15%,transparent);
+}
+.msw-icon{font-size:1rem;color:var(--accent);flex-shrink:0;width:20px;text-align:center;}
+.msw-label{font-size:.78rem;font-weight:700;color:var(--txt);display:block;line-height:1.2;}
+.msw-sub{font-size:.62rem;color:var(--txt3);display:block;font-family:"Fira Code",monospace;}
+
+/* LIVE PREVIEW CARD WRAPPER */
+.morph-preview-wrap{
+  padding:32px;
+  background:var(--accent-grad,linear-gradient(135deg,var(--accent-l,#90CDF4),var(--accent,#2B6CB0)));
+  border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  min-height:200px;
+  transition:background .3s;
+}
+.morph-live-card{
+  width:100%;max-width:420px;
+  padding:24px;
+  transition:all .3s ease;
+}
+.mlc-badge{
+  font-family:"Fira Code",monospace;font-size:.62rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em;
+  color:var(--accent,#2B6CB0);background:rgba(255,255,255,.15);
+  padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:10px;
+}
+.mlc-title{font-family:"Libre Baskerville",Georgia,serif;font-size:1.1rem;font-weight:700;margin-bottom:8px;}
+.mlc-body{font-size:.82rem;line-height:1.65;margin-bottom:14px;opacity:.85;}
+.mlc-meta{
+  font-family:"Fira Code",monospace;font-size:.58rem;opacity:.6;
+  padding:6px 10px;background:rgba(0,0,0,.06);border-radius:6px;margin-bottom:14px;
+  word-break:break-all;
+}
+.mlc-btns{display:flex;gap:8px;}
+.mlc-btn-primary{
+  padding:8px 16px;border-radius:10px;border:none;cursor:pointer;
+  font-family:"IBM Plex Sans","Helvetica Neue",sans-serif;font-size:.78rem;font-weight:600;
+  transition:transform .2s,box-shadow .2s;
+}
+.mlc-btn-secondary{
+  padding:8px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.3);cursor:pointer;
+  font-family:"IBM Plex Sans","Helvetica Neue",sans-serif;font-size:.78rem;font-weight:500;
+  background:transparent;transition:.2s;
+}
+
+/* Morphism table row highlight */
+.mrow-active td{background:color-mix(in srgb,var(--accent) 6%,transparent);}
+.mrow-active td:first-child{border-left:3px solid var(--accent);}
+
+@media(max-width:860px){
+  .theme-switcher-grid{grid-template-columns:1fr 1fr;}
+  .morph-selector{gap:6px;}
+  .msw-btn{padding:8px 12px;}
+}
 </style>
 </head>
 <body>
@@ -363,12 +460,105 @@ code.inline{font-family:"Fira Code",monospace;font-size:.75rem;color:var(--mono-
   <div class="section-header"><div class="part-label">Part I</div><h2 class="section-title">Color System</h2></div>
   <h3 class="sub-title">1.1 The 60/30/10 Law</h3>
   <div class="callout"><p>Primary (60%) → Base canvas · Secondary (30%) → Structure · Accent (10%) → Signal. Non-negotiable across all themes and contexts.</p></div>
-  <h3 class="sub-title">1.2 Theme Preview</h3>
-  <div class="theme-strips">
-    <div class="theme-strip ts-f"><div class="ts-header"><h5>FOCUS</h5><p>Academic blue · Formal</p></div><div class="ts-swatches"><span style="background:#FFFFFF;flex:6"></span><span style="background:#EDEDED;flex:3"></span><span style="background:#2B6CB0;flex:1"></span></div></div>
-    <div class="theme-strip ts-c"><div class="ts-header"><h5>CLARITY</h5><p>Mint green · Default</p></div><div class="ts-swatches"><span style="background:#FDFDFD;flex:6"></span><span style="background:#F5F5F5;flex:3"></span><span style="background:#3B9E6B;flex:1"></span></div></div>
-    <div class="theme-strip ts-w"><div class="ts-header"><h5>WARMTH</h5><p>Terracotta · Creative</p></div><div class="ts-swatches"><span style="background:#FAFAFA;flex:6"></span><span style="background:#F2F2F0;flex:3"></span><span style="background:#E07A5F;flex:1"></span></div></div>
-    <div class="theme-strip ts-n"><div class="ts-header"><h5>NIGHTFALL</h5><p>Violet · Dark mode</p></div><div class="ts-swatches"><span style="background:#111111;flex:6"></span><span style="background:#1E1E1E;flex:3"></span><span style="background:#8B5CF6;flex:1"></span></div></div>
+  <h3 class="sub-title">1.2 Theme Switcher — Click to Apply</h3>
+  <p class="ui-text" style="margin-bottom:14px">Click any theme card to apply it live across this document. The active theme is highlighted. All tokens, surfaces, and typography update instantly.</p>
+  <div class="theme-switcher-grid" id="theme-switcher-grid">
+    <!-- FOCUS -->
+    <button type="button" class="tsw-card tsw-active" id="tsw-focus" onclick="setTheme('focus')" aria-pressed="true" aria-label="Apply Focus theme">
+      <div class="tsw-preview" style="background:#FFFFFF">
+        <div style="background:#F4F6FA;border-radius:6px;padding:8px;margin-bottom:6px">
+          <div style="height:5px;border-radius:3px;background:#2B6CB0;width:60%;margin-bottom:4px"></div>
+          <div style="height:4px;border-radius:3px;background:#D0D0D0;width:90%"></div>
+        </div>
+        <div style="display:flex;gap:4px">
+          <div style="flex:6;height:3px;border-radius:2px;background:#F4F6FA"></div>
+          <div style="flex:3;height:3px;border-radius:2px;background:#EDEDED"></div>
+          <div style="flex:1;height:3px;border-radius:2px;background:#2B6CB0"></div>
+        </div>
+      </div>
+      <div class="tsw-info">
+        <div class="tsw-name">FOCUS</div>
+        <div class="tsw-desc">Academic blue · Formal</div>
+        <div class="tsw-swatches">
+          <span class="tsw-dot" style="background:#FFFFFF;border:1px solid #ccc" title="Primary #FFFFFF"></span>
+          <span class="tsw-dot" style="background:#EDEDED" title="Secondary #EDEDED"></span>
+          <span class="tsw-dot" style="background:#2B6CB0" title="Accent #2B6CB0"></span>
+        </div>
+        <div class="tsw-active-badge" id="tsw-badge-focus">Active</div>
+      </div>
+    </button>
+    <!-- CLARITY -->
+    <button type="button" class="tsw-card" id="tsw-clarity" onclick="setTheme('clarity')" aria-pressed="false" aria-label="Apply Clarity theme">
+      <div class="tsw-preview" style="background:#FDFDFD">
+        <div style="background:#F5F5F5;border-radius:6px;padding:8px;margin-bottom:6px">
+          <div style="height:5px;border-radius:3px;background:#3B9E6B;width:60%;margin-bottom:4px"></div>
+          <div style="height:4px;border-radius:3px;background:#DDD;width:90%"></div>
+        </div>
+        <div style="display:flex;gap:4px">
+          <div style="flex:6;height:3px;border-radius:2px;background:#F5F5F5"></div>
+          <div style="flex:3;height:3px;border-radius:2px;background:#EDFAF4"></div>
+          <div style="flex:1;height:3px;border-radius:2px;background:#3B9E6B"></div>
+        </div>
+      </div>
+      <div class="tsw-info">
+        <div class="tsw-name">CLARITY</div>
+        <div class="tsw-desc">Mint green · Default</div>
+        <div class="tsw-swatches">
+          <span class="tsw-dot" style="background:#FDFDFD;border:1px solid #ccc" title="Primary #FDFDFD"></span>
+          <span class="tsw-dot" style="background:#F5F5F5" title="Secondary #F5F5F5"></span>
+          <span class="tsw-dot" style="background:#3B9E6B" title="Accent #3B9E6B"></span>
+        </div>
+        <div class="tsw-active-badge" id="tsw-badge-clarity" style="display:none">Active</div>
+      </div>
+    </button>
+    <!-- WARMTH -->
+    <button type="button" class="tsw-card" id="tsw-warmth" onclick="setTheme('warmth')" aria-pressed="false" aria-label="Apply Warmth theme">
+      <div class="tsw-preview" style="background:#FAFAFA">
+        <div style="background:#F2F2F0;border-radius:6px;padding:8px;margin-bottom:6px">
+          <div style="height:5px;border-radius:3px;background:#E07A5F;width:60%;margin-bottom:4px"></div>
+          <div style="height:4px;border-radius:3px;background:#E0E0E0;width:90%"></div>
+        </div>
+        <div style="display:flex;gap:4px">
+          <div style="flex:6;height:3px;border-radius:2px;background:#F2F2F0"></div>
+          <div style="flex:3;height:3px;border-radius:2px;background:#FEF3EF"></div>
+          <div style="flex:1;height:3px;border-radius:2px;background:#E07A5F"></div>
+        </div>
+      </div>
+      <div class="tsw-info">
+        <div class="tsw-name">WARMTH</div>
+        <div class="tsw-desc">Terracotta · Creative</div>
+        <div class="tsw-swatches">
+          <span class="tsw-dot" style="background:#FAFAFA;border:1px solid #ccc" title="Primary #FAFAFA"></span>
+          <span class="tsw-dot" style="background:#F2F2F0" title="Secondary #F2F2F0"></span>
+          <span class="tsw-dot" style="background:#E07A5F" title="Accent #E07A5F"></span>
+        </div>
+        <div class="tsw-active-badge" id="tsw-badge-warmth" style="display:none">Active</div>
+      </div>
+    </button>
+    <!-- NIGHTFALL -->
+    <button type="button" class="tsw-card" id="tsw-nightfall" onclick="setTheme('nightfall')" aria-pressed="false" aria-label="Apply Nightfall theme">
+      <div class="tsw-preview" style="background:#111111">
+        <div style="background:#1C1C1C;border-radius:6px;padding:8px;margin-bottom:6px">
+          <div style="height:5px;border-radius:3px;background:#8B5CF6;width:60%;margin-bottom:4px"></div>
+          <div style="height:4px;border-radius:3px;background:#2A2A2A;width:90%"></div>
+        </div>
+        <div style="display:flex;gap:4px">
+          <div style="flex:6;height:3px;border-radius:2px;background:#1C1C1C"></div>
+          <div style="flex:3;height:3px;border-radius:2px;background:#161621"></div>
+          <div style="flex:1;height:3px;border-radius:2px;background:#8B5CF6"></div>
+        </div>
+      </div>
+      <div class="tsw-info">
+        <div class="tsw-name" style="color:#F0F0F0">NIGHTFALL</div>
+        <div class="tsw-desc" style="color:#888">Violet · Dark mode</div>
+        <div class="tsw-swatches">
+          <span class="tsw-dot" style="background:#111111;border:1px solid #444" title="Primary #111111"></span>
+          <span class="tsw-dot" style="background:#1E1E1E;border:1px solid #444" title="Secondary #1E1E1E"></span>
+          <span class="tsw-dot" style="background:#8B5CF6" title="Accent #8B5CF6"></span>
+        </div>
+        <div class="tsw-active-badge" id="tsw-badge-nightfall" style="display:none">Active</div>
+      </div>
+    </button>
   </div>
   <h3 class="sub-title">1.3 Active Theme Tokens</h3>
   <div class="swatch-row">
@@ -436,20 +626,61 @@ code.inline{font-family:"Fira Code",monospace;font-size:.75rem;color:var(--mono-
 <section class="section" id="part4">
   <div class="section-header"><div class="part-label">Part IV</div><h2 class="section-title">Surface Styles — Morphism System</h2></div>
   <p class="ui-text">Five surface styles, each context-appropriate. Soft-Morphism is the canonical default across all contexts.</p>
-  <div class="morph-demos">
-    <div class="morph-demo md-soft"><h5>Soft-Morphism</h5><p>Default — all contexts. Subtle shadow, rounded corners, gentle depth.</p></div>
-    <div style="background:linear-gradient(135deg,var(--accent-l),var(--accent));padding:10px;border-radius:16px;"><div class="morph-demo md-glass"><h5>Glassmorphism</h5><p>Dashboards, modals. Translucency + blur over rich backgrounds.</p></div></div>
-    <div class="morph-demo md-clay"><h5>Claymorphism</h5><p>Consumer cards, creative UI. Rounded, friendly. Pairs with WARMTH.</p></div>
-    <div class="morph-demo md-neu"><h5>Neumorphism</h5><p>Inputs, toggles. Soft extrusions for tactile interactive elements.</p></div>
-    <div class="morph-demo md-flat"><h5>Academic Flat</h5><p>Formal documents. Minimal radius, no shadows, static authority.</p></div>
+  <p class="ui-text" style="margin-bottom:16px">Click any style to see it applied live on the preview card below. The selected style is highlighted and the preview card updates immediately.</p>
+
+  <!-- MORPHISM SELECTOR BUTTONS -->
+  <div class="morph-selector" id="morph-selector" role="group" aria-label="Select surface style">
+    <button type="button" class="msw-btn msw-active" id="msw-soft"     onclick="applyMorph('soft')"  aria-pressed="true">
+      <span class="msw-icon">◻</span>
+      <span class="msw-label">Soft-Morphism</span>
+      <span class="msw-sub">Default</span>
+    </button>
+    <button type="button" class="msw-btn" id="msw-glass"    onclick="applyMorph('glass')" aria-pressed="false">
+      <span class="msw-icon">◈</span>
+      <span class="msw-label">Glassmorphism</span>
+      <span class="msw-sub">Blur + Translucency</span>
+    </button>
+    <button type="button" class="msw-btn" id="msw-clay"     onclick="applyMorph('clay')"  aria-pressed="false">
+      <span class="msw-icon">⬭</span>
+      <span class="msw-label">Claymorphism</span>
+      <span class="msw-sub">Rounded + Friendly</span>
+    </button>
+    <button type="button" class="msw-btn" id="msw-neu"      onclick="applyMorph('neu')"   aria-pressed="false">
+      <span class="msw-icon">◉</span>
+      <span class="msw-label">Neumorphism</span>
+      <span class="msw-sub">Tactile Extrusion</span>
+    </button>
+    <button type="button" class="msw-btn" id="msw-flat"     onclick="applyMorph('flat')"  aria-pressed="false">
+      <span class="msw-icon">▭</span>
+      <span class="msw-label">Academic Flat</span>
+      <span class="msw-sub">Static Authority</span>
+    </button>
   </div>
-  <div class="table-wrap"><table><thead><tr><th>Style</th><th>Key CSS</th><th>Context</th><th>Restriction</th></tr></thead><tbody>
-    <tr><td><strong>Soft-Morphism</strong></td><td><code class="inline">r:16px shadow:soft</code></td><td>All general UI</td><td>None — default</td></tr>
-    <tr><td><strong>Glassmorphism</strong></td><td><code class="inline">backdrop-filter:blur</code></td><td>Modals, dashboards</td><td>Contrast ≥ 4.5:1 required</td></tr>
-    <tr><td><strong>Neumorphism</strong></td><td><code class="inline">inset/outset shadows</code></td><td>Interactive controls</td><td>Light themes only</td></tr>
-    <tr><td><strong>Claymorphism</strong></td><td><code class="inline">r:24px ambient shadow</code></td><td>Consumer/creative UI</td><td>Pair with WARMTH theme</td></tr>
-    <tr><td><strong>Academic Flat</strong></td><td><code class="inline">r:4px no shadow</code></td><td>Formal documents</td><td>No animations or hover</td></tr>
-  </tbody></table></div>
+
+  <!-- LIVE PREVIEW CARD -->
+  <div class="morph-preview-wrap" id="morph-preview-wrap">
+    <div class="morph-live-card" id="morph-live-card">
+      <div class="mlc-badge" id="mlc-badge">Soft-Morphism</div>
+      <div class="mlc-title">Surface Preview</div>
+      <div class="mlc-body">This card reflects the selected surface style in real time. Notice how shadow, radius, background, and border change across each morphism type.</div>
+      <div class="mlc-meta" id="mlc-meta">border-radius: 16px · box-shadow: 0 4px 12px rgba(0,0,0,0.08)</div>
+      <div class="mlc-btns">
+        <button type="button" class="mlc-btn-primary" id="mlc-btn-p">Primary Action</button>
+        <button type="button" class="mlc-btn-secondary" id="mlc-btn-s">Secondary</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MORPHISM SPEC TABLE -->
+  <div class="table-wrap" style="margin-top:20px">
+    <table><thead><tr><th>Style</th><th>Key CSS</th><th>Context</th><th>Restriction</th></tr></thead><tbody>
+      <tr id="mrow-soft" class="mrow-active"><td><strong>Soft-Morphism</strong></td><td><code class="inline">r:16px shadow:soft</code></td><td>All general UI</td><td>None — default</td></tr>
+      <tr id="mrow-glass"><td><strong>Glassmorphism</strong></td><td><code class="inline">backdrop-filter:blur</code></td><td>Modals, dashboards</td><td>Contrast ≥ 4.5:1 required</td></tr>
+      <tr id="mrow-clay"><td><strong>Claymorphism</strong></td><td><code class="inline">r:24px ambient shadow</code></td><td>Consumer/creative UI</td><td>Pair with WARMTH theme</td></tr>
+      <tr id="mrow-neu"><td><strong>Neumorphism</strong></td><td><code class="inline">inset/outset shadows</code></td><td>Interactive controls</td><td>Light themes only</td></tr>
+      <tr id="mrow-flat"><td><strong>Academic Flat</strong></td><td><code class="inline">r:4px no shadow</code></td><td>Formal documents</td><td>No animations or hover</td></tr>
+    </tbody></table>
+  </div>
 </section>
 
 <!-- PART V COMPONENTS -->
@@ -691,23 +922,160 @@ function updateLDBtn() {
   if (btn) btn.textContent = t === 'nightfall' ? '🌙' : '☀️';
   if (lbl) lbl.textContent = t === 'nightfall' ? 'Dark Mode' : 'Light Mode';
 }
-// Patch setTheme to also update LD button
+
+// ── THEME SWITCHER CARD SYNC ──
+// Keeps the clickable theme cards in sync with whatever method sets the theme
+function syncThemeCards(name) {
+  const themes = ['focus','clarity','warmth','nightfall'];
+  themes.forEach(t => {
+    const card  = document.getElementById('tsw-'+t);
+    const badge = document.getElementById('tsw-badge-'+t);
+    if (!card) return;
+    const active = t === name;
+    card.classList.toggle('tsw-active', active);
+    card.setAttribute('aria-pressed', active);
+    if (badge) badge.style.display = active ? 'inline-block' : 'none';
+  });
+}
+
+// Patch setTheme to also update theme cards + LD button
 const _origSetTheme = setTheme;
 setTheme = function(name) {
   _origSetTheme(name);
+  syncThemeCards(name);
   updateLDBtn();
   document.documentElement.classList.add('theme-set');
 };
+
 // prefers-color-scheme on initial load
 (function(){
   try {
     const s = localStorage.getItem('canon-theme');
+    const current = document.documentElement.getAttribute('data-theme') || 'focus';
     if (!s && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       setTheme('nightfall');
+    } else {
+      syncThemeCards(current);
     }
   } catch(e){}
   updateLDBtn();
 })();
+
+// ── MORPHISM LIVE PREVIEW ──
+const MORPH_CONFIGS = {
+  soft: {
+    label:  'Soft-Morphism',
+    meta:   'background: var(--surface) · border-radius: 16px · box-shadow: 0 4px 12px rgba(0,0,0,0.08)',
+    style: {
+      background:   'var(--surface, #F4F6FA)',
+      borderRadius: '16px',
+      border:       '1px solid var(--border, #D0D0D0)',
+      boxShadow:    '0 4px 12px rgba(0,0,0,0.08)',
+      color:        'var(--txt, #0A0A0A)',
+    },
+    btnP: { background:'var(--accent,#2B6CB0)', color:'#fff', border:'none', borderRadius:'10px', boxShadow:'0 6px 18px rgba(0,0,0,.12)' },
+    btnS: { background:'transparent', color:'var(--txt2,#333)', border:'1.5px solid var(--border,#D0D0D0)', borderRadius:'10px' },
+    wrapBg: 'linear-gradient(135deg, var(--accent-l,#90CDF4), var(--accent,#2B6CB0))',
+  },
+  glass: {
+    label:  'Glassmorphism',
+    meta:   'background: rgba(255,255,255,0.25) · backdrop-filter: blur(10px) · border: 1px solid rgba(255,255,255,0.35)',
+    style: {
+      background:    'rgba(255,255,255,0.22)',
+      backdropFilter:'blur(12px)',
+      WebkitBackdropFilter:'blur(12px)',
+      borderRadius:  '16px',
+      border:        '1px solid rgba(255,255,255,0.35)',
+      boxShadow:     '0 8px 32px rgba(31,38,135,0.25)',
+      color:         '#fff',
+    },
+    btnP: { background:'rgba(255,255,255,0.3)', color:'#fff', border:'1px solid rgba(255,255,255,0.5)', borderRadius:'10px', backdropFilter:'blur(4px)' },
+    btnS: { background:'transparent', color:'rgba(255,255,255,0.8)', border:'1px solid rgba(255,255,255,0.25)', borderRadius:'10px' },
+    wrapBg: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+  },
+  clay: {
+    label:  'Claymorphism',
+    meta:   'background: #FFFFFF · border-radius: 24px · box-shadow: 0 6px 16px rgba(0,0,0,0.15), inset 0 -4px 0 rgba(0,0,0,0.08)',
+    style: {
+      background:   '#FFFFFF',
+      borderRadius: '24px',
+      border:       'none',
+      boxShadow:    '0 6px 16px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.08), inset 0 -4px 0 rgba(0,0,0,0.08)',
+      color:        '#1A1A1A',
+    },
+    btnP: { background:'linear-gradient(135deg,#F2B8A4,#E07A5F)', color:'#fff', border:'none', borderRadius:'14px', boxShadow:'0 4px 12px rgba(224,122,95,.35)' },
+    btnS: { background:'#F5F5F5', color:'#4A4A4A', border:'none', borderRadius:'14px', boxShadow:'0 2px 8px rgba(0,0,0,.08)' },
+    wrapBg: 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
+  },
+  neu: {
+    label:  'Neumorphism',
+    meta:   'background: #E8EDF5 · box-shadow: 6px 6px 12px #c8d0de, -6px -6px 12px #ffffff',
+    style: {
+      background:   '#E8EDF5',
+      borderRadius: '16px',
+      border:       'none',
+      boxShadow:    '6px 6px 14px #c8d0de, -6px -6px 14px #ffffff',
+      color:        '#2A2A2A',
+    },
+    btnP: { background:'#E8EDF5', color:'#2B6CB0', border:'none', borderRadius:'12px', boxShadow:'4px 4px 8px #c8d0de, -4px -4px 8px #ffffff' },
+    btnS: { background:'#E8EDF5', color:'#666', border:'none', borderRadius:'12px', boxShadow:'inset 3px 3px 7px #c8d0de, inset -3px -3px 7px #ffffff' },
+    wrapBg: '#dde1e8',
+  },
+  flat: {
+    label:  'Academic Flat',
+    meta:   'background: #F4F6FA · border-radius: 4px · border: 1px solid #D0D0D0 · box-shadow: none',
+    style: {
+      background:   '#F4F6FA',
+      borderRadius: '4px',
+      border:       '1px solid #D0D0D0',
+      boxShadow:    'none',
+      color:        '#0A0A0A',
+    },
+    btnP: { background:'#2B6CB0', color:'#fff', border:'none', borderRadius:'3px', boxShadow:'none' },
+    btnS: { background:'transparent', color:'#2B6CB0', border:'1px solid #2B6CB0', borderRadius:'3px' },
+    wrapBg: '#EDEDED',
+  },
+};
+
+let currentMorph = 'soft';
+
+function applyMorph(name) {
+  if (!MORPH_CONFIGS[name]) return;
+  currentMorph = name;
+  const cfg = MORPH_CONFIGS[name];
+  const card = document.getElementById('morph-live-card');
+  const wrap = document.getElementById('morph-preview-wrap');
+  const badge = document.getElementById('mlc-badge');
+  const meta  = document.getElementById('mlc-meta');
+  const btnP  = document.getElementById('mlc-btn-p');
+  const btnS  = document.getElementById('mlc-btn-s');
+
+  // Apply card styles
+  if (card) Object.assign(card.style, cfg.style);
+  if (wrap) wrap.style.background = cfg.wrapBg;
+  if (badge) { badge.textContent = cfg.label; badge.style.color = cfg.style.color || '#333'; }
+  if (meta) meta.textContent = cfg.meta;
+  if (btnP) Object.assign(btnP.style, cfg.btnP);
+  if (btnS) Object.assign(btnS.style, cfg.btnS);
+
+  // Update selector buttons
+  const keys = Object.keys(MORPH_CONFIGS);
+  keys.forEach(k => {
+    const btn = document.getElementById('msw-'+k);
+    if (btn) { btn.classList.toggle('msw-active', k===name); btn.setAttribute('aria-pressed', k===name); }
+    // Highlight table row
+    const row = document.getElementById('mrow-'+k);
+    if (row) row.classList.toggle('mrow-active', k===name);
+  });
+
+  try { localStorage.setItem('canon-morph', name); } catch(e){}
+}
+
+// Restore saved morph on load
+(function(){
+  try { const m = localStorage.getItem('canon-morph'); if (m && MORPH_CONFIGS[m]) applyMorph(m); else applyMorph('soft'); } catch(e){ applyMorph('soft'); }
+})();
+
 
 </script>
 </body>

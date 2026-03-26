@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="focus">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Portfolio System Requirements Specification v2.1.0 — Master Canon Design System CQH"/>
+<meta name="author" content="Cường Q. Huỳnh"/>
+<meta name="robots" content="noindex"/>
+<title>Portfolio SRS v2.1.0 — Cường Q. Huỳnh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+/* Canon v2.1.0 — SRS Document */
+[data-theme="focus"]    {--bg:#FFFFFF;--surface:#F4F6FA;--surface2:#EBF1FA;--accent:#2B6CB0;--accent-d:#1A365D;--accent-l:#90CDF4;--txt:#0A0A0A;--txt2:#333;--txt3:#666;--border:#D0D0D0;--tag-bg:rgba(43,108,176,.08);--tag-txt:#1A365D;}
+[data-theme="clarity"]  {--bg:#FDFDFD;--surface:#F5F5F5;--surface2:#EDFAF4;--accent:#3B9E6B;--accent-d:#1A5C3A;--accent-l:#A8D5BA;--txt:#111;--txt2:#444;--txt3:#888;--border:#DDD;--tag-bg:rgba(59,158,107,.09);--tag-txt:#1A5C3A;}
+[data-theme="warmth"]   {--bg:#FAFAFA;--surface:#F2F2F0;--surface2:#FEF3EF;--accent:#E07A5F;--accent-d:#9C4431;--accent-l:#F2B8A4;--txt:#1A1A1A;--txt2:#4A4A4A;--txt3:#7A7A7A;--border:#E0E0E0;--tag-bg:rgba(224,122,95,.10);--tag-txt:#9C4431;}
+[data-theme="nightfall"]{--bg:#111;--surface:#1C1C1C;--surface2:#161621;--accent:#8B5CF6;--accent-d:#4C1D95;--accent-l:#C4B5FD;--txt:#F0F0F0;--txt2:#CCC;--txt3:#888;--border:#2A2A2A;--tag-bg:rgba(139,92,246,.15);--tag-txt:#C4B5FD;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+body{font-family:"IBM Plex Sans","Helvetica Neue",sans-serif;background:var(--bg);color:var(--txt);line-height:1.65;transition:background .25s,color .25s;}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px;}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
+@media(prefers-color-scheme:dark){:root:not([data-theme]){--bg:#111;--surface:#1C1C1C;--txt:#F0F0F0;--txt2:#CCC;--txt3:#888;--border:#2A2A2A;--accent:#8B5CF6;}}
+
+.layout{display:grid;grid-template-columns:240px 1fr;min-height:100vh;}
+.sidebar{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--surface);border-right:1px solid var(--border);}
+.sidebar-head{padding:18px 16px 14px;border-bottom:1px solid var(--border);}
+.doc-id{font-family:"Fira Code",monospace;font-size:.58rem;color:var(--txt3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;}
+.sidebar-title{font-family:"Libre Baskerville",serif;font-size:.84rem;font-weight:700;color:var(--txt);margin-bottom:6px;}
+.status-badge{font-family:"Fira Code",monospace;font-size:.58rem;font-weight:700;text-transform:uppercase;color:var(--accent);background:var(--tag-bg);border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);padding:3px 8px;border-radius:20px;display:inline-block;}
+.sidebar-nav{padding:8px 0;}
+.nav-group{font-family:"Fira Code",monospace;font-size:.56rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);padding:10px 14px 3px;}
+.sidebar-nav a{display:block;padding:5px 14px;font-size:.76rem;color:var(--txt2);transition:background .15s,color .15s;border-left:2px solid transparent;}
+.sidebar-nav a:hover{background:var(--tag-bg);color:var(--accent);}
+.sidebar-nav a.active{border-left-color:var(--accent);color:var(--accent);background:var(--tag-bg);}
+.theme-panel{padding:10px 14px 16px;border-top:1px solid var(--border);}
+.theme-panel-lbl{font-family:"Fira Code",monospace;font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:7px;}
+.tpills{display:grid;grid-template-columns:1fr 1fr;gap:4px;}
+.tpill{display:flex;align-items:center;gap:5px;padding:6px 8px;border-radius:8px;border:1.5px solid var(--border);cursor:pointer;background:var(--bg);font-family:"IBM Plex Sans",sans-serif;font-size:.7rem;font-weight:600;color:var(--txt2);transition:.2s;}
+.tpill:hover{border-color:var(--accent);color:var(--txt);}
+.tpill.active{border-color:var(--accent);background:var(--tag-bg);color:var(--accent);}
+.tpill-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+
+#prog{position:fixed;top:0;left:240px;right:0;height:2px;background:linear-gradient(90deg,var(--accent-l),var(--accent));transform-origin:left;z-index:100;}
+.main{padding:44px 52px 72px;}
+.cover{border-bottom:2px solid var(--border);padding-bottom:36px;margin-bottom:44px;}
+.cover-eye{font-family:"Fira Code",monospace;font-size:.65rem;color:var(--accent);text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.cover-eye::before{content:"//";}
+h1.cover-title{font-family:"Libre Baskerville",serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-.02em;color:var(--txt);line-height:1.1;margin-bottom:8px;}
+h1.cover-title span{background:linear-gradient(135deg,var(--accent-l),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.cover-sub{font-size:.9rem;color:var(--txt3);margin-bottom:22px;}
+.meta-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:9px;}
+.meta-item{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:9px 12px;}
+.meta-k{font-family:"Fira Code",monospace;font-size:.56rem;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3);margin-bottom:3px;}
+.meta-v{font-size:.78rem;font-weight:600;color:var(--txt);}
+.meta-v.mono{font-family:"Fira Code",monospace;font-size:.7rem;color:var(--accent);}
+.section{scroll-margin-top:20px;margin-bottom:48px;}
+.part-label{font-family:"Fira Code",monospace;font-size:.62rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);background:var(--tag-bg);border:1px solid color-mix(in srgb,var(--accent) 20%,transparent);padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:10px;}
+h2.section-title{font-family:"Libre Baskerville",serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;color:var(--txt);letter-spacing:-.015em;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+h3.sub{font-family:"IBM Plex Sans",sans-serif;font-size:.92rem;font-weight:700;color:var(--accent-d);margin:24px 0 10px;padding-bottom:5px;border-bottom:1px dashed var(--border);}
+p{font-size:.86rem;color:var(--txt2);line-height:1.75;margin-bottom:10px;}
+.callout{border-left:3px solid var(--accent);background:var(--tag-bg);padding:11px 16px;border-radius:0 10px 10px 0;margin:14px 0;}
+.callout p{font-style:italic;margin:0;}
+.table-wrap{overflow-x:auto;margin:14px 0;border-radius:10px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,.05);}
+table{width:100%;border-collapse:collapse;font-size:.8rem;}
+thead tr{background:var(--surface2);}
+th{font-family:"IBM Plex Sans",sans-serif;font-weight:700;font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--txt3);padding:9px 13px;text-align:left;border-bottom:2px solid var(--border);}
+td{padding:8px 13px;border-bottom:1px solid var(--border);color:var(--txt2);line-height:1.5;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:color-mix(in srgb,var(--accent) 3%,transparent);}
+code.inline{font-family:"Fira Code",monospace;font-size:.72rem;color:var(--accent-d);background:var(--surface);padding:2px 6px;border-radius:4px;border:1px solid var(--border);}
+pre.code-block{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin:10px 0;overflow-x:auto;font-family:"Fira Code",monospace;font-size:.72rem;line-height:1.85;color:var(--accent-d);}
+ul.spec-list{list-style:none;display:flex;flex-direction:column;gap:5px;margin:8px 0;}
+ul.spec-list li{display:flex;align-items:flex-start;gap:8px;font-size:.83rem;color:var(--txt2);}
+ul.spec-list li::before{content:"→";color:var(--accent);flex-shrink:0;font-size:.75rem;margin-top:2px;}
+.doc-footer{border-top:2px solid var(--border);padding-top:24px;margin-top:48px;text-align:center;}
+.footer-sig{font-family:"Fira Code",monospace;font-size:.65rem;color:var(--txt3);line-height:2;}
+.footer-sig span{color:var(--accent);}
+@media(max-width:860px){.layout{grid-template-columns:1fr;}.sidebar{display:none;}#prog{left:0;}.main{padding:32px 18px 60px;}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+  <div class="sidebar-head">
+    <div class="doc-id">PORTFOLIO-SRS-2026-001</div>
+    <div class="sidebar-title">Portfolio System<br>Requirements Spec</div>
+    <span class="status-badge">ACTIVE · v2.1.0</span>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-group">Contents</div>
+    <a href="#cover">Cover</a>
+    <a href="#s1">1. Purpose & Scope</a>
+    <a href="#s2">2. Functional Req.</a>
+    <a href="#s3">3. Non-Functional Req.</a>
+    <a href="#s4">4. Design System</a>
+    <a href="#s5">5. Data Contract</a>
+    <a href="#s6">6. Quality Gate</a>
+  </nav>
+  <div class="theme-panel">
+    <div class="theme-panel-lbl">Theme</div>
+    <div class="tpills">
+      <button type="button" class="tpill active" id="tp-focus"    onclick="setTheme('focus')"    aria-label="Focus"><span class="tpill-dot" style="background:linear-gradient(135deg,#90CDF4,#2B6CB0)"></span>Focus</button>
+      <button type="button" class="tpill"         id="tp-clarity"  onclick="setTheme('clarity')"  aria-label="Clarity"><span class="tpill-dot" style="background:linear-gradient(135deg,#C7E7D1,#3B9E6B)"></span>Clarity</button>
+      <button type="button" class="tpill"         id="tp-warmth"   onclick="setTheme('warmth')"   aria-label="Warmth"><span class="tpill-dot" style="background:linear-gradient(135deg,#F2B8A4,#E07A5F)"></span>Warmth</button>
+      <button type="button" class="tpill"         id="tp-nightfall" onclick="setTheme('nightfall')" aria-label="Nightfall"><span class="tpill-dot" style="background:linear-gradient(135deg,#C4B5FD,#4C1D95)"></span>Night</button>
+    </div>
+  </div>
+</aside>
+<div id="prog" style="transform:scaleX(0)"></div>
+<main class="main" role="main">
+
+<div id="cover" class="cover">
+  <div class="cover-eye">Personal IP · Technical Specification</div>
+  <h1 class="cover-title">Portfolio <span>System Requirements</span></h1>
+  <p class="cover-sub">Master Canon Design System CQH · PORTFOLIO-SRS-2026-001</p>
+  <div class="meta-grid">
+    <div class="meta-item"><div class="meta-k">Doc ID</div><div class="meta-v mono">PORTFOLIO-SRS-2026-001</div></div>
+    <div class="meta-item"><div class="meta-k">Version</div><div class="meta-v mono">2.1.0</div></div>
+    <div class="meta-item"><div class="meta-k">Date</div><div class="meta-v">2026-03-23</div></div>
+    <div class="meta-item"><div class="meta-k">Status</div><div class="meta-v">ACTIVE</div></div>
+    <div class="meta-item"><div class="meta-k">Author</div><div class="meta-v">Cường Q. Huỳnh</div></div>
+    <div class="meta-item"><div class="meta-k">Assisted By</div><div class="meta-v">Claude-Sonnet-4.6</div></div>
+    <div class="meta-item"><div class="meta-k">Canon Ref</div><div class="meta-v mono">DESIGN-CANON-2026-001</div></div>
+    <div class="meta-item"><div class="meta-k">Classification</div><div class="meta-v">Personal IP · Evergreen</div></div>
+  </div>
+  <h3 class="sub" style="margin-top:20px">Changelog</h3>
+  <div class="table-wrap"><table><thead><tr><th>Version</th><th>Date</th><th>Author</th><th>Summary</th></tr></thead><tbody>
+    <tr><td><code class="inline">1.0.0</code></td><td>2026-03-23</td><td>Cường.Q.H + Claude</td><td>Initial SRS — SPA + PWA-DSD-001</td></tr>
+    <tr><td><code class="inline">2.0.0</code></td><td>2026-03-23</td><td>Cường.Q.H + Claude</td><td>5 source docs integrated; SFIA; morphism; theme systems</td></tr>
+    <tr><td><code class="inline">2.1.0</code></td><td>2026-03-23</td><td>Cường.Q.H + Claude</td><td>Post-QA fixes; dropdown menu; portfolio.json integrity pass</td></tr>
+  </tbody></table></div>
+</div>
+
+<div id="s1" class="section">
+  <div class="part-label">Section 1</div>
+  <h2 class="section-title">Purpose & Scope</h2>
+  <div class="callout"><p>Single technical reference for frontend architecture, data contract, design system, accessibility, and governance of Master Canon Design System CQH.</p></div>
+  <p>Target audiences: Job recruiters, collaborators, technical reviewers, the author.</p>
+  <h3 class="sub">System Overview</h3>
+  <div class="table-wrap"><table><thead><tr><th>Attribute</th><th>Value</th></tr></thead><tbody>
+    <tr><td>Type</td><td>Single Page Application (SPA)</td></tr>
+    <tr><td>Architecture</td><td>Static HTML + vanilla JS + embedded JSON</td></tr>
+    <tr><td>Deployment</td><td>GitHub Pages, Netlify, Vercel</td></tr>
+    <tr><td>Dependencies</td><td>Google Fonts CDN only — zero runtime JS libraries</td></tr>
+    <tr><td>Data Source</td><td><code class="inline">portfolio.json</code> (external) or inline <code class="inline">PORTFOLIO_DATA</code></td></tr>
+    <tr><td>Design System</td><td>DESIGN-CANON-2026-001</td></tr>
+    <tr><td>Versioning</td><td>Semantic versioning (MAJOR.MINOR.PATCH)</td></tr>
+  </tbody></table></div>
+</div>
+
+<div id="s2" class="section">
+  <div class="part-label">Section 2</div>
+  <h2 class="section-title">Functional Requirements</h2>
+  <h3 class="sub">2.1 Core SPA</h3>
+  <div class="table-wrap"><table><thead><tr><th>ID</th><th>Requirement</th><th>Priority</th></tr></thead><tbody>
+    <tr><td><code class="inline">FR-01</code></td><td>Single-file HTML, zero runtime dependencies</td><td>MUST</td></tr>
+    <tr><td><code class="inline">FR-02</code></td><td>All content loaded from PORTFOLIO_DATA (inline JSON or fetch)</td><td>MUST</td></tr>
+    <tr><td><code class="inline">FR-03</code></td><td>Skeleton loaders visible during data render delay</td><td>MUST</td></tr>
+    <tr><td><code class="inline">FR-04</code></td><td>Sections: Hero · About · Skills · Experience · Projects · Certs · Blog · Contact</td><td>MUST</td></tr>
+    <tr><td><code class="inline">FR-05</code></td><td>Scroll-triggered reveal animations</td><td>SHOULD</td></tr>
+    <tr><td><code class="inline">FR-06</code></td><td>Reading progress bar</td><td>SHOULD</td></tr>
+    <tr><td><code class="inline">FR-07</code></td><td>Footer: dynamic year, Canon ref, version</td><td>MUST</td></tr>
+  </tbody></table></div>
+  <h3 class="sub">2.2 Theme & Design Controls</h3>
+  <div class="table-wrap"><table><thead><tr><th>ID</th><th>Requirement</th><th>Priority</th></tr></thead><tbody>
+    <tr><td><code class="inline">FR-08</code></td><td>Binary Light/Dark toggle (☀️/🌙)</td><td>MUST</td></tr>
+    <tr><td><code class="inline">FR-09</code></td><td>4-palette selector: Focus · Clarity · Warmth · Nightfall</td><td>MUST</td></tr>
+    <tr><td><code class="inline">FR-10</code></td><td>5 surface styles: Soft · Glass · Clay · Neu · Flat</td><td>MUST</td></tr>
+    <tr><td><code class="inline">FR-11</code></td><td>Theme + morph persisted via localStorage</td><td>MUST</td></tr>
+    <tr><td><code class="inline">FR-12</code></td><td>prefers-color-scheme: dark auto-applies Nightfall</td><td>SHOULD</td></tr>
+    <tr><td><code class="inline">FR-13</code></td><td>Controls in single dropdown menu in nav</td><td>MUST</td></tr>
+    <tr><td><code class="inline">FR-14</code></td><td>Dropdown closes on: outside click, Escape, item select</td><td>MUST</td></tr>
+  </tbody></table></div>
+  <h3 class="sub">2.3 Skills — SFIA v8</h3>
+  <div class="table-wrap"><table><thead><tr><th>ID</th><th>Requirement</th><th>Priority</th></tr></thead><tbody>
+    <tr><td><code class="inline">FR-15</code></td><td>Skills with SFIA v8 level (L1–L7)</td><td>MUST</td></tr>
+    <tr><td><code class="inline">FR-16</code></td><td>Visual 7-dot bar indicating level</td><td>MUST</td></tr>
+    <tr><td><code class="inline">FR-17</code></td><td>Each skill links to evidence anchor</td><td>MUST</td></tr>
+  </tbody></table></div>
+  <h3 class="sub">2.4 Projects — STAR</h3>
+  <div class="table-wrap"><table><thead><tr><th>ID</th><th>Requirement</th><th>Priority</th></tr></thead><tbody>
+    <tr><td><code class="inline">FR-21</code></td><td>Project cards: title, summary, tags, icon, badge</td><td>MUST</td></tr>
+    <tr><td><code class="inline">FR-22</code></td><td>Expandable STAR accordion (S · T · A · R)</td><td>MUST</td></tr>
+    <tr><td><code class="inline">FR-23</code></td><td>STAR keyboard accessible (aria-expanded)</td><td>MUST</td></tr>
+  </tbody></table></div>
+</div>
+
+<div id="s3" class="section">
+  <div class="part-label">Section 3</div>
+  <h2 class="section-title">Non-Functional Requirements</h2>
+  <h3 class="sub">3.1 Performance</h3>
+  <ul class="spec-list">
+    <li>First Contentful Paint &lt; 2s on standard broadband</li>
+    <li>Zero render-blocking JavaScript</li>
+    <li>Font preload hints; font-display: swap on Google Fonts</li>
+  </ul>
+  <h3 class="sub">3.2 Accessibility — WCAG 2.1 AA</h3>
+  <div class="table-wrap"><table><thead><tr><th>ID</th><th>Requirement</th></tr></thead><tbody>
+    <tr><td><code class="inline">NFR-06</code></td><td>Text contrast ≥ 4.5:1 body; ≥ 3:1 large text</td></tr>
+    <tr><td><code class="inline">NFR-07</code></td><td><code class="inline">:focus-visible</code> keyboard ring on all interactive elements</td></tr>
+    <tr><td><code class="inline">NFR-08</code></td><td>Skip-to-main-content link</td></tr>
+    <tr><td><code class="inline">NFR-09</code></td><td>HTML5 landmarks: nav, main, contentinfo</td></tr>
+    <tr><td><code class="inline">NFR-10</code></td><td>aria-label on all non-text interactive elements</td></tr>
+    <tr><td><code class="inline">NFR-11</code></td><td>44×44px minimum touch targets</td></tr>
+    <tr><td><code class="inline">NFR-12</code></td><td>prefers-reduced-motion suppresses animations</td></tr>
+    <tr><td><code class="inline">NFR-13</code></td><td>Mobile menu focus trap (Tab/Shift-Tab cycling, Escape to close)</td></tr>
+    <tr><td><code class="inline">NFR-14</code></td><td>required + aria-required on form fields</td></tr>
+    <tr><td><code class="inline">NFR-15</code></td><td>Layout stable at 200% browser zoom</td></tr>
+  </tbody></table></div>
+  <h3 class="sub">3.3 SEO</h3>
+  <div class="table-wrap"><table><thead><tr><th>ID</th><th>Requirement</th></tr></thead><tbody>
+    <tr><td><code class="inline">NFR-16</code></td><td>meta description, author</td></tr>
+    <tr><td><code class="inline">NFR-17</code></td><td>Open Graph: og:title, og:description, og:url, og:image</td></tr>
+    <tr><td><code class="inline">NFR-18</code></td><td>Twitter Card meta tags</td></tr>
+    <tr><td><code class="inline">NFR-19</code></td><td>JSON-LD Person schema</td></tr>
+    <tr><td><code class="inline">NFR-20</code></td><td>&lt;link rel="canonical"&gt;</td></tr>
+    <tr><td><code class="inline">NFR-21</code></td><td>Single &lt;h1&gt; per page</td></tr>
+  </tbody></table></div>
+</div>
+
+<div id="s4" class="section">
+  <div class="part-label">Section 4</div>
+  <h2 class="section-title">Design System Requirements</h2>
+  <div class="callout"><p>All visual output governed by DESIGN-CANON-2026-001. This section is a summary reference — the Canon is the authoritative source.</p></div>
+  <h3 class="sub">4.1 Color — 60/30/10 Law</h3>
+  <pre class="code-block">Primary   60%  → backgrounds, canvas
+Secondary 30%  → panels, containers, structure
+Accent    10%  → links, CTAs, highlights
+Exceptional &lt;1% → alerts, signature marks only</pre>
+  <h3 class="sub">4.2 Four Canonical Themes</h3>
+  <div class="table-wrap"><table><thead><tr><th>Theme</th><th>Accent</th><th>Context</th></tr></thead><tbody>
+    <tr><td><strong>Focus</strong></td><td><code class="inline">#2B6CB0</code> Deep Blue</td><td>Academic, formal, default</td></tr>
+    <tr><td><strong>Clarity</strong></td><td><code class="inline">#3B9E6B</code> Mint Green</td><td>Everyday, light-mode</td></tr>
+    <tr><td><strong>Warmth</strong></td><td><code class="inline">#E07A5F</code> Terracotta</td><td>Creative, personal</td></tr>
+    <tr><td><strong>Nightfall</strong></td><td><code class="inline">#8B5CF6</code> Violet</td><td>Dark mode, technical</td></tr>
+  </tbody></table></div>
+  <h3 class="sub">4.3 Five Surface Styles</h3>
+  <div class="table-wrap"><table><thead><tr><th>Style</th><th>Context</th></tr></thead><tbody>
+    <tr><td>Soft-Morphism</td><td>Default — all general UI</td></tr>
+    <tr><td>Glassmorphism</td><td>Modals, dashboards, nav</td></tr>
+    <tr><td>Claymorphism</td><td>Consumer cards, creative UI</td></tr>
+    <tr><td>Neumorphism</td><td>Inputs, toggles, controls</td></tr>
+    <tr><td>Academic Flat</td><td>Formal documents, print</td></tr>
+  </tbody></table></div>
+</div>
+
+<div id="s5" class="section">
+  <div class="part-label">Section 5</div>
+  <h2 class="section-title">Data Contract — portfolio.json</h2>
+  <h3 class="sub">5.1 Schema</h3>
+  <pre class="code-block">portfolio.json
+├── _meta          (doc_id, version, integrity_note, changelog)
+├── site           (title, contact{email, location, socials})
+├── profile        (name, title, summary, about, avatar, resume)
+├── skills[]       (area, icon, skills[]{name, sfia:1-7, evidence})
+├── experience[]   (company, role, start, end, location, bullets[])
+├── projects[]     (title, summary, tags[], star{S,T,A,R}, link)
+├── certs[]        (title, issuer, date, expiry, evidence, hash?)
+└── blogs.series[] (title, posts[]{title, summary, date, tags[], status})</pre>
+  <h3 class="sub">5.2 Integrity Rules</h3>
+  <ul class="spec-list">
+    <li><code class="inline">[OWNER: ...]</code> markers must be replaced before publishing</li>
+    <li>SFIA levels must be honest self-assessment (L1–L7 per SFIA v8 framework)</li>
+    <li>No fabricated company names, dates, or certifications</li>
+    <li>Blog posts with <code class="inline">"status": "draft"</code> are not published content</li>
+  </ul>
+</div>
+
+<div id="s6" class="section">
+  <div class="part-label">Section 6</div>
+  <h2 class="section-title">Quality Gate — v2.1.0</h2>
+  <div class="table-wrap"><table><thead><tr><th>Check</th><th>Status</th></tr></thead><tbody>
+    <tr><td>Script tag balance (2 open / 2 close)</td><td>✅ PASS</td></tr>
+    <tr><td>Zero dead <code class="inline">href="#"</code> links</td><td>✅ PASS</td></tr>
+    <tr><td>PORTFOLIO_DATA valid JSON, no hallucinations</td><td>✅ PASS</td></tr>
+    <tr><td>4 theme palette buttons functional</td><td>✅ PASS</td></tr>
+    <tr><td>5 morphism styles, data-morph CSS selectors</td><td>✅ PASS</td></tr>
+    <tr><td>Binary LD toggle with localStorage persist</td><td>✅ PASS</td></tr>
+    <tr><td>Dropdown: Escape + outside-click + item-select close</td><td>✅ PASS</td></tr>
+    <tr><td>SFIA v8 7-dot bar renders correctly</td><td>✅ PASS</td></tr>
+    <tr><td>STAR accordion keyboard accessible</td><td>✅ PASS</td></tr>
+    <tr><td>Contact form validation + role="alert"</td><td>✅ PASS</td></tr>
+    <tr><td>WCAG 2.1 AA: landmarks, focus-visible, reduced-motion</td><td>✅ PASS</td></tr>
+    <tr><td>Print stylesheet present</td><td>✅ PASS</td></tr>
+    <tr><td>Version refs v2.1.0 throughout</td><td>✅ PASS</td></tr>
+  </tbody></table></div>
+</div>
+
+<footer class="doc-footer" role="contentinfo">
+  <div class="footer-sig">
+    <div><span>PORTFOLIO-SRS-2026-001</span> · v2.1.0 · ACTIVE</div>
+    <div>Author: <span>Cường Q. Huỳnh</span> · Assisted: <span>Claude-Sonnet-4.6</span> · 2026-03-23</div>
+    <div>Personal IP · All rights reserved · Cường Q. Huỳnh © 2026</div>
+  </div>
+</footer>
+</main>
+</div>
+<script>
+function setTheme(t){
+  document.documentElement.setAttribute('data-theme',t);
+  ['focus','clarity','warmth','nightfall'].forEach(x=>{
+    const el=document.getElementById('tp-'+x);
+    if(el){el.classList.toggle('active',x===t);}
+  });
+  try{localStorage.setItem('srs-theme',t);}catch(e){}
+}
+(function(){try{const s=localStorage.getItem('srs-theme');if(s)setTheme(s);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)setTheme('nightfall');}catch(e){}})();
+const prog=document.getElementById('prog');
+window.addEventListener('scroll',()=>{const p=window.scrollY/(document.body.scrollHeight-window.innerHeight);prog.style.transform='scaleX('+Math.min(p,1)+')';},{passive:true});
+const links=document.querySelectorAll('.sidebar-nav a');
+const secs=document.querySelectorAll('[id]');
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));}});},{rootMargin:'-20% 0px -70% 0px'});
+secs.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
